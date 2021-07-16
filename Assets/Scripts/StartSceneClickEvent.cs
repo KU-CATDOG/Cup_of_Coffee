@@ -12,8 +12,6 @@ public class StartSceneClickEvent : MonoBehaviour {
     public Button fullscreenButton;
     public Button windowButton;
 
-    private bool isWindowSelected = true;
-
     // Initiate
     private void Start() {
         // --Options--
@@ -72,6 +70,8 @@ public class StartSceneClickEvent : MonoBehaviour {
         else {
             bgmScrollBar.value = 0;
         }
+
+        SoundManager.Instance.SetBGMVolume(bgmScrollBar.value);
     }
 
     // When user click BGM Up Button
@@ -82,6 +82,8 @@ public class StartSceneClickEvent : MonoBehaviour {
         else {
             bgmScrollBar.value = 1;
         }
+
+        SoundManager.Instance.SetBGMVolume(bgmScrollBar.value);
     }
 
     // When user click SFX Down Button
@@ -92,6 +94,8 @@ public class StartSceneClickEvent : MonoBehaviour {
         else {
             sfxScrollBar.value = 0;
         }
+
+        SoundManager.Instance.SetSFXVolume(sfxScrollBar.value);
     }
 
     // When user click SFX Up Button
@@ -102,20 +106,22 @@ public class StartSceneClickEvent : MonoBehaviour {
         else {
             sfxScrollBar.value = 1;
         }
+
+        SoundManager.Instance.SetSFXVolume(sfxScrollBar.value);
     }
 
     // When user click Fullscreen or Window Button
     // Switch the active of two buttons
     public void ChangeVideoScreenType() {
-        if (fullscreenButton.interactable) {
+        if (fullscreenButton.interactable) {    // Window 선택중일때 -> Fullscreen으로 바꿈
             fullscreenButton.interactable = false;
             windowButton.interactable = true;
-            isWindowSelected = false;
+            Screen.fullScreen = true;
         }
-        else {
+        else {                                  // Fullscreen 선택중일때 -> Window로 바꿈
             fullscreenButton.interactable = true;
             windowButton.interactable = false;
-            isWindowSelected = true;
+            Screen.fullScreen = false;
         }
     }
     #endregion
@@ -123,7 +129,17 @@ public class StartSceneClickEvent : MonoBehaviour {
 
     #region --Exit--
     public void ClickExitButton() {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit(); // 어플리케이션 종료
+#endif
+    }
+    #endregion
 
+    #region --Global--
+    public void PlayClickSound() {
+        SoundManager.Instance.PlaySFXSound("click");
     }
     #endregion
 }
