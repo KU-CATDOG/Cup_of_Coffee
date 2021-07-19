@@ -16,15 +16,26 @@ public class SaveSystem
         }
     }
 
-    public static void Save(string saveString)
+    public static bool Save(string saveString)
     {
-        //int saveNum = 1;
-        //while (File.Exists("save" + saveNum + ".txt"))
-        //{
-        //    saveNum++;
-        //}
+        
+        int saveNum = 1; //받아올 세이브 번호
+        if (File.Exists("save" + saveNum + ".txt"))
+        {
+            Debug.Log("덮어쓰기?");
+            return false;
+        }
         File.WriteAllText(SAVE_FOLDER + "save.txt", saveString);
+        return true;
+    }
 
+    public static void SaveOverwrite(string saveString)
+    {
+        int saveNum = 1; //받아올 세이브 번호
+        if (File.Exists("save" + saveNum + ".txt"))
+        {
+            File.WriteAllText(SAVE_FOLDER + "save.txt", saveString);
+        }
     }
     public static string Load()
     {
@@ -35,7 +46,6 @@ public class SaveSystem
         {
             string saveString = File.ReadAllText(SAVE_FOLDER + "save.txt");
             return saveString;
-
         }
         else return null;
 

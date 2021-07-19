@@ -5,7 +5,7 @@ using System.IO;
 
 public class SaveLoad : MonoBehaviour
 {
-
+    public bool overwriteCheck;
     
 
     // Start is called before the first frame update
@@ -33,8 +33,15 @@ public class SaveLoad : MonoBehaviour
             falseCount = falseCount
         };
         string json = JsonUtility.ToJson(saveObject);
-        SaveSystem.Save(json);
-        
+        bool saveCheck = SaveSystem.Save(json);
+        if (!saveCheck)
+        {
+            if (overwriteCheck)
+            {
+                SaveSystem.SaveOverwrite(json);
+            }
+        }
+
     }
 
     private void Load()
@@ -45,7 +52,6 @@ public class SaveLoad : MonoBehaviour
         {
             SaveObject saveObject = JsonUtility.FromJson<SaveObject>(saveString);
             //Debug.Log(saveObject.dayCount + saveObject.falseCount);
-
         }
 
     }
