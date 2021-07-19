@@ -48,7 +48,7 @@ public class Token // Token에 필요한 변수를 정의한다.
         token_hope = 0;
         token_love = 0;
         token_peace = 0;
-       token_sad = 0;
+        token_sad = 0;
         token_tired = 0;
         Debug.Log("토큰을 전부 초기화했습니다.");
 
