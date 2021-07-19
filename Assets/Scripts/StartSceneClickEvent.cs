@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartSceneClickEvent : MonoBehaviour {
     public GameObject optionsPanel;
@@ -29,7 +30,7 @@ public class StartSceneClickEvent : MonoBehaviour {
 
     #region --New Game--
     public void ClickNewGameButton() {
-
+        SceneManager.LoadScene("NewGame");
     }
     #endregion
 

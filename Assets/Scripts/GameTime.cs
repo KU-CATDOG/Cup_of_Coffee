@@ -11,6 +11,9 @@ public class GameTime : MonoBehaviour
     public Text clock;
     public Text dayCounter;
 
+    public int startTime;
+    public int endTime = 24;
+
     float sec;
     int hour = 0;
     int minute = 0;
@@ -21,7 +24,8 @@ public class GameTime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        clock.text = hour.ToString() + ":" + minute.ToString();
+        hour = startTime;
+        clock.text = hour.ToString("00") + ":" + minute.ToString("00");
         sec = secPerMin;
     }
 
@@ -38,9 +42,9 @@ public class GameTime : MonoBehaviour
                 hour++;
                 minute = 0;
                 
-                if(hour>= 24){
+                if(hour>= endTime){
                     day++;
-                    hour = 0;
+                    hour = startTime;
 
                     dayCounter.text = "Day : " + day.ToString();
                 }
