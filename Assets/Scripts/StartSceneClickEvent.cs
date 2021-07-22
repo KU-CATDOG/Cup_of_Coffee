@@ -23,8 +23,8 @@ public class StartSceneClickEvent : MonoBehaviour {
     // Initiate
     private void Start() {
         // --Load--
-        // TODO: ÀúÀåµÈ ¼¼ÀÌºêÆÄÀÏÀÇ °³¼ö¸¦ È®ÀÎÇØ saveFileCount º¯¼ö¿¡ ´ã±â
-        saveFileCount = 15;  // Å×½ºÆ®¿ëÀ¸·Î ÀÓÀÇÀÇ ¼ýÀÚ¸¦ ³ÖÀ½ -> ÀúÀåµÈ ¼¼ÀÌºêÆÄÀÏ °³¼ö·Î ¼öÁ¤ÇÒ °Í
+        // TODO: ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ saveFileCount ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+        saveFileCount = 15;  // ï¿½×½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         loadPanelPageMaxIndex = (saveFileCount - 1) / 6;        
         loadPanel.SetActive(false);
 
@@ -39,7 +39,7 @@ public class StartSceneClickEvent : MonoBehaviour {
 
     #region --New Game--
     public void ClickNewGameButton() {
-        SceneManager.LoadScene("NewGame");
+        SceneManager.LoadScene("NewGameScene");
     }
     #endregion
 
@@ -57,10 +57,10 @@ public class StartSceneClickEvent : MonoBehaviour {
     }
 
     public void LoadSaveFile(int saveIndex) {
-        // saveIndex´Â 0ºÎÅÍ ½ÃÀÛÇÔ (ex. save1.txt == 0¹øÂ° ¼¼ÀÌºêÆÄÀÏ) -> ÆÄÀÏÀ» ºÒ·¯¿Ã¶§´Â saveIndex¿¡ 1À» ´õÇÑ °ªÀ» »ç¿ëÇÒ °Í
+        // saveIndexï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ex. save1.txt == 0ï¿½ï¿½Â° ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½) -> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ saveIndexï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         string saveFileName = "save" + (saveIndex + 1) + ".txt";
 
-        // TODO: ¼¼ÀÌºê ·Îµå ±â´É Àû¿ë
+        // TODO: ï¿½ï¿½ï¿½Ìºï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         Debug.Log(saveFileName);
     }
 
@@ -81,13 +81,13 @@ public class StartSceneClickEvent : MonoBehaviour {
     }
 
     private void RefreshLoadPanel() {
-        // ÇöÀç È­¸é¿¡ ÀÖ´Â ¼¼ÀÌºêÆÄÀÏ ¹öÆ°µéÀ» »èÁ¦
+        // ï¿½ï¿½ï¿½ï¿½ È­ï¿½é¿¡ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         for (int i = 5; i >= 0; i--) {
             if (saveFileButtons[i] == null) continue;
             else Destroy(saveFileButtons[i]);
         }
 
-        // ´ÙÀ½ È­¸éÀÇ ¼¼ÀÌºêÆÄÀÏ ¹öÆ°µéÀ» Àç»ý¼º (ÃÖ´ë 6°³)
+        // ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½Ö´ï¿½ 6ï¿½ï¿½)
         for (int i = loadPanelPageIndex * 6; i < saveFileCount; i++) {
             if (i >= loadPanelPageIndex * 6 + 6) break;
             GameObject newButton = Instantiate(loadButtonPrefab, loadPanelTransform);
@@ -97,13 +97,13 @@ public class StartSceneClickEvent : MonoBehaviour {
             int index = i - (loadPanelPageIndex * 6);
             saveFileButtons[index] = newButton;
 
-            // ¹öÆ°µéÀÇ À§Ä¡ Á¶Á¤
+            // ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½
             newButton.transform.position = loadPanelTransform.position;
             float xPos = (index % 2 == 0) ? -450f : 450f;
             float yPos = 320f - ((index / 2) * 270f);
             newButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(xPos, yPos);
 
-            // ¹öÆ°µéÀÇ ÅØ½ºÆ® º¯°æ
+            // ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
             Text text = newButton.GetComponentInChildren<Text>();
             text.text = "Save " + (i + 1);
         }
@@ -173,12 +173,12 @@ public class StartSceneClickEvent : MonoBehaviour {
     // When user click Fullscreen or Window Button
     // Switch the active of two buttons
     public void ChangeVideoScreenType() {
-        if (fullscreenButton.interactable) {    // Window ¼±ÅÃÁßÀÏ¶§ -> FullscreenÀ¸·Î ¹Ù²Þ
+        if (fullscreenButton.interactable) {    // Window ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ -> Fullscreenï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
             fullscreenButton.interactable = false;
             windowButton.interactable = true;
             Screen.fullScreen = true;
         }
-        else {                                  // Fullscreen ¼±ÅÃÁßÀÏ¶§ -> Window·Î ¹Ù²Þ
+        else {                                  // Fullscreen ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ -> Windowï¿½ï¿½ ï¿½Ù²ï¿½
             fullscreenButton.interactable = true;
             windowButton.interactable = false;
             Screen.fullScreen = false;
@@ -192,7 +192,7 @@ public class StartSceneClickEvent : MonoBehaviour {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        Application.Quit(); // ¾îÇÃ¸®ÄÉÀÌ¼Ç Á¾·á
+        Application.Quit(); // ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½
 #endif
     }
     #endregion
