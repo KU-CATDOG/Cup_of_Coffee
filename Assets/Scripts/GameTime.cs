@@ -17,9 +17,13 @@ public class GameTime : MonoBehaviour
     float sec;
     int hour = 0;
     int minute = 0;
-    int day;
+    [HideInInspector]
+    public int day;
 
+    [HideInInspector]
+    public bool isTimePassing = true;
 
+    public InGameSaveLoadUI saveLoadUI;
 
     // Start is called before the first frame update
     void Start()
@@ -32,26 +36,31 @@ public class GameTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sec -= Time.deltaTime;
+        if (isTimePassing) {
+            sec -= Time.deltaTime;
 
-        if(sec <= 0){
-            minute++;
-            sec = secPerMin;
-            
-            if(minute >= 60){
-                hour++;
-                minute = 0;
-                
-                if(hour>= endTime){
-                    day++;
-                    hour = startTime;
+            if (sec <= 0) {
+                minute++;
+                sec = secPerMin;
 
-                    dayCounter.text = "Day : " + day.ToString();
+                if (minute >= 60) {
+                    hour++;
+                    minute = 0;
+
+                    if (hour >= endTime) {
+                        day++;
+                        hour = startTime;
+
+                        dayCounter.text = "Day : " + day.ToString();
+
+                        isTimePassing = false;
+                        saveLoadUI.OpenSaveLoadPanel();
+                    }
                 }
+
+                clock.text = hour.ToString("00") + ":" + minute.ToString("00");
+
             }
-
-            clock.text = hour.ToString("00") + ":" + minute.ToString("00");
-
         }
 
         
