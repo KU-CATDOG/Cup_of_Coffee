@@ -1,0 +1,6 @@
+index,name,script
+1,김,Hello
+2,박,Nice
+3,Lee,to
+4,Choi,meet
+5,Jeong,you
