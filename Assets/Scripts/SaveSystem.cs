@@ -18,7 +18,7 @@ public class SaveSystem
 
     public static bool Save(string saveString, int saveNum)
     {
-        
+
         //int saveNum = 1; //받아올 세이브 번호
         if (File.Exists(SAVE_FOLDER + "save" + saveNum + ".txt"))
         {
@@ -42,7 +42,7 @@ public class SaveSystem
     {
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLDER);
         FileInfo[] savefiles = directoryInfo.GetFiles("*.txt");
-        
+
         if (File.Exists(SAVE_FOLDER + "save" + saveNum + ".txt"))
         {
             string saveString = File.ReadAllText(SAVE_FOLDER + "save" + saveNum + ".txt");
@@ -52,18 +52,21 @@ public class SaveSystem
 
     }
 
-    public static int GetSaveFileCount() {
+    public static int GetSaveFileCount()
+    {
         int count = 0;
 
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLDER);
         FileInfo[] savefiles = directoryInfo.GetFiles("*.txt");
 
-        foreach (var saveFile in savefiles) {
-            if (saveFile.Name.Contains("save")) {
+        foreach (var saveFile in savefiles)
+        {
+            if (saveFile.Name.Contains("save"))
+            {
                 count++;
             }
         }
 
         return count;
-    } 
+    }
 }

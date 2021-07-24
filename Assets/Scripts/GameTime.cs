@@ -36,18 +36,22 @@ public class GameTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTimePassing) {
+        if (isTimePassing)
+        {
             sec -= Time.deltaTime;
 
-            if (sec <= 0) {
+            if (sec <= 0)
+            {
                 minute++;
                 sec = secPerMin;
 
-                if (minute >= 60) {
+                if (minute >= 60)
+                {
                     hour++;
                     minute = 0;
 
-                    if (hour >= endTime) {
+                    if (hour >= endTime)
+                    {
                         day++;
                         hour = startTime;
 
@@ -63,6 +67,6 @@ public class GameTime : MonoBehaviour
             }
         }
 
-        
+
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StartSceneClickEvent : MonoBehaviour {
+public class StartSceneClickEvent : MonoBehaviour
+{
     public GameObject optionsPanel;
     public GameObject loadPanel;
     public Scrollbar bgmScrollBar;
@@ -21,11 +22,12 @@ public class StartSceneClickEvent : MonoBehaviour {
     private GameObject[] saveFileButtons = new GameObject[6];
 
     // Initiate
-    private void Start() {
+    private void Start()
+    {
         // --Load--
         // TODO: ����� ���̺������� ������ Ȯ���� saveFileCount ������ ���
         saveFileCount = 15;  // �׽�Ʈ������ ������ ���ڸ� ���� -> ����� ���̺����� ������ ������ ��
-        loadPanelPageMaxIndex = (saveFileCount - 1) / 6;        
+        loadPanelPageMaxIndex = (saveFileCount - 1) / 6;
         loadPanel.SetActive(false);
 
         // --Options--
@@ -38,25 +40,29 @@ public class StartSceneClickEvent : MonoBehaviour {
 
 
     #region --New Game--
-    public void ClickNewGameButton() {
+    public void ClickNewGameButton()
+    {
         SceneManager.LoadScene("NewGameScene");
     }
     #endregion
 
 
     #region --Load--
-    public void ClickLoadButton() {
+    public void ClickLoadButton()
+    {
         loadPanel.SetActive(true);
 
         RefreshLoadPanel();
     }
 
     // When user click Back Button in Options Panel
-    public void ClickLoadBackButton() {
+    public void ClickLoadBackButton()
+    {
         loadPanel.SetActive(false);
     }
 
-    public void LoadSaveFile(int saveIndex) {
+    public void LoadSaveFile(int saveIndex)
+    {
         // saveIndex�� 0���� ������ (ex. save1.txt == 0��° ���̺�����) -> ������ �ҷ��ö��� saveIndex�� 1�� ���� ���� ����� ��
         string saveFileName = "save" + (saveIndex + 1) + ".txt";
 
@@ -64,31 +70,38 @@ public class StartSceneClickEvent : MonoBehaviour {
         Debug.Log(saveFileName);
     }
 
-    public void ClickNextButton() {
-        if (loadPanelPageIndex < loadPanelPageMaxIndex) {
+    public void ClickNextButton()
+    {
+        if (loadPanelPageIndex < loadPanelPageMaxIndex)
+        {
             loadPanelPageIndex++;
 
             RefreshLoadPanel();
         }
     }
 
-    public void ClickPrevButton() {
-        if (loadPanelPageIndex > 0) {
+    public void ClickPrevButton()
+    {
+        if (loadPanelPageIndex > 0)
+        {
             loadPanelPageIndex--;
 
             RefreshLoadPanel();
         }
     }
 
-    private void RefreshLoadPanel() {
+    private void RefreshLoadPanel()
+    {
         // ���� ȭ�鿡 �ִ� ���̺����� ��ư���� ����
-        for (int i = 5; i >= 0; i--) {
+        for (int i = 5; i >= 0; i--)
+        {
             if (saveFileButtons[i] == null) continue;
             else Destroy(saveFileButtons[i]);
         }
 
         // ���� ȭ���� ���̺����� ��ư���� ����� (�ִ� 6��)
-        for (int i = loadPanelPageIndex * 6; i < saveFileCount; i++) {
+        for (int i = loadPanelPageIndex * 6; i < saveFileCount; i++)
+        {
             if (i >= loadPanelPageIndex * 6 + 6) break;
             GameObject newButton = Instantiate(loadButtonPrefab, loadPanelTransform);
             int temp = i;
@@ -113,21 +126,26 @@ public class StartSceneClickEvent : MonoBehaviour {
 
     #region --Options--
     // When user click Options Button
-    public void ClickOptionsButton() {
+    public void ClickOptionsButton()
+    {
         optionsPanel.SetActive(true);
     }
 
     // When user click Back Button in Options Panel
-    public void ClickOptionsBackButton() {
+    public void ClickOptionsBackButton()
+    {
         optionsPanel.SetActive(false);
     }
 
     // When user click BGM Down Button
-    public void ClickBGMDownButton() {
-        if (bgmScrollBar.value >= 0.1f) {
+    public void ClickBGMDownButton()
+    {
+        if (bgmScrollBar.value >= 0.1f)
+        {
             bgmScrollBar.value -= 0.1f;
         }
-        else {
+        else
+        {
             bgmScrollBar.value = 0;
         }
 
@@ -135,11 +153,14 @@ public class StartSceneClickEvent : MonoBehaviour {
     }
 
     // When user click BGM Up Button
-    public void ClickBGMUpButton() {
-        if (bgmScrollBar.value <= 0.9f) {
+    public void ClickBGMUpButton()
+    {
+        if (bgmScrollBar.value <= 0.9f)
+        {
             bgmScrollBar.value += 0.1f;
         }
-        else {
+        else
+        {
             bgmScrollBar.value = 1;
         }
 
@@ -147,11 +168,14 @@ public class StartSceneClickEvent : MonoBehaviour {
     }
 
     // When user click SFX Down Button
-    public void ClickSFXDownButton() {
-        if (sfxScrollBar.value >= 0.1f) {
+    public void ClickSFXDownButton()
+    {
+        if (sfxScrollBar.value >= 0.1f)
+        {
             sfxScrollBar.value -= 0.1f;
         }
-        else {
+        else
+        {
             sfxScrollBar.value = 0;
         }
 
@@ -159,11 +183,14 @@ public class StartSceneClickEvent : MonoBehaviour {
     }
 
     // When user click SFX Up Button
-    public void ClickSFXUpButton() {
-        if (sfxScrollBar.value <= 0.9f) {
+    public void ClickSFXUpButton()
+    {
+        if (sfxScrollBar.value <= 0.9f)
+        {
             sfxScrollBar.value += 0.1f;
         }
-        else {
+        else
+        {
             sfxScrollBar.value = 1;
         }
 
@@ -172,13 +199,16 @@ public class StartSceneClickEvent : MonoBehaviour {
 
     // When user click Fullscreen or Window Button
     // Switch the active of two buttons
-    public void ChangeVideoScreenType() {
-        if (fullscreenButton.interactable) {    // Window �������϶� -> Fullscreen���� �ٲ�
+    public void ChangeVideoScreenType()
+    {
+        if (fullscreenButton.interactable)
+        {    // Window �������϶� -> Fullscreen���� �ٲ�
             fullscreenButton.interactable = false;
             windowButton.interactable = true;
             Screen.fullScreen = true;
         }
-        else {                                  // Fullscreen �������϶� -> Window�� �ٲ�
+        else
+        {                                  // Fullscreen �������϶� -> Window�� �ٲ�
             fullscreenButton.interactable = true;
             windowButton.interactable = false;
             Screen.fullScreen = false;
@@ -188,7 +218,8 @@ public class StartSceneClickEvent : MonoBehaviour {
 
 
     #region --Exit--
-    public void ClickExitButton() {
+    public void ClickExitButton()
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -198,7 +229,8 @@ public class StartSceneClickEvent : MonoBehaviour {
     #endregion
 
     #region --Global--
-    public void PlayClickSound() {
+    public void PlayClickSound()
+    {
         SoundManager.Instance.PlaySFXSound("click");
     }
     #endregion

@@ -6,17 +6,17 @@ using System.IO;
 public class SaveLoad : MonoBehaviour
 {
     public bool overwriteCheck;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void Awake()
     {
-        SaveSystem.Init(); 
+        SaveSystem.Init();
     }
 
     public void Save(int saveNum)
@@ -27,7 +27,8 @@ public class SaveLoad : MonoBehaviour
 
         // TimeManager 오브젝트를 찾아서 day를 받아와 저장
         GameTime gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
-        if (gameTime != null) {
+        if (gameTime != null)
+        {
             dayCount = gameTime.day;
         }
 
@@ -54,14 +55,15 @@ public class SaveLoad : MonoBehaviour
     {
         Debug.Log("load activated");
         string saveString = SaveSystem.Load(saveNum);
-        if (saveString != null) 
+        if (saveString != null)
         {
             SaveObject saveObject = JsonUtility.FromJson<SaveObject>(saveString);
             //Debug.Log(saveObject.dayCount + saveObject.falseCount);
 
             // 인게임씬에서 TimeManager 오브젝트를 찾아 dayCount를 적용
             GameTime gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
-            if (gameTime != null) {
+            if (gameTime != null)
+            {
                 gameTime.day = saveObject.dayCount;
             }
         }

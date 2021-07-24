@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class MoveBackground : MonoBehaviour
 {
-    
+
     public GameObject background;
-    
+
     private RectTransform rectTransform;
 
     public Button Leftbtn;
@@ -33,61 +33,72 @@ public class MoveBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow) && Leftbtn.interactable && Rightbtn.interactable){
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && Leftbtn.interactable && Rightbtn.interactable)
+        {
             Leftbtn.onClick.Invoke();
         }
-        if(Input.GetKeyDown(KeyCode.RightArrow) && Leftbtn.interactable && Rightbtn.interactable){
+        if (Input.GetKeyDown(KeyCode.RightArrow) && Leftbtn.interactable && Rightbtn.interactable)
+        {
             Rightbtn.onClick.Invoke();
         }
     }
 
-    public void ClickMoveLeft(){
+    public void ClickMoveLeft()
+    {
         Rightbtn.interactable = false;
         Leftbtn.interactable = false;
         xpos = rectTransform.anchoredPosition.x;
 
-        if(xpos == 0){
+        if (xpos == 0)
+        {
             Leftbtn.gameObject.SetActive(false);
         }
 
-        if(xpos < movepos){
+        if (xpos < movepos)
+        {
             StartCoroutine(Transition(movepos, timeInterval));
-        } 
+        }
         Rightbtn.gameObject.SetActive(true);
-   }
+    }
 
-    public void ClickMoveRight(){
+    public void ClickMoveRight()
+    {
         Rightbtn.interactable = false;
         Leftbtn.interactable = false;
 
         xpos = rectTransform.anchoredPosition.x;
 
-        if(xpos == 0){
+        if (xpos == 0)
+        {
             Rightbtn.gameObject.SetActive(false);
         }
 
-        if(xpos > -movepos){
+        if (xpos > -movepos)
+        {
             StartCoroutine(Transition(-movepos, timeInterval));
         }
-        
+
         Leftbtn.gameObject.SetActive(true);
     }
 
-    public void MachineClicked(){
+    public void MachineClicked()
+    {
         //espresso machine clicked
     }
 
 
     //Transition between backgrounds
-    IEnumerator Transition(float dir, float time){
+    IEnumerator Transition(float dir, float time)
+    {
         Vector2 startPos = rectTransform.anchoredPosition;
         Vector2 finalPos = new Vector2(rectTransform.anchoredPosition.x + dir, 0);
 
         float elapsedTime = 0;
 
-        while(elapsedTime < time){
-            rectTransform.anchoredPosition = Vector2.Lerp(startPos, finalPos, (elapsedTime/time));
-            elapsedTime +=Time.deltaTime;
+        while (elapsedTime < time)
+        {
+            rectTransform.anchoredPosition = Vector2.Lerp(startPos, finalPos, (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
             yield return null;
         }
 

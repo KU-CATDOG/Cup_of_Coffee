@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Token // Token에 필요한 변수를 정의한다.
 {
-    
+
     public int token_happy;
     public int token_love;
     public int token_hope;

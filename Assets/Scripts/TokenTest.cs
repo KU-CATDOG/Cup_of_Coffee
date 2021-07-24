@@ -11,7 +11,7 @@ public class TokenTest : MonoBehaviour
     // Start is called before the first frame update
     void Start() // 토큰을 PlayerPrefs에서 불러온다.
     {
-     
+
     }
 
     /*
@@ -29,7 +29,7 @@ public class TokenTest : MonoBehaviour
     // Update is called once per frame
     void Update() // 토큰을 PlayerPrefs에 저장한다.
     {
-  
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             int a = Random.Range(1, 8);
@@ -85,7 +85,7 @@ public class TokenTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             token.Reset();
- 
+
         }
 
     }
