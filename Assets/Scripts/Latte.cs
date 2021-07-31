@@ -17,7 +17,7 @@ public class Latte : MonoBehaviour
 
     void MakeLatte()
     {
-      
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             vanilla_syrup++;
@@ -28,7 +28,7 @@ public class Latte : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-          shot++;
+            shot++;
             latte[i] = "W";
             i++;
             Debug.Log("샷 추가했습니다.");
@@ -42,7 +42,7 @@ public class Latte : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-          greentea_powder++;
+            greentea_powder++;
             latte[i] = "R";
             i++;
             Debug.Log("녹차 파우더 추가했습니다.");
@@ -50,7 +50,7 @@ public class Latte : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-          strawberry_powder++;
+            strawberry_powder++;
             latte[i] = "T";
             i++;
             Debug.Log("딸기 파우더 추가했습니다.");
@@ -66,11 +66,11 @@ public class Latte : MonoBehaviour
             }
             else
                 Debug.Log("이미 우유 거품 넣었습니다.");
-            
+
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if(ice == false)
+            if (ice == false)
             {
                 latte[i] = "2";
                 i++;
@@ -110,8 +110,8 @@ public class Latte : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)) // 엔터를 눌러서 순서 확인
         {
             //바닐라 시럽, 샷, 우유, 우유거품, 얼음, 녹차파우더, 딸기 파우더, 녹차소스 -> Q,W,E,1,2,R,T,3
-           
-          
+
+
             if (latte[0] == "Q" && latte[1] == "Q" && latte[2] == "W" && latte[3] == "W" && latte[4] == "E" && latte[5] == "E" && latte[6] == "E" && latte[7] == "E" && latte[8] == "E" && latte[9] == "E" && latte[10] == "1")
             {
                 Debug.Log("따뜻한 바닐라 라떼 나왔습니다.");
@@ -146,7 +146,7 @@ public class Latte : MonoBehaviour
             {
                 Debug.Log("아이스 딸기 라떼 나왔습니다.");
                 Reset();
-                
+
             }
             else
             {
@@ -155,10 +155,10 @@ public class Latte : MonoBehaviour
 
             }
         }
-      
+
 
     }
-    
+
     //바닐라 시럽, 샷, 우유, 우유거품, 얼음, 녹차파우더, 딸기 파우더, 녹차소스
 
     void Check()
@@ -176,7 +176,7 @@ public class Latte : MonoBehaviour
 
     }
 
-   void Reset()
+    void Reset()
     {
         vanilla_syrup = 0;
         shot = 0;
@@ -187,6 +187,6 @@ public class Latte : MonoBehaviour
         strawberry_powder = 0;
         greentea_drizzle = false;
         i = 0;
-        
+
     }
 }

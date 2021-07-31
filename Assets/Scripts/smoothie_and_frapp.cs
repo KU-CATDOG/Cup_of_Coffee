@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class recipe : MonoBehaviour
 {
-    public class drink{
+    public class drink
+    {
         public int milk = 0;
         public bool ice = false; //1
         public bool yogurt = false; //2
@@ -16,20 +17,23 @@ public class recipe : MonoBehaviour
         public int espressoShot = 0; //7
 
 
-        public void initialize(){ //음료 초기화
+        public void initialize()
+        { //음료 초기화
             this.milk = 0;
-            this.ice = false; 
-            this.yogurt = false; 
-            this.greentea = false; 
-            this.strawberry = false; 
-            this.chocolate = false; 
-            this.whipcream = false; 
+            this.ice = false;
+            this.yogurt = false;
+            this.greentea = false;
+            this.strawberry = false;
+            this.chocolate = false;
+            this.whipcream = false;
             this.espressoShot = 0;
         }
 
 
-        public void addIngredient(int i){
-            switch (i){
+        public void addIngredient(int i)
+        {
+            switch (i)
+            {
                 case 0:
                     this.milk += 50;
                     break;
@@ -50,21 +54,23 @@ public class recipe : MonoBehaviour
                     break;
                 case 6:
                     this.whipcream = true;
-                    break; 
+                    break;
                 case 7:
-                    this.espressoShot +=1;
+                    this.espressoShot += 1;
                     break;
             }
         }
 
 
-        public override bool Equals(object obj){
+        public override bool Equals(object obj)
+        {
             drink test = obj as drink;
-            if( obj == null){
+            if (obj == null)
+            {
                 return false;
             }
-            return milk == test.milk 
-            && ice == test.ice 
+            return milk == test.milk
+            && ice == test.ice
             && yogurt == test.yogurt
             && greentea == test.greentea
             && strawberry == test.strawberry
@@ -86,8 +92,9 @@ public class recipe : MonoBehaviour
 
 
     void Update()
-    {   
-        switch(Input.inputString){ //재료 추가
+    {
+        switch (Input.inputString)
+        { //재료 추가
             case "0":
                 newDrink.addIngredient(0);
                 break;
@@ -114,22 +121,25 @@ public class recipe : MonoBehaviour
                 break;
 
         }
-        
 
-        if(Input.GetKeyDown(KeyCode.G)){
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
             newDrink.initialize();
         }
 
-        if(Input.GetKeyDown(KeyCode.P)){
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             updateIngredient();
             recipeDone();
         }
 
     }
 
-    void updateIngredient(){
-        Debug.Log("newDrink: \nmilk: " + newDrink.milk.ToString() 
-        + "\nice: " + newDrink.ice 
+    void updateIngredient()
+    {
+        Debug.Log("newDrink: \nmilk: " + newDrink.milk.ToString()
+        + "\nice: " + newDrink.ice
         + "\nyogurt: " + newDrink.yogurt
         + "\ngreentea: " + newDrink.greentea
         + "\nstrawberry: " + newDrink.strawberry
@@ -138,37 +148,47 @@ public class recipe : MonoBehaviour
         + "\nespresso shot: " + newDrink.espressoShot);
     }
 
-    public void recipeDone(){
-            if(newDrink.Equals(smoothieYogurt)){
-                Debug.Log("Yogurt smoothie");
-            }
-            else if(newDrink.Equals(smoothieGreentea)){
-                Debug.Log("Greentea smoothie");
-            }
-            else if(newDrink.Equals(smoothieStrawberry)){
-                Debug.Log("Strawberry smoothie");
-            }
-            else if(newDrink.Equals(frappEspresso)){
-                Debug.Log("Espresso frappuccino");
-            }
-            else if(newDrink.Equals(frappGreentea)){
-                Debug.Log("Greentea frappuccino");
-            }
-            else if(newDrink.Equals(frappStrawberry)){
-                Debug.Log("Strawberry frappuccino");
-            }
-            else if(newDrink.Equals(frappChocolate)){
-                Debug.Log("Chocolate frappuccino");
-            }
-            else {
-                Debug.Log("failed to complete a recipe");
-            }
+    public void recipeDone()
+    {
+        if (newDrink.Equals(smoothieYogurt))
+        {
+            Debug.Log("Yogurt smoothie");
         }
+        else if (newDrink.Equals(smoothieGreentea))
+        {
+            Debug.Log("Greentea smoothie");
+        }
+        else if (newDrink.Equals(smoothieStrawberry))
+        {
+            Debug.Log("Strawberry smoothie");
+        }
+        else if (newDrink.Equals(frappEspresso))
+        {
+            Debug.Log("Espresso frappuccino");
+        }
+        else if (newDrink.Equals(frappGreentea))
+        {
+            Debug.Log("Greentea frappuccino");
+        }
+        else if (newDrink.Equals(frappStrawberry))
+        {
+            Debug.Log("Strawberry frappuccino");
+        }
+        else if (newDrink.Equals(frappChocolate))
+        {
+            Debug.Log("Chocolate frappuccino");
+        }
+        else
+        {
+            Debug.Log("failed to complete a recipe");
+        }
+    }
 
 
 
     //음료수 레시피
-    drink smoothieYogurt = new drink{
+    drink smoothieYogurt = new drink
+    {
         milk = 150,
         ice = true,
         //blending
@@ -177,7 +197,8 @@ public class recipe : MonoBehaviour
         //blending 15sec
     };
 
-    drink smoothieGreentea = new drink{
+    drink smoothieGreentea = new drink
+    {
         milk = 150,
         ice = true,
         //blending
@@ -186,7 +207,8 @@ public class recipe : MonoBehaviour
         //blending 15sec
     };
 
-    drink smoothieStrawberry = new drink{
+    drink smoothieStrawberry = new drink
+    {
         milk = 150,
         ice = true,
         //blending
@@ -195,7 +217,8 @@ public class recipe : MonoBehaviour
         //blending 15sec
     };
 
-    drink frappEspresso = new drink{
+    drink frappEspresso = new drink
+    {
         espressoShot = 1,
         milk = 100,
         ice = true,
@@ -203,7 +226,8 @@ public class recipe : MonoBehaviour
         whipcream = true
     };
 
-    drink frappGreentea = new drink{
+    drink frappGreentea = new drink
+    {
         milk = 150,
         ice = true,
         greentea = true,
@@ -211,7 +235,8 @@ public class recipe : MonoBehaviour
         whipcream = true
     };
 
-    drink frappStrawberry = new drink{
+    drink frappStrawberry = new drink
+    {
         milk = 150,
         ice = true,
         strawberry = true,
@@ -219,7 +244,8 @@ public class recipe : MonoBehaviour
         whipcream = true
     };
 
-    drink frappChocolate = new drink{
+    drink frappChocolate = new drink
+    {
         milk = 150,
         ice = true,
         chocolate = true,
