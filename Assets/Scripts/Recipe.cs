@@ -244,6 +244,7 @@ public class Recipe : MonoBehaviour
         tapioca = 0;
         blend = 0;
         water = 0;
+        queue.Clear();
         Debug.Log("Ingredient Resetted");
     }
 

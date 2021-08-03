@@ -13,7 +13,7 @@ public class CsvLoad : MonoBehaviour
 
     void test()
     {
-        StreamReader sr = new StreamReader(Application.dataPath + "/Resources " + "/" + "Script.txt");
+        StreamReader sr = new StreamReader(Application.dataPath + "/Resources/" + "Script.csv");
 
         bool endOfFile = false;
         while (!endOfFile)
@@ -24,10 +24,10 @@ public class CsvLoad : MonoBehaviour
                 endOfFile = true;
                 break;
             }
-            var data_values = data_String.Split('\n');
+            var data_values = data_String.Split(',');
             for (int i = 0; i < data_values.Length; i++)
             {
-                Debug.Log(data_values[i].ToString());
+                Debug.Log("v: " + i.ToString() + " " + data_values[i].ToString());
             }
         }
 
