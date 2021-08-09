@@ -86,6 +86,14 @@ public class MoveBackground : MonoBehaviour
         //espresso machine clicked
     }
 
+    public void SteamNozzleClicked(GameObject steamCup)
+    {
+        if (!steamCup.activeSelf)
+        {
+            steamCup.SetActive(true);
+        }
+    }
+
 
     //Transition between backgrounds
     IEnumerator Transition(float dir, float time)
