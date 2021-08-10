@@ -13,12 +13,8 @@ public class MoveBackground : MonoBehaviour
 
     public Button Leftbtn;
     public Button Rightbtn;
-    public Button ZoomOut;
 
-    public GameObject Rightbg;
-    private RectTransform bgScale;
-
-    public GameObject MachineButtons;
+    public GameObject EspressoMachine;
 
     public float timeInterval = 0.5f;
 
@@ -30,7 +26,6 @@ public class MoveBackground : MonoBehaviour
     void Start()
     {
         rectTransform = background.GetComponent<RectTransform>();
-        bgScale = Rightbg.GetComponent<RectTransform>();
         movepos = rectTransform.rect.width;
 
     }
@@ -46,7 +41,6 @@ public class MoveBackground : MonoBehaviour
         {
             Rightbtn.onClick.Invoke();
         }
-
     }
 
     public void ClickMoveLeft()
@@ -87,6 +81,19 @@ public class MoveBackground : MonoBehaviour
         Leftbtn.gameObject.SetActive(true);
     }
 
+    public void MachineClicked()
+    {
+        //espresso machine clicked
+    }
+
+    public void SteamNozzleClicked(GameObject steamCup)
+    {
+        if (!steamCup.activeSelf)
+        {
+            steamCup.SetActive(true);
+        }
+    }
+
 
     //Transition between backgrounds
     IEnumerator Transition(float dir, float time)
@@ -107,35 +114,6 @@ public class MoveBackground : MonoBehaviour
         Leftbtn.interactable = true;
         Rightbtn.interactable = true;
     }
-
-    //Espresso Machine zoom in
-    public void EspressomachineClicked(){
-        bgScale.localScale = new Vector2(1.75f, 1.75f);
-
-        Leftbtn.gameObject.SetActive(false);
-        Rightbtn.gameObject.SetActive(false);
-        Leftbtn.interactable = false;
-        Rightbtn.interactable = false;
-
-        MachineButtons.SetActive(true);
-        
-        ZoomOut.gameObject.SetActive(true);
-    }
-
-    //Espresso Machine zoom out
-    public void ZoomOutClicked(){
-        bgScale.localScale = new Vector2(1, 1);
-
-        Leftbtn.gameObject.SetActive(true);
-        Leftbtn.interactable = true;
-
-        MachineButtons.SetActive(false);
-
-        ZoomOut.gameObject.SetActive(false);
-
-    }
-
-    
 
 
 }
