@@ -53,4 +53,11 @@ public class Token // Token에 필요한 변수를 정의한다.
         Debug.Log("토큰을 전부 초기화했습니다.");
 
     }
+
+    public void TokenUp()
+    {
+
+
+    }
+
 }

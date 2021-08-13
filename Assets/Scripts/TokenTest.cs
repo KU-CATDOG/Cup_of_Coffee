@@ -7,87 +7,97 @@ public class TokenTest : MonoBehaviour
 {
 
     public Token token = new Token();
+    public int a; //a = token 종류
+    public int b; // b = token 개수
 
-    // Start is called before the first frame update
-    void Start() // 토큰을 PlayerPrefs에서 불러온다.
-    {
 
-    }
-
+    public int happy;
+    public int love;
+    public int hope;
+    public int peace;
+    public int sad;
+    public int anger;
+    public int tired;
+    public int fear;
     /*
     토큰 종류 
-    public int token_happy;
-    public int token_love;
-    public int token_hope;
-    public int token_peace;
-    public int token_sad;
-    public int token_anger;
-    public int token_tired;
-    public int token_fear;
+    token_happy;
+    token_love;
+    token_hope;
+    token_peace;
+    token_sad;
+    token_anger;
+    token_tired;
+    token_fear;
     */
-
-    // Update is called once per frame
-    void Update() // 토큰을 PlayerPrefs에 저장한다.
+ 
+    void Update() 
     {
+        happy = token.token_anger;
+        love = token.token_love;
+        hope = token.token_hope;
+        peace = token.token_peace;
+        sad = token.token_sad;
+        anger = token.token_anger;
+        tired = token.token_tired;
+        fear = token.token_fear;
+
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            int a = Random.Range(1, 8);
-            if (a == 1)
-            {
-                token.token_happy++;
-                Debug.Log("happy는" + token.token_happy);
-            }
-            if (a == 2)
-            {
-                token.token_love++;
-                Debug.Log("love는" + token.token_love);
-            }
-            if (a == 3)
-            {
-                token.token_hope++;
-                Debug.Log("hope는" + token.token_hope);
-            }
-            if (a == 4)
-            {
-                token.token_peace++;
-                Debug.Log("peace는" + token.token_peace);
-            }
-            if (a == 5)
-            {
-                token.token_sad++;
-                Debug.Log("sad는" + token.token_sad);
-            }
-            if (a == 6)
-            {
-                token.token_anger++;
-                Debug.Log("anger는" + token.token_anger);
-            }
-            if (a == 7)
-            {
-                token.token_tired++;
-                Debug.Log("tired는" + token.token_tired);
-
-            }
-            if (a == 8)
-            {
-                token.token_fear++;
-                Debug.Log("fear는" + token.token_fear);
-
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)) // Space를 누르면 지금까지 체크
-        {
-            token.SaveCheck();
+            TokenUp();
 
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            token.Reset();
-
-        }
-
     }
 
+    public void TokenUp()
+    {
+        a = Random.Range(1, 8);
+        b = Random.Range(1, 3);
+
+        if (a == 1)
+        {
+            token.token_happy += b;
+            Debug.Log("happy는" + token.token_happy);
+        }
+        if (a == 2)
+        {
+            token.token_love += b;
+            Debug.Log("love는" + token.token_love);
+        }
+        if (a == 3)
+        {
+            token.token_hope += b;
+            Debug.Log("hope는" + token.token_hope);
+        }
+        if (a == 4)
+        {
+            token.token_peace += b;
+            Debug.Log("peace는" + token.token_peace);
+        }
+        if (a == 5)
+        {
+            token.token_sad += b;
+            Debug.Log("sad는" + token.token_sad);
+        }
+        if (a == 6)
+        {
+            token.token_anger += b;
+            Debug.Log("anger는" + token.token_anger);
+        }
+        if (a == 7)
+        {
+            token.token_tired += b;
+            Debug.Log("tired는" + token.token_tired);
+
+        }
+        if (a == 8)
+        {
+            token.token_fear += b;
+            Debug.Log("fear는" + token.token_fear);
+
+        }
+
+
+    }
 }
