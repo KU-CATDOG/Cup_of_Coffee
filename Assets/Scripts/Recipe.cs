@@ -57,6 +57,8 @@ public class Recipe : MonoBehaviour
 
     private List<char> queue = new List<char>();
 
+    public Drink drinkImage;
+
 
     // Update is called once per frame
     void Update()
@@ -75,151 +77,181 @@ public class Recipe : MonoBehaviour
             if (queue.SequenceEqual(espresso))
             {
                 Debug.Log("You made a cup of espresso!");
+                drinkImage.ShowDrink("espresso");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caramel_macchiato_ice))
             {
                 Debug.Log("You made a cup of iced caramel macchiato!");
+                drinkImage.ShowDrink("caramel_macchiato_ice");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caramel_macchiato_hot))
             {
                 Debug.Log("You made a cup of hot caramel macchiato!");
+                drinkImage.ShowDrink("caramel_macchiato_hot");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(americano_hot))
             {
                 Debug.Log("You made a cup of hot americano!");
+                drinkImage.ShowDrink("americano_hot");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(americano_ice))
             {
                 Debug.Log("You made a cup of iced americano!");
+                drinkImage.ShowDrink("americano_ice");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_mocha_ice))
             {
                 Debug.Log("You made a cup of iced caffe mocha!");
+                drinkImage.ShowDrink("caffe_mocha_ice");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_mocha_hot))
             {
                 Debug.Log("You made a cup of hot caffe mocha!");
+                drinkImage.ShowDrink("caffe_mocha_hot");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_con_panna))
             {
                 Debug.Log("You made a cup of espresso con panna!");
+                drinkImage.ShowDrink("espresso_con_panna");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_macchiato))
             {
                 Debug.Log("You made a cup of espresso macchiato!");
+                drinkImage.ShowDrink("espresso_macchiato");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(cappuccino))
             {
                 Debug.Log("You made a cup of cappuccino!");
+                drinkImage.ShowDrink("cappuccino");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(vanilla_latte_hot))
             {
                 Debug.Log("You made a cup of hot vanilla latte!");
+                drinkImage.ShowDrink("vanilla_latte_hot");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(vanilla_latte_ice))
             {
                 Debug.Log("You made a cup of iced vanilla latte!");
+                drinkImage.ShowDrink("vanilla_latte_ice");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_latte_hot))
             {
                 Debug.Log("You made a cup of hot caffe latte!");
+                drinkImage.ShowDrink("caffe_latte_hot");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_latte_ice))
             {
                 Debug.Log("You made a cup of iced caffe latte!");
+                drinkImage.ShowDrink("caffe_latte_ice");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_latte_hot))
             {
                 Debug.Log("You made a cup of hot greentea latte!");
+                drinkImage.ShowDrink("greentea_latte_hot");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_latte_ice))
             {
                 Debug.Log("You made a cup of iced greentea latte!");
+                drinkImage.ShowDrink("greentea_latte_ice");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_latte))
             {
                 Debug.Log("You made a cup of iced strawberry latte!");
+                drinkImage.ShowDrink("strawberry_latte");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(hot_chocolate))
             {
                 Debug.Log("You made a cup of hot chocolate!");
+                drinkImage.ShowDrink("hot_chocolate");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(ice_chocolate))
             {
                 Debug.Log("You made a cup of iced chocolate!");
+                drinkImage.ShowDrink("ice_chocolate");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(yogurt_smoothie))
             {
                 Debug.Log("You made a cup of yogurt smoothie!");
+                drinkImage.ShowDrink("yogurt_smoothie");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_smoothie))
             {
                 Debug.Log("You made a cup of greentea smoothie!");
+                drinkImage.ShowDrink("greentea_smoothie");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_smoothie))
             {
                 Debug.Log("You made a cup of strawberry smoothie!");
+                drinkImage.ShowDrink("strawberry_smoothie");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(yogurt_pearl))
             {
                 Debug.Log("You made a cup of bubble tea (yogurt)!");
+                drinkImage.ShowDrink("yogurt_pearl");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_pearl))
             {
                 Debug.Log("You made a cup of bubble tea (greentea)!");
+                drinkImage.ShowDrink("greentea_pearl");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_pearl))
             {
                 Debug.Log("You made a cup of bubble tea (strawberry)!");
+                drinkImage.ShowDrink("strawberry_pearl");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_frapp))
             {
                 Debug.Log("You made a cup of espresso blended!");
+                drinkImage.ShowDrink("espresso_frapp");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_frapp))
             {
                 Debug.Log("You made a cup of greentea blended!");
+                drinkImage.ShowDrink("greentea_frapp");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_frapp))
             {
                 Debug.Log("You made a cup of strawberry blended!");
+                drinkImage.ShowDrink("strawberry_frapp");
                 IngredientReset();
             }
             else if (queue.SequenceEqual(chocolate_frapp))
             {
                 Debug.Log("You made a cup of chocolate blended!");
+                drinkImage.ShowDrink("chocolate_frapp");
                 IngredientReset();
             }
             else
             {
                 Debug.Log("You made a mistake...");
+                //drinkImage.ShowDrink("mistake");
                 IngredientReset();
             }
 
