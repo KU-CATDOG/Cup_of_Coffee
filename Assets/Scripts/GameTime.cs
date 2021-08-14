@@ -50,6 +50,15 @@ public class GameTime : MonoBehaviour
                     hour++;
                     minute = 0;
 
+                    if (hour == ChangeOutside.instance.dayToTwilight)
+                    {
+                        ChangeOutside.instance.ChangeImageToTwilight();
+                    }
+                    else if (hour == ChangeOutside.instance.twilightToNight)
+                    {
+                        ChangeOutside.instance.ChangeImageToNight();
+                    }
+
                     if (hour >= endTime)
                     {
                         day++;

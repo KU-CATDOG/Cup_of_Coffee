@@ -89,6 +89,7 @@ public class InGameSaveLoadUI : MonoBehaviour
     {
         chooseSaveLoadPanel.SetActive(false);
         gameTime.isTimePassing = true;
+        ChangeOutside.instance.InitiateOutside();
     }
 
     // 세이브 파일 저장
@@ -112,6 +113,7 @@ public class InGameSaveLoadUI : MonoBehaviour
 
         panel.SetActive(false);
         gameTime.isTimePassing = true;
+        ChangeOutside.instance.InitiateOutside();
     }
 
     public void ClickNextButton()
