@@ -9,9 +9,11 @@ using System.Text.RegularExpressions;
 public class CsvLoadTest : MonoBehaviour
 {
     public Text ViewScript;
-
+    public GameObject Customer;
+    public GameObject Customertext;
     int currentOrder = 0;    
 
+    
     GameTime gameTime;
     int dayCount = 0;
 
@@ -26,6 +28,8 @@ public class CsvLoadTest : MonoBehaviour
 
     void Start()
     {
+        Customer = GameObject.Find("CsvCustomer");
+
         gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
         if(gameTime !=null){
             dayCount = gameTime.day;
@@ -39,6 +43,13 @@ public class CsvLoadTest : MonoBehaviour
     void Update(){
         if(Input.GetKeyDown(KeyCode.P)){
             LoadInGameScript();
+            if (currentOrder == 32) // 알바생과 점장 대사가 끝났을 때
+            {
+                ViewScript.text = "";
+                Customertext.SetActive(true);
+                Customer.SetActive(true);
+                Customer.GetComponent<CsvLoadCustomer>().isActive = true;
+            }
         }
     }
 

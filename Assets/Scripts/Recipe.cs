@@ -55,12 +55,22 @@ public class Recipe : MonoBehaviour
     private List<char> chocolate_frapp          = new List<char>(new char[] { 'E', 'E', 'E', 'J', 'J', 'N', 'K' });
     #endregion
 
-    private List<char> queue = new List<char>();
+    public List<char> queue = new List<char>();
+    public GameObject menu;
+    string drink;
 
+    private void Start()
+    {
+        menu = GameObject.Find("CsvCustomer");
+        drink = menu.GetComponent<CsvLoadCustomer>().menustring;
+        
 
+    }
     // Update is called once per frame
     void Update()
     {
+        
+
         if (Input.GetKeyDown(KeyCode.Space))//Check currently placed volume
         {
             Check();
@@ -75,151 +85,386 @@ public class Recipe : MonoBehaviour
             if (queue.SequenceEqual(espresso))
             {
                 Debug.Log("You made a cup of espresso!");
+                if(drink == "espresso")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caramel_macchiato_ice))
             {
                 Debug.Log("You made a cup of iced caramel macchiato!");
+                if (drink == "caramel_macchiato_ice")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
+
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caramel_macchiato_hot))
             {
                 Debug.Log("You made a cup of hot caramel macchiato!");
+                if (drink == "caramel_macchiato_hot")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(americano_hot))
             {
                 Debug.Log("You made a cup of hot americano!");
+                if (drink == "americano_hot ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(americano_ice))
             {
                 Debug.Log("You made a cup of iced americano!");
+                if (drink == "americano_ice")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_mocha_ice))
             {
                 Debug.Log("You made a cup of iced caffe mocha!");
+                if (drink == "caffe_mocha_ice ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_mocha_hot))
             {
                 Debug.Log("You made a cup of hot caffe mocha!");
+                if (drink == "caffe_mocha_hot")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_con_panna))
             {
                 Debug.Log("You made a cup of espresso con panna!");
+                if (drink == "espresso_con_panna ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_macchiato))
             {
                 Debug.Log("You made a cup of espresso macchiato!");
+                if (drink == "espresso_macchiato")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(cappuccino))
             {
                 Debug.Log("You made a cup of cappuccino!");
+                if (drink == "cappuccino")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(vanilla_latte_hot))
             {
                 Debug.Log("You made a cup of hot vanilla latte!");
+                if (drink == "vanilla_latte_hot")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(vanilla_latte_ice))
             {
                 Debug.Log("You made a cup of iced vanilla latte!");
+                if (drink == "vanilla_latte_ice")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_latte_hot))
             {
                 Debug.Log("You made a cup of hot caffe latte!");
+                if (drink == "caffe_latte_hot")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_latte_ice))
             {
                 Debug.Log("You made a cup of iced caffe latte!");
+                if (drink == "caffe_latte_ice")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_latte_hot))
             {
                 Debug.Log("You made a cup of hot greentea latte!");
+                if (drink == "greentea_latte_hot ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
+                
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_latte_ice))
             {
                 Debug.Log("You made a cup of iced greentea latte!");
+                if (drink == "greentea_latte_ice")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_latte))
             {
                 Debug.Log("You made a cup of iced strawberry latte!");
+                if (drink == "strawberry_latte ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(hot_chocolate))
             {
                 Debug.Log("You made a cup of hot chocolate!");
+                if (drink == "hot_chocolate")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(ice_chocolate))
             {
                 Debug.Log("You made a cup of iced chocolate!");
+                if (drink == "ice_chocolate ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(yogurt_smoothie))
             {
                 Debug.Log("You made a cup of yogurt smoothie!");
+                if (drink == "yogurt_smoothie ")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_smoothie))
             {
                 Debug.Log("You made a cup of greentea smoothie!");
+                if (drink == "greentea_smoothie")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_smoothie))
             {
                 Debug.Log("You made a cup of strawberry smoothie!");
+                if (drink == "strawberry_smoothie")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(yogurt_pearl))
             {
                 Debug.Log("You made a cup of bubble tea (yogurt)!");
+                if (drink == "yogurt_pearl")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_pearl))
             {
                 Debug.Log("You made a cup of bubble tea (greentea)!");
+                if (drink == "greentea_pearl")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_pearl))
             {
                 Debug.Log("You made a cup of bubble tea (strawberry)!");
+                if (drink == "strawberry_pearl")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_frapp))
             {
                 Debug.Log("You made a cup of espresso blended!");
+                if (drink == "espresso_frapp")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_frapp))
             {
                 Debug.Log("You made a cup of greentea blended!");
+                if (drink == "greentea_frapp")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_frapp))
             {
                 Debug.Log("You made a cup of strawberry blended!");
+                if (drink == "strawberry_frapp")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else if (queue.SequenceEqual(chocolate_frapp))
             {
                 Debug.Log("You made a cup of chocolate blended!");
+                if (drink == "chocolate_frapp")
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isSuccess = true;
+                }
+                else
+                {
+                    menu.GetComponent<CsvLoadCustomer>().isFail = true;
+                }
                 IngredientReset();
             }
             else
             {
                 Debug.Log("You made a mistake...");
+                menu.GetComponent<CsvLoadCustomer>().isFail = true;
                 IngredientReset();
             }
 
