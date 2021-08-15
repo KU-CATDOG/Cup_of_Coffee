@@ -161,18 +161,7 @@ public class EspressoMachine : MonoBehaviour
         }
 
     }
-    /*public void espressoShot(int shotAmount, int dir, Image loading){ //dir == 1: Left, dir == 2: Right side buttons
-        if(!shotpulling){
-            shotpulling = true;
-            StartCoroutine(shotTiming(shotAmount, loading));
-        }
-        else{
-            shotpulling = false;
-            loading.fillAmount = 1;
-            loading.color = new Color32(181,181,181,255);
-        }
-    }*/
-
+  
     
 
     
