@@ -63,7 +63,7 @@ public class Recipe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))//Check currently placed volume
+        if (Input.GetKeyDown(KeyCode.Space))    //Check currently placed volume
         {
             Check();
         }

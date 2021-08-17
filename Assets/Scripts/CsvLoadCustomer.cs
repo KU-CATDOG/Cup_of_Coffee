@@ -18,16 +18,21 @@ public class CsvLoadCustomer : MonoBehaviour
     public int currentorder = 0;
     public string[] text = new string[4];
 
-    
+
     void Start()
     {
         isActive = false;
         Customertextbox.SetActive(false);
         text[0] = "안녕하세요";
-        menunumber = Random.Range(1, 28);
-        menu(menunumber);
+        SetMenuNum();
         Customer();
         token = GameObject.Find("TokenObject");
+    }
+
+    private void SetMenuNum()
+    {
+        menunumber = Random.Range(1, 28);
+        menu(menunumber);
     }
 
 
@@ -36,7 +41,6 @@ public class CsvLoadCustomer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Customer();
-
         }
         if (isSuccess == true)
         {
@@ -52,30 +56,29 @@ public class CsvLoadCustomer : MonoBehaviour
     }
     public void Customer()
     {
-        if(isActive == true )
+        if (isActive == true)
         {
+            if (currentorder == 2)
+            {
+                //isActive = false;
+                currentorder = 0;
+                SetMenuNum();
+                return;
+            }
             Customertext.text = text[currentorder];
             currentorder++;
-            if(currentorder == 2)
-            {
-                isActive = false;
-            }
         }
-        
-        
     }
 
     public void Pass()
     {
         Customertext.text = "감사합니다. 수고하세요~";
         token.GetComponent<TokenTest>().TokenUp();
-
     }
 
     public void Fail()
     {
         Customertext.text = "아니 이걸 시킨 적이 없는데... 이게 왜 나와요;;";
-
     }
 
     public void menu(int number)
@@ -84,7 +87,7 @@ public class CsvLoadCustomer : MonoBehaviour
         {
             case 0: // 에스프레소는 리조트레또, 에스프레소, 룽고;
                 int b = Random.Range(1, 100);
-                if(0 <= b && b < 15)
+                if (0 <= b && b < 15)
                 {
                     text[1] = "에스프레소로 쓰지 않게 한 잔 주세요";
                     menustring = "espresso_ristretto";
@@ -102,7 +105,7 @@ public class CsvLoadCustomer : MonoBehaviour
                     menustring = "espresso_lungo";
                     break;
                 }
-                    break;
+                break;
 
             case 1:
                 text[1] = "시원한 카라멜 마끼아또로 한 잔 주세요";
