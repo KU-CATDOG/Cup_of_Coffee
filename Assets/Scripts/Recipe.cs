@@ -24,41 +24,47 @@ public class Recipe : MonoBehaviour
     #endregion
 
     #region--recipe declaration--
-    private List<char> espresso                 = new List<char>(new char[] { 'D' });
-    private List<char> caramel_macchiato_ice    = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'G', 'D', 'D' });
-    private List<char> caramel_macchiato_hot    = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'C' });
-    private List<char> americano_ice            = new List<char>(new char[] { 'O', 'O', 'O', 'D', 'D', 'G' });
-    private List<char> americano_hot            = new List<char>(new char[] { 'O', 'O', 'O', 'O', 'O', 'O', 'D', 'D' });
-    private List<char> caffe_mocha_ice          = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'E', 'E', 'E', 'G', 'K', 'B' });
-    private List<char> caffe_mocha_hot          = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
-    private List<char> espresso_con_panna       = new List<char>(new char[] { 'D', 'K' });
-    private List<char> espresso_macchiato       = new List<char>(new char[] { 'D', 'F' });
-    private List<char> cappuccino               = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'D', 'D' });
-    private List<char> vanilla_latte_hot        = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'N', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
-    private List<char> vanilla_latte_ice        = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'N', 'E', 'E', 'E', 'G' });
-    private List<char> caffe_latte_hot          = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
-    private List<char> caffe_latte_ice          = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'G' });
-    private List<char> greentea_latte_ice       = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'G' });
-    private List<char> greentea_latte_hot       = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'H' });
-    private List<char> strawberry_latte         = new List<char>(new char[] { 'I', 'I', 'E', 'E', 'E', 'E', 'G' });
-    private List<char> hot_chocolate            = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K' });
-    private List<char> ice_chocolate            = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'G', 'K', 'B' });
-    private List<char> yogurt_smoothie          = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'N' });
-    private List<char> greentea_smoothie        = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'H', 'H', 'N' });
-    private List<char> strawberry_smoothie      = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'I', 'I', 'N' });
-    private List<char> yogurt_pearl             = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'N' });
-    private List<char> greentea_pearl           = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'H', 'H', 'N' });
-    private List<char> strawberry_pearl         = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'I', 'I', 'N' });
-    private List<char> espresso_frapp           = new List<char>(new char[] { 'D', 'E', 'E', 'G', 'N' });
-    private List<char> greentea_frapp           = new List<char>(new char[] { 'E', 'E', 'E', 'H', 'H', 'N', 'K' });
-    private List<char> strawberry_frapp         = new List<char>(new char[] { 'E', 'E', 'E', 'I', 'I', 'N', 'K' });
-    private List<char> chocolate_frapp          = new List<char>(new char[] { 'E', 'E', 'E', 'J', 'J', 'N', 'K' });
+    private List<char> espresso = new List<char>(new char[] { 'D' });
+    private List<char> caramel_macchiato_ice = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'G', 'D', 'D' });
+    private List<char> caramel_macchiato_hot = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'C' });
+    private List<char> americano_ice = new List<char>(new char[] { 'O', 'O', 'O', 'D', 'D', 'G' });
+    private List<char> americano_hot = new List<char>(new char[] { 'O', 'O', 'O', 'O', 'O', 'O', 'D', 'D' });
+    private List<char> caffe_mocha_ice = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'E', 'E', 'E', 'G', 'K', 'B' });
+    private List<char> caffe_mocha_hot = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
+    private List<char> espresso_con_panna = new List<char>(new char[] { 'D', 'K' });
+    private List<char> espresso_macchiato = new List<char>(new char[] { 'D', 'F' });
+    private List<char> cappuccino = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'D', 'D' });
+    private List<char> vanilla_latte_hot = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'N', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
+    private List<char> vanilla_latte_ice = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'N', 'E', 'E', 'E', 'G' });
+    private List<char> caffe_latte_hot = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
+    private List<char> caffe_latte_ice = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'G' });
+    private List<char> greentea_latte_ice = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'G' });
+    private List<char> greentea_latte_hot = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'H' });
+    private List<char> strawberry_latte = new List<char>(new char[] { 'I', 'I', 'E', 'E', 'E', 'E', 'G' });
+    private List<char> hot_chocolate = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K' });
+    private List<char> ice_chocolate = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'G', 'K', 'B' });
+    private List<char> yogurt_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'N' });
+    private List<char> greentea_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'H', 'H', 'N' });
+    private List<char> strawberry_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'I', 'I', 'N' });
+    private List<char> yogurt_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'N' });
+    private List<char> greentea_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'H', 'H', 'N' });
+    private List<char> strawberry_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'I', 'I', 'N' });
+    private List<char> espresso_frapp = new List<char>(new char[] { 'D', 'E', 'E', 'G', 'N' });
+    private List<char> greentea_frapp = new List<char>(new char[] { 'E', 'E', 'E', 'H', 'H', 'N', 'K' });
+    private List<char> strawberry_frapp = new List<char>(new char[] { 'E', 'E', 'E', 'I', 'I', 'N', 'K' });
+    private List<char> chocolate_frapp = new List<char>(new char[] { 'E', 'E', 'E', 'J', 'J', 'N', 'K' });
     #endregion
 
     private List<char> queue = new List<char>();
 
     public Drink drinkImage;
+    public int menu; // 음료 순서대로 1~29, 잘못 만들었으면 0
 
+    public GameObject Customer;
+    private void Start()
+    {
+        Customer.GetComponent<CsvLoadCustomer>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -74,184 +80,188 @@ public class Recipe : MonoBehaviour
         #region--ingredient test--
         if (Input.GetKeyDown(KeyCode.Return))//Determine recipe
         {
+
             if (queue.SequenceEqual(espresso))
             {
-                Debug.Log("You made a cup of espresso!");
-                drinkImage.ShowDrink("espresso");
+                Cupofespresso();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caramel_macchiato_ice))
             {
-                Debug.Log("You made a cup of iced caramel macchiato!");
-                drinkImage.ShowDrink("caramel_macchiato_ice");
+
+                Cupofcaramel_macchiato_ice();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caramel_macchiato_hot))
             {
-                Debug.Log("You made a cup of hot caramel macchiato!");
-                drinkImage.ShowDrink("caramel_macchiato_hot");
+                Cupofcaramel_macchiato_hot();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(americano_hot))
             {
-                Debug.Log("You made a cup of hot americano!");
-                drinkImage.ShowDrink("americano_hot");
+                Cupofamericano_hot();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(americano_ice))
             {
-                Debug.Log("You made a cup of iced americano!");
-                drinkImage.ShowDrink("americano_ice");
+                Cupofamericano_ice();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_mocha_ice))
             {
-                Debug.Log("You made a cup of iced caffe mocha!");
-                drinkImage.ShowDrink("caffe_mocha_ice");
+                Cupofcaffe_mocha_ice();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_mocha_hot))
             {
-                Debug.Log("You made a cup of hot caffe mocha!");
-                drinkImage.ShowDrink("caffe_mocha_hot");
+                Cupofcaffe_mocha_hot();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_con_panna))
             {
-                Debug.Log("You made a cup of espresso con panna!");
-                drinkImage.ShowDrink("espresso_con_panna");
+                Cupofespresso_con_panna();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_macchiato))
             {
-                Debug.Log("You made a cup of espresso macchiato!");
-                drinkImage.ShowDrink("espresso_macchiato");
+                Cupofespresso_macchiato();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(cappuccino))
             {
-                Debug.Log("You made a cup of cappuccino!");
-                drinkImage.ShowDrink("cappuccino");
+                Cupofcappuccino();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(vanilla_latte_hot))
             {
-                Debug.Log("You made a cup of hot vanilla latte!");
-                drinkImage.ShowDrink("vanilla_latte_hot");
+                Cupofvanilla_latte_hot();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(vanilla_latte_ice))
             {
-                Debug.Log("You made a cup of iced vanilla latte!");
-                drinkImage.ShowDrink("vanilla_latte_ice");
+                Cupofvanilla_latte_ice();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_latte_hot))
             {
-                Debug.Log("You made a cup of hot caffe latte!");
-                drinkImage.ShowDrink("caffe_latte_hot");
+                Cupofcaffe_latte_hot();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(caffe_latte_ice))
             {
-                Debug.Log("You made a cup of iced caffe latte!");
-                drinkImage.ShowDrink("caffe_latte_ice");
+                Cupofcaffe_latte_ice();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_latte_hot))
             {
-                Debug.Log("You made a cup of hot greentea latte!");
-                drinkImage.ShowDrink("greentea_latte_hot");
+                Cupofgreentea_latte_hot();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_latte_ice))
             {
-                Debug.Log("You made a cup of iced greentea latte!");
-                drinkImage.ShowDrink("greentea_latte_ice");
+                Cupofgreentea_latte_ice();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_latte))
             {
-                Debug.Log("You made a cup of iced strawberry latte!");
-                drinkImage.ShowDrink("strawberry_latte");
+                Cupofstrawberry_latte();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(hot_chocolate))
             {
-                Debug.Log("You made a cup of hot chocolate!");
-                drinkImage.ShowDrink("hot_chocolate");
+                Cupofhot_chocolate();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(ice_chocolate))
             {
-                Debug.Log("You made a cup of iced chocolate!");
-                drinkImage.ShowDrink("ice_chocolate");
+                Cupofice_chocolate();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(yogurt_smoothie))
             {
-                Debug.Log("You made a cup of yogurt smoothie!");
-                drinkImage.ShowDrink("yogurt_smoothie");
+                Cupofyogurt_smoothie();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_smoothie))
             {
-                Debug.Log("You made a cup of greentea smoothie!");
-                drinkImage.ShowDrink("greentea_smoothie");
+                Cupofgreentea_smoothie();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_smoothie))
             {
-                Debug.Log("You made a cup of strawberry smoothie!");
-                drinkImage.ShowDrink("strawberry_smoothie");
+                Cupofstrawberry_smoothie();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(yogurt_pearl))
             {
-                Debug.Log("You made a cup of bubble tea (yogurt)!");
-                drinkImage.ShowDrink("yogurt_pearl");
+                Cupofyogurt_pearl();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_pearl))
             {
-                Debug.Log("You made a cup of bubble tea (greentea)!");
-                drinkImage.ShowDrink("greentea_pearl");
+                Cupofgreentea_pearl();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_pearl))
             {
-                Debug.Log("You made a cup of bubble tea (strawberry)!");
-                drinkImage.ShowDrink("strawberry_pearl");
+                Cupofstrawberry_pearl();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(espresso_frapp))
             {
-                Debug.Log("You made a cup of espresso blended!");
-                drinkImage.ShowDrink("espresso_frapp");
+                Cupofespresso_frapp();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(greentea_frapp))
             {
-                Debug.Log("You made a cup of greentea blended!");
-                drinkImage.ShowDrink("greentea_frapp");
+                Cupofgreentea_frapp();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(strawberry_frapp))
             {
-                Debug.Log("You made a cup of strawberry blended!");
-                drinkImage.ShowDrink("strawberry_frapp");
+                Cupofstrawberry_frapp();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else if (queue.SequenceEqual(chocolate_frapp))
             {
-                Debug.Log("You made a cup of chocolate blended!");
-                drinkImage.ShowDrink("chocolate_frapp");
+                Cupofchocolate_frapp();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
             else
             {
                 Debug.Log("You made a mistake...");
                 //drinkImage.ShowDrink("mistake");
+                Cupofmistake();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
 
@@ -391,6 +401,221 @@ public class Recipe : MonoBehaviour
         water++;
         queue.Add('O');
         Debug.Log("Water");
+    }
+    #endregion
+
+
+    #region --Coffee functions--
+    public void Cupofespresso()
+    {
+        Debug.Log("You made a cup of espresso!");
+        drinkImage.ShowDrink("espresso");
+        menu = 1;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcaramel_macchiato_ice()
+    {
+        Debug.Log("You made a cup of iced caramel macchiato!");
+        drinkImage.ShowDrink("caramel_macchiato_ice");
+        menu = 2;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcaramel_macchiato_hot()
+    {
+        Debug.Log("You made a cup of hot caramel macchiato!");
+        drinkImage.ShowDrink("caramel_macchiato_hot");
+        menu = 3;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofamericano_hot()
+    {
+        Debug.Log("You made a cup of hot americano!");
+        drinkImage.ShowDrink("americano_hot");
+        menu = 4;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+
+    }
+    public void Cupofamericano_ice()
+    {
+        Debug.Log("You made a cup of iced americano!");
+        drinkImage.ShowDrink("americano_ice");
+        menu = 5;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcaffe_mocha_ice()
+    {
+        Debug.Log("You made a cup of iced caffe mocha!");
+        drinkImage.ShowDrink("caffe_mocha_ice");
+        menu = 6;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcaffe_mocha_hot()
+    {
+        Debug.Log("You made a cup of hot caffe mocha!");
+        drinkImage.ShowDrink("caffe_mocha_hot");
+        menu = 7;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofespresso_con_panna()
+    {
+        Debug.Log("You made a cup of espresso con panna!");
+        drinkImage.ShowDrink("espresso_con_panna");
+        menu = 8;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofespresso_macchiato()
+    {
+        Debug.Log("You made a cup of espresso macchiato!");
+        drinkImage.ShowDrink("espresso_macchiato");
+        menu = 9;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcappuccino()
+    {
+        Debug.Log("You made a cup of cappuccino!");
+        drinkImage.ShowDrink("cappuccino");
+        menu = 10;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofvanilla_latte_hot()
+    {
+        Debug.Log("You made a cup of hot vanilla latte!");
+        drinkImage.ShowDrink("vanilla_latte_hot");
+        menu = 11;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofvanilla_latte_ice()
+    {
+        Debug.Log("You made a cup of iced vanilla latte!");
+        drinkImage.ShowDrink("vanilla_latte_ice");
+        menu = 12;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcaffe_latte_hot()
+    {
+        Debug.Log("You made a cup of hot caffe latte!");
+        drinkImage.ShowDrink("caffe_latte_hot");
+        menu = 13;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofcaffe_latte_ice()
+    {
+        Debug.Log("You made a cup of iced caffe latte!");
+        drinkImage.ShowDrink("caffe_latte_ice");
+        menu = 14;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofgreentea_latte_hot()
+    {
+        Debug.Log("You made a cup of hot greentea latte!");
+        drinkImage.ShowDrink("greentea_latte_hot");
+        menu = 15;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofgreentea_latte_ice()
+    {
+        Debug.Log("You made a cup of iced greentea latte!");
+        drinkImage.ShowDrink("greentea_latte_ice");
+        menu = 16;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofstrawberry_latte()
+    {
+        Debug.Log("You made a cup of iced strawberry latte!");
+        drinkImage.ShowDrink("strawberry_latte");
+        menu = 17;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofhot_chocolate()
+    {
+        Debug.Log("You made a cup of hot chocolate!");
+        drinkImage.ShowDrink("hot_chocolate");
+        menu = 18;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofice_chocolate()
+    {
+        Debug.Log("You made a cup of iced chocolate!");
+        drinkImage.ShowDrink("ice_chocolate");
+        menu = 19;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofyogurt_smoothie()
+    {
+        Debug.Log("You made a cup of yogurt smoothie!");
+        drinkImage.ShowDrink("yogurt_smoothie");
+        menu = 20;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofgreentea_smoothie()
+    {
+        Debug.Log("You made a cup of greentea smoothie!");
+        drinkImage.ShowDrink("greentea_smoothie");
+        menu = 21;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofstrawberry_smoothie()
+    {
+        Debug.Log("You made a cup of strawberry smoothie!");
+        drinkImage.ShowDrink("strawberry_smoothie");
+        menu = 22;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofyogurt_pearl()
+    {
+        Debug.Log("You made a cup of bubble tea (yogurt)!");
+        drinkImage.ShowDrink("yogurt_pearl");
+        menu = 23;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofgreentea_pearl()
+    {
+        Debug.Log("You made a cup of bubble tea (greentea)!");
+        drinkImage.ShowDrink("greentea_pearl");
+        menu = 24;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofstrawberry_pearl()
+    {
+        Debug.Log("You made a cup of bubble tea (strawberry)!");
+        drinkImage.ShowDrink("strawberry_pearl");
+        menu = 25;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofespresso_frapp()
+    {
+        Debug.Log("You made a cup of espresso blended!");
+        drinkImage.ShowDrink("espresso_frapp");
+        menu = 26;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofgreentea_frapp()
+    {
+        Debug.Log("You made a cup of greentea blended!");
+        drinkImage.ShowDrink("greentea_frapp");
+        menu = 27;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofstrawberry_frapp()
+    {
+        Debug.Log("You made a cup of strawberry blended!");
+        drinkImage.ShowDrink("strawberry_frapp");
+        menu = 28;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofchocolate_frapp()
+    {
+        Debug.Log("You made a cup of chocolate blended!");
+        drinkImage.ShowDrink("chocolate_frapp");
+        menu = 29;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
+    }
+    public void Cupofmistake()
+    {
+        Debug.Log("You made a mistake...");
+        //drinkImage.ShowDrink("mistake");
+        menu = 0;
+        Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
     #endregion
 }
