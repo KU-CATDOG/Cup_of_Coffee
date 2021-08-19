@@ -618,4 +618,121 @@ public class Recipe : MonoBehaviour
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
     #endregion
+
+    public void Reset_Ingredient()
+    {
+        IngredientReset();
+    }
+
+    public List<string> GetAddedIngredientLog()
+    {
+        List<string> logIngredient = new List<string>();
+        List<int> logCount = new List<int>();
+        char temp = ' ';
+        for (int i = 0; i < queue.Count; i++)
+        {
+            if (queue[i] != temp)
+            {
+                string ingredient = "";
+                switch (queue[i])
+                {
+                    case 'A':
+                        ingredient = "바닐라 시럽";
+                        break;
+                    case 'B':
+                        ingredient = "초코 시럽";
+                        break;
+                    case 'C':
+                        ingredient = "카라멜 시럽";
+                        break;
+                    case 'D':
+                        ingredient = "샷";
+                        break;
+                    case 'E':
+                        ingredient = "우유";
+                        break;
+                    case 'F':
+                        ingredient = "우유 거품";
+                        break;
+                    case 'G':
+                        ingredient = "얼음";
+                        break;
+                    case 'H':
+                        ingredient = "녹차 파우더";
+                        break;
+                    case 'I':
+                        ingredient = "딸기 파우더";
+                        break;
+                    case 'J':
+                        ingredient = "초코 파우더";
+                        break;
+                    case 'K':
+                        ingredient = "휘핑크림";
+                        break;
+                    case 'L':
+                        ingredient = "요거트";
+                        break;
+                    case 'M':
+                        ingredient = "타피오카";
+                        break;
+                    case 'N':
+                        ingredient = "섞어주기";
+                        break;
+                    case 'O':
+                        ingredient = "물";
+                        break;
+                }
+
+                logIngredient.Add(ingredient);
+                logCount.Add(1);
+                temp = queue[i];
+            }
+            else
+            {
+                logCount[logCount.Count - 1]++;
+            }
+        }
+
+        List<string> log = new List<string>();
+        for (int i = 0; i < logIngredient.Count; i++)
+        {
+            string logString = logIngredient[i];
+
+            string unit = "";
+            switch (logString)
+            {
+                case "바닐라 시럽":
+                case "초코 시럽":
+                case "카라멜 시럽":
+                case "녹차 파우더":
+                case "딸기 파우더":
+                case "초코 파우더":
+                    unit = "스푼";
+                    break;
+                case "샷":
+                    unit = "개";
+                    break;
+                case "우유":
+                case "물":
+                    unit = "mL";
+                    break;
+            }
+
+            if (unit == "")
+            {
+                logString += "";
+            }
+            else if (unit == "mL")
+            {
+                logString += " × " + (logCount[i] * 50) + unit;
+            }
+            else
+            {
+                logString += " × " + logCount[i] + unit;
+            }
+            log.Add(logString);
+        }
+
+        return log;
+    }
 }
