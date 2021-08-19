@@ -22,12 +22,11 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     GameTime gameTime;
     int dayCount = 0;
-    int hour = 0;
     int closeTime = 2; //마지막 손님 받는 시간
     int currentOrder = 0;
 
     [HideInInspector]
-    public bool getCustomerOrder = false, holdDialogue = false, endScript = false;
+    public bool getCustomerOrder = false, endScript = false;
 
     public class scripts
     {   //class to store each script
@@ -35,7 +34,6 @@ public class CsvLoadTest_2 : MonoBehaviour
         public int order;
         public string script;
         public string name;
-        public string WhenToAppear; //0: 오픈 후 첫번째, -1: 마지막 손님/캐릭터
     }
 
     List<scripts> inGameScripts = new List<scripts>(); //list to store all scripts
@@ -100,7 +98,7 @@ public class CsvLoadTest_2 : MonoBehaviour
             for (int i = 0; i < data.Length - 1; i++)
             {
                 var singleData = Regex.Split(data[i], ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
-                inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0], WhenToAppear = singleData[3] });
+                inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0]);
             }
         }
 
