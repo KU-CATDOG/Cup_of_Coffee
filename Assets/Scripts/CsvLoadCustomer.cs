@@ -9,15 +9,18 @@ public class CsvLoadCustomer : MonoBehaviour
     public Text Customertext;
     public GameObject Customertextbox;
     public GameObject token;
+    public GameObject recipe;
 
     public bool isActive;
     public bool isSuccess;
     public bool isFail;
+    public bool isLock;
+
     public int menunumber;
     public string menustring;
     public int currentorder = 0;
     public string[] text = new string[4];
-
+    public int recipe_number;
 
     void Start()
     {
@@ -27,12 +30,14 @@ public class CsvLoadCustomer : MonoBehaviour
         SetMenuNum();
         Customer();
         token = GameObject.Find("TokenObject");
+        recipe = GameObject.Find("RecipeTest");
     }
 
     private void SetMenuNum()
     {
-        menunumber = Random.Range(1, 28);
+        menunumber = Random.Range(1, 29); //메뉴 1~29까지 랜덤 선택
         menu(menunumber);
+
     }
 
 
@@ -42,18 +47,35 @@ public class CsvLoadCustomer : MonoBehaviour
         {
             Customer();
         }
-        if (isSuccess == true)
+
+        /*  if (isSuccess == true)
+          {
+              Pass();
+              isSuccess = false;
+          }
+          if (isFail == true)
+          {
+              Fail();
+              isFail = false;
+          }
+
+          */
+    }
+    public void RecipeCheck()
+    {
+        if (menunumber == recipe_number)
         {
             Pass();
-            isSuccess = false;
+            Debug.Log("pass");
         }
-        if (isFail == true)
+        else
         {
             Fail();
-            isFail = false;
+            Debug.Log("fail");
         }
 
     }
+
     public void Customer()
     {
         if (isActive == true)
@@ -61,12 +83,17 @@ public class CsvLoadCustomer : MonoBehaviour
             if (currentorder == 2)
             {
                 //isActive = false;
-                currentorder = 0;
-                SetMenuNum();
+                if (isLock == false) // 반복해서 주문이 오지 않도록 설정
+                {
+                    SetMenuNum();
+                    isLock = true;
+                }
                 return;
             }
+
             Customertext.text = text[currentorder];
             currentorder++;
+
         }
     }
 
@@ -85,7 +112,7 @@ public class CsvLoadCustomer : MonoBehaviour
     {
         switch (number)
         {
-            case 0: // 에스프레소는 리조트레또, 에스프레소, 룽고;
+            case 1: // 에스프레소는 리조트레또, 에스프레소, 룽고;
                 int b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
@@ -107,120 +134,118 @@ public class CsvLoadCustomer : MonoBehaviour
                 }
                 break;
 
-            case 1:
+            case 2:
                 text[1] = "시원한 카라멜 마끼아또로 한 잔 주세요";
                 menustring = "caramel_macchiato_ice";
                 break;
-            case 2:
+            case 3:
                 text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요";
                 menustring = "caramel_macchiato_hot";
-                break;
-            case 3:
-                text[1] = "아이스 아메리카노로 한 잔 주세요";
-                menustring = "americano_ice";
                 break;
             case 4:
                 text[1] = "따뜻한 아메리카노로 한 잔 주세요";
                 menustring = "americano_hot ";
                 break;
             case 5:
-                text[1] = "아이스 카페모카로 한 잔 주세요";
-                menustring = "caffe_mocha_ice ";
+                text[1] = "아이스 아메리카노로 한 잔 주세요";
+                menustring = "americano_ice";
                 break;
             case 6:
                 text[1] = "아이스 카페모카로 한 잔 주세요";
-                menustring = "caffe_mocha_hot";
+                menustring = "caffe_mocha_ice ";
                 break;
             case 7:
+                text[1] = "따뜻한 카페모카로 한 잔 주세요";
+                menustring = "caffe_mocha_hot";
+                break;
+            case 8:
                 text[1] = "에스프레소 콘 파냐로 한 잔 주세요";
                 menustring = "espresso_con_panna ";
                 break;
-            case 8:
+            case 9:
                 text[1] = "에스프레소 마끼아또로 한 잔 주세요";
                 menustring = "espresso_macchiato";
                 break;
-            case 9:
+            case 10:
                 text[1] = "카푸치노로 한 잔 주세요";
                 menustring = "cappuccino";
                 break;
-            case 10:
+            case 11:
                 text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요";
                 menustring = "vanilla_latte_hot";
                 break;
-            case 11:
+            case 12:
                 text[1] = "시원한 바닐라 라떼로 한 잔 주세요";
                 menustring = "vanilla_latte_ice";
                 break;
-            case 12:
+            case 13:
                 text[1] = "따뜻한 카페 라떼로 한 잔 주세요";
                 menustring = "caffe_latte_hot";
                 break;
-            case 13:
+            case 14:
                 text[1] = "시원한 카페 라떼로 한 잔 주세요";
                 menustring = "caffe_latte_ice";
                 break;
-            case 14:
+            case 15:
                 text[1] = "아이스 녹차 라떼로 한 잔 주세요";
                 menustring = "greentea_latte_ice";
                 break;
-            case 15:
+            case 16:
                 text[1] = "따뜻한 녹차 라떼로 한 잔 주세요";
                 menustring = "greentea_latte_hot ";
                 break;
-            case 16:
+            case 17:
                 text[1] = "딸기 라떼로 한 잔 주세요";
                 menustring = "strawberry_latte ";
                 break;
-            case 17:
+            case 18:
                 text[1] = "따뜻한 쵸코로 한 잔 주세요";
                 menustring = "hot_chocolate";
                 break;
-            case 18:
+            case 19:
                 text[1] = "시원한 쵸코로 한 잔 주세요";
                 menustring = "ice_chocolate ";
                 break;
-            case 19:
+            case 20:
                 text[1] = "요거트 스무디로 한 잔 주세요";
                 menustring = "yogurt_smoothie ";
                 break;
-            case 20:
+            case 21:
                 text[1] = "녹차 스무디로 한 잔 주세요";
                 menustring = "greentea_smoothie";
                 break;
-            case 21:
+            case 22:
                 text[1] = "딸기 스무디로 한 잔 주세요";
                 menustring = "strawberry_smoothie ";
                 break;
-            case 22:
+            case 23:
                 text[1] = "요거트 펄로 한 잔 주세요";
                 menustring = "yogurt_pearl ";
                 break;
-            case 23:
+            case 24:
                 text[1] = "녹차 펄로 한 잔 주세요";
                 menustring = "greentea_pearl ";
                 break;
-            case 24:
+            case 25:
                 text[1] = "딸기 펄 음료 한 잔 주세요";
                 menustring = "strawberry_pearl ";
                 break;
-            case 25:
+            case 26:
                 text[1] = "에스프레소 프라푸치노 한 잔 주세요";
                 menustring = "espresso_frapp";
                 break;
-            case 26:
+            case 27:
                 text[1] = "녹차 프라푸치노 한 잔 주세요";
                 menustring = "greentea_frapp";
                 break;
-            case 27:
+            case 28:
                 text[1] = "딸기 프라푸치노 한 잔 주세요";
                 menustring = "strawberry_frapp";
                 break;
-            case 28:
+            case 29:
                 text[1] = "쵸코 프라푸치노 한 잔 주세요";
                 menustring = "chocolate_frapp";
                 break;
-
-
 
         }
 
