@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.IO;
 using System.Text.RegularExpressions;
 
-public class CsvLoadTest : MonoBehaviour
+public class CsvLoadTest_2 : MonoBehaviour
 {
     public GameObject DialogueBox;
     public Text ViewScript;
@@ -15,16 +15,19 @@ public class CsvLoadTest : MonoBehaviour
     public GameObject Customer;
     public GameObject Customertext;
 
+    public DialogueEvent DialogueEvent;
 
     public Image CharacterSprite;
     private TextAsset[] NPCscripts;
 
     GameTime gameTime;
     int dayCount = 0;
-
+    int hour = 0;
+    int closeTime = 2; //마지막 손님 받는 시간
     int currentOrder = 0;
 
-
+    [HideInInspector]
+    public bool getCustomerOrder = false, holdDialogue = false, endScript = false;
 
     public class scripts
     {   //class to store each script
@@ -32,15 +35,21 @@ public class CsvLoadTest : MonoBehaviour
         public int order;
         public string script;
         public string name;
+        public string WhenToAppear; //0: 오픈 후 첫번째, -1: 마지막 손님/캐릭터
     }
 
     List<scripts> inGameScripts = new List<scripts>(); //list to store all scripts
-    List<scripts> Sorted = new List<scripts>(); //sort scripts by day and order
+    public List<scripts> Sorted = new List<scripts>(); //sort scripts by day and order
+
+
+
+
 
     void Start()
     {
         Customer = GameObject.Find("CsvCustomer");
         gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
+
         if (gameTime != null)
         {
             dayCount = gameTime.day;
@@ -55,13 +64,22 @@ public class CsvLoadTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            
-            if (currentOrder >= 32) // 알바생과 점장 대사가 끝났을 때
+            if (getCustomerOrder) // 알바생과 점장 대사가 끝났을 때
             {
-                ViewScript.text = "";
+                
+                // DialogueBox.SetActive(false);
+                // ViewScript.text = "";
                 Customertext.SetActive(true);
                 Customer.SetActive(true);
                 Customer.GetComponent<CsvLoadCustomer>().isActive = true;
+
+                if(gameTime.hour >= closeTime){
+                    Customertext.SetActive(false);
+                    Customer.SetActive(false);
+                    Customer.GetComponent<CsvLoadCustomer>().isActive = false;
+                    getCustomerOrder = false;
+                    endScript = false;
+                }
             }
             else{
                 LoadInGameScript();
@@ -69,6 +87,7 @@ public class CsvLoadTest : MonoBehaviour
         }
     }
 
+    #region initialize scripts
 
     void LoadCSV()
     {
@@ -81,30 +100,38 @@ public class CsvLoadTest : MonoBehaviour
             for (int i = 0; i < data.Length - 1; i++)
             {
                 var singleData = Regex.Split(data[i], ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
-                inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0] });
+                inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0], WhenToAppear = singleData[3] });
             }
         }
 
 
     }
 
-    void LoadInGameScript()
+    void SortScripts()
     {
+        Sorted = inGameScripts.OrderBy(x => x.day).ThenBy(x => x.order).ToList();
+    }
+
+    #endregion
+    
+
+    void LoadInGameScript()
+    {   
         dayCount = gameTime.day;
 
-        if (currentOrder >= Sorted.Count)
+        if (endScript || Sorted[currentOrder].day != dayCount) //그 날의 대사가 끝났을 때
         {
             DialogueBox.SetActive(false);
+            if(gameTime.hour < closeTime){ 
+                getCustomerOrder = true; //손님 주문 받기 시작
+            }
             return;
         }
+        else {
 
-        if (dayCount != Sorted[currentOrder].day)
-        {
-            DialogueBox.SetActive(false);
-            return;
-        }
-        else
-        {
+            DialogueEvent.EventByDay(Sorted[currentOrder].day, Sorted[currentOrder].order); //각 대사의 이벤트
+
+            
             DialogueBox.SetActive(true);
 
             MatchCharacter(Sorted[currentOrder].name);
@@ -114,10 +141,7 @@ public class CsvLoadTest : MonoBehaviour
 
     }
 
-    void SortScripts()
-    {
-        Sorted = inGameScripts.OrderBy(x => x.day).ThenBy(x => x.order).ToList();
-    }
+    
 
     void MatchCharacter(string name)
     {
@@ -144,5 +168,6 @@ public class CsvLoadTest : MonoBehaviour
                 break;
         }
     }
+    
 
 }

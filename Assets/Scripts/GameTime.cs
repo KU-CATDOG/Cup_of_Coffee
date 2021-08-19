@@ -15,10 +15,14 @@ public class GameTime : MonoBehaviour
     public int endTime = 24;
 
     float sec;
-    int hour = 0;
+    
     int minute = 0;
     [HideInInspector]
+    public int hour = 0;
+    [HideInInspector]
     public int day;
+    [HideInInspector]
+    public bool resetDialogue = false;
 
     [HideInInspector]
     public bool isTimePassing = true;
@@ -63,6 +67,7 @@ public class GameTime : MonoBehaviour
                     {
                         day++;
                         hour = startTime;
+                        resetDialogue = true;
 
                         dayCounter.text = "Day : " + day.ToString();
 
