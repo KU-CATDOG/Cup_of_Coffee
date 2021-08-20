@@ -32,43 +32,58 @@ public class EspressoMachine : MonoBehaviour
     }
 
     #region SingleShot
-    public void SingleRistretto(){
-        if(!shotpullingLeft){
+    public void SingleRistretto()
+    {
+        if (!shotpullingLeft)
+        {
             loadingLeft = Left1.GetComponent<Image>();
             shotpullingLeft = true;
+            loadingLeft.color = new Color32(158, 222, 115, 255);
             StartCoroutine(shotTimingLeft(ristretto, loadingLeft));
         }
-        else{
+        else
+        {
             shotpullingLeft = false;
-            loadingLeft.fillAmount = 1; 
+            loadingLeft.fillAmount = 1;
+            loadingLeft.color = new Color32(200, 200, 200, 128);
         }
 
     }
 
 
-    public void SingleEspresso(){
-        
-        if(!shotpullingLeft){
+    public void SingleEspresso()
+    {
+
+        if (!shotpullingLeft)
+        {
             loadingLeft = Left2.GetComponent<Image>();
             shotpullingLeft = true;
+            loadingLeft.color = new Color32(247, 234, 0, 255);
             StartCoroutine(shotTimingLeft(espresso, loadingLeft));
         }
-        else{
+        else
+        {
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
+            loadingLeft.color = new Color32(200, 200, 200, 128);
         }
     }
 
-    public void SingleLungo(){
-        
-        if(!shotpullingLeft){
+    public void SingleLungo()
+    {
+
+        if (!shotpullingLeft)
+        {
             loadingLeft = Left3.GetComponent<Image>();
             shotpullingLeft = true;
+            loadingLeft.color = new Color32(228, 137, 0, 255);
             StartCoroutine(shotTimingLeft(lungo, loadingLeft));
         }
-        else{
+        else
+        {
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
+            loadingLeft.color = new Color32(200, 200, 200, 128);
         }
     }
 
@@ -87,7 +102,8 @@ public class EspressoMachine : MonoBehaviour
             yield return null;
         }
 
-        if(shotpullingLeft){
+        if (shotpullingLeft)
+        {
             if (EspressoType == ristretto)
             {
                 Debug.Log("ristretto: 1 shot");
@@ -111,44 +127,58 @@ public class EspressoMachine : MonoBehaviour
     #endregion
 
     #region DoubleShot
-    public void DoubleRistretto(){
-        
-        if(!shotpullingRight){
-            loadingRight = Right1.GetComponent<Image>();
+    public void DoubleRistretto()
+    {
 
+        if (!shotpullingRight)
+        {
+            loadingRight = Right1.GetComponent<Image>();
             shotpullingRight = true;
+            loadingRight.color = new Color32(158, 222, 115, 255);
             StartCoroutine(shotTimingRight(ristretto, loadingRight));
         }
-        else{
+        else
+        {
             shotpullingRight = false;
-            loadingRight.fillAmount = 1; 
+            loadingRight.fillAmount = 1;
+            loadingRight.color = new Color32(200, 200, 200, 128);
         }
 
     }
 
-    public void DoubleEspresso(){
-        
-        if(!shotpullingRight){
+    public void DoubleEspresso()
+    {
+
+        if (!shotpullingRight)
+        {
             loadingRight = Right2.GetComponent<Image>();
             shotpullingRight = true;
+            loadingRight.color = new Color32(247, 234, 0, 255);
             StartCoroutine(shotTimingRight(espresso, loadingRight));
         }
-        else{
+        else
+        {
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
+            loadingRight.color = new Color32(200, 200, 200, 128);
         }
     }
 
-    public void DoubleLungo(){
-        
-        if(!shotpullingRight){
+    public void DoubleLungo()
+    {
+
+        if (!shotpullingRight)
+        {
             loadingRight = Right3.GetComponent<Image>();
             shotpullingRight = true;
+            loadingRight.color = new Color32(228, 137, 0, 255);
             StartCoroutine(shotTimingRight(lungo, loadingRight));
         }
-        else{
+        else
+        {
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
+            loadingRight.color = new Color32(200, 200, 200, 128);
         }
     }
 
@@ -167,7 +197,8 @@ public class EspressoMachine : MonoBehaviour
             yield return null;
         }
 
-        if(shotpullingRight){
+        if (shotpullingRight)
+        {
             if (EspressoType == ristretto)
             {
                 Debug.Log("ristretto: 2 shot");
@@ -199,4 +230,4 @@ public class EspressoMachine : MonoBehaviour
 
 
 
- }
+}

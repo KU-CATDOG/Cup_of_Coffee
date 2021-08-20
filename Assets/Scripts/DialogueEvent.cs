@@ -12,7 +12,7 @@ public class DialogueEvent : MonoBehaviour
     [HideInInspector]
     public GameTime gameTime;
     [HideInInspector]
-    public Button espressoSingle, espressoDouble;
+    //public Button espressoSingle, espressoDouble;
     ColorBlock singleColor, doubleColor;
     [HideInInspector]
     public Image CharacterSprite;
@@ -23,12 +23,12 @@ public class DialogueEvent : MonoBehaviour
         movebg = GameObject.FindObjectOfType(typeof(MoveBackground)) as MoveBackground;
         gameTime = GameObject.FindObjectOfType(typeof(GameTime)) as GameTime;
         CharacterSprite = CsvLoad.CharacterSprite;
-        espressoSingle = GameObject.Find("SingleShotLeft").GetComponent<Button>();
-        espressoDouble = GameObject.Find("DoubleShotLeft").GetComponent<Button>();
+        //espressoSingle = GameObject.Find("SingleShotLeft").GetComponent<Button>();
+        //espressoDouble = GameObject.Find("DoubleShotLeft").GetComponent<Button>();
         DialogueBox = CsvLoad.DialogueBox;
 
-        singleColor = espressoSingle.colors;
-        doubleColor = espressoDouble.colors;
+        //singleColor = espressoSingle.colors;
+        //doubleColor = espressoDouble.colors;
     }
     void Update()
     {
@@ -72,20 +72,20 @@ public class DialogueEvent : MonoBehaviour
                 //highlight 1 shot
                 movebg.EspressomachineClicked();
                 singleColor.colorMultiplier = 2;
-                espressoSingle.colors = singleColor;
+                //espressoSingle.colors = singleColor;
                 break;
             case 14:
                 //highlight doubleshot
                 singleColor.colorMultiplier = 1;
-                espressoSingle.colors = singleColor;
+                //espressoSingle.colors = singleColor;
 
                 doubleColor.colorMultiplier = 2;
-                espressoDouble.colors = doubleColor;
+                //espressoDouble.colors = doubleColor;
 
                 break;
             case 15:
                 doubleColor.colorMultiplier = 1;
-                espressoDouble.colors = doubleColor;
+                //espressoDouble.colors = doubleColor;
                 //highlight espresso type buttons
                 break;
             case 17:

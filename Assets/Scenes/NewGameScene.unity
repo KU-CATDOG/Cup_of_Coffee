@@ -474,10 +474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c660efb1d9282634699be28ae0683be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  singleShotButtonLeft: {fileID: 1727174475}
-  singleShotButtonRight: {fileID: 1540665025}
-  DoubleShotButtonLeft: {fileID: 1115607459}
-  DoubleShotButtonRight: {fileID: 1631172300}
+  Left1: {fileID: 1727174475}
+  Left2: {fileID: 1115607459}
+  Left3: {fileID: 1708370563}
+  Right1: {fileID: 1540665025}
+  Right2: {fileID: 1631172300}
+  Right3: {fileID: 2005585175}
 --- !u!1 &62360363
 GameObject:
   m_ObjectHideFlags: 0
@@ -3289,7 +3291,7 @@ GameObject:
   - component: {fileID: 1115607461}
   - component: {fileID: 1115607460}
   m_Layer: 0
-  m_Name: DoubleShotLeft
+  m_Name: SingleEspresso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3341,8 +3343,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60308998}
         m_TargetAssemblyTypeName: EspressoMachine, Assembly-CSharp
-        m_MethodName: espressoButtonLeft
-        m_Mode: 3
+        m_MethodName: SingleEspresso
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4908,7 +4910,7 @@ GameObject:
   - component: {fileID: 1540665027}
   - component: {fileID: 1540665026}
   m_Layer: 0
-  m_Name: SingleShotRight
+  m_Name: DoubleRistretto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4960,8 +4962,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60308998}
         m_TargetAssemblyTypeName: EspressoMachine, Assembly-CSharp
-        m_MethodName: espressoButtonRight
-        m_Mode: 3
+        m_MethodName: DoubleRistretto
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5498,7 +5500,7 @@ GameObject:
   - component: {fileID: 1631172302}
   - component: {fileID: 1631172301}
   m_Layer: 0
-  m_Name: DoubleShotRight
+  m_Name: DoubleEspresso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5550,8 +5552,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60308998}
         m_TargetAssemblyTypeName: EspressoMachine, Assembly-CSharp
-        m_MethodName: espressoButtonRight
-        m_Mode: 3
+        m_MethodName: DoubleEspresso
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6040,7 +6042,7 @@ GameObject:
   - component: {fileID: 1708370566}
   - component: {fileID: 1708370565}
   m_Layer: 0
-  m_Name: LeftButton3
+  m_Name: SingleLungo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6112,7 +6114,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60308998}
         m_TargetAssemblyTypeName: EspressoMachine, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SingleLungo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6174,7 +6176,7 @@ GameObject:
   - component: {fileID: 1727174477}
   - component: {fileID: 1727174476}
   m_Layer: 0
-  m_Name: SingleShotLeft
+  m_Name: SingleRistretto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6202,9 +6204,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_PressedColor: {r: 0, g: 0.23360252, b: 1, a: 1}
-    m_SelectedColor: {r: 0.035672426, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6226,12 +6228,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60308998}
         m_TargetAssemblyTypeName: EspressoMachine, Assembly-CSharp
-        m_MethodName: espressoButtonLeft
-        m_Mode: 3
+        m_MethodName: SingleRistretto
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6328,8 +6330,6 @@ MonoBehaviour:
   CsvLoad: {fileID: 1735913348}
   movebg: {fileID: 1852035755}
   gameTime: {fileID: 0}
-  espressoSingle: {fileID: 0}
-  espressoDouble: {fileID: 0}
   CharacterSprite: {fileID: 0}
   DialogueBox: {fileID: 0}
 --- !u!114 &1735913348
@@ -6873,7 +6873,7 @@ GameObject:
   - component: {fileID: 2005585178}
   - component: {fileID: 2005585177}
   m_Layer: 0
-  m_Name: RightButton3
+  m_Name: DoubleLungo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6945,7 +6945,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 60308998}
         m_TargetAssemblyTypeName: EspressoMachine, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: DoubleLungo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
