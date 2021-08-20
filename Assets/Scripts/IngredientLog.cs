@@ -16,6 +16,15 @@ public class IngredientLog : MonoBehaviour
         CloseLog();
     }
 
+    private void Update()
+    {
+        if (isOpened == true)
+        {
+            ShowLog();
+        }
+    }
+
+
     public void ButtonPressEvent()
     {
         if (isOpened == true)

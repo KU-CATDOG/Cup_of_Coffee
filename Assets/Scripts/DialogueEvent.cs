@@ -8,7 +8,6 @@ public class DialogueEvent : MonoBehaviour
 {
 
     public CsvLoadTest_2 CsvLoad;
-    [HideInInspector]
     public MoveBackground movebg;
     [HideInInspector]
     public GameTime gameTime;
@@ -16,13 +15,14 @@ public class DialogueEvent : MonoBehaviour
     public Button espressoSingle, espressoDouble;
     ColorBlock singleColor, doubleColor;
     [HideInInspector]
-    public GameObject CharacterSprite, DialogueBox;
+    public Image CharacterSprite;
+    public GameObject DialogueBox;
 
     void Start()
     {
         movebg = GameObject.FindObjectOfType(typeof(MoveBackground)) as MoveBackground;
         gameTime = GameObject.FindObjectOfType(typeof(GameTime)) as GameTime;
-        CharacterSprite = GameObject.Find("CharacterSprite");
+        CharacterSprite = CsvLoad.CharacterSprite;
         espressoSingle = GameObject.Find("SingleShotLeft").GetComponent<Button>();
         espressoDouble = GameObject.Find("DoubleShotLeft").GetComponent<Button>();
         DialogueBox = CsvLoad.DialogueBox;
