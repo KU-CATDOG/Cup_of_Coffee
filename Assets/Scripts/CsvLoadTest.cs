@@ -55,7 +55,7 @@ public class CsvLoadTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            
+
             if (currentOrder >= 32) // 알바생과 점장 대사가 끝났을 때
             {
                 ViewScript.text = "";
@@ -63,7 +63,8 @@ public class CsvLoadTest : MonoBehaviour
                 Customer.SetActive(true);
                 Customer.GetComponent<CsvLoadCustomer>().isActive = true;
             }
-            else{
+            else
+            {
                 LoadInGameScript();
             }
         }

@@ -117,8 +117,9 @@ public class MoveBackground : MonoBehaviour
     }
 
 
-        //Espresso Machine zoom in
-    public void EspressomachineClicked(){
+    //Espresso Machine zoom in
+    public void EspressomachineClicked()
+    {
         bgScale.localScale = new Vector2(1.75f, 1.75f);
 
         Leftbtn.gameObject.SetActive(false);
@@ -127,12 +128,13 @@ public class MoveBackground : MonoBehaviour
         Rightbtn.interactable = false;
 
         MachineButtons.SetActive(true);
-        
+
         ZoomOut.gameObject.SetActive(true);
     }
 
     //Espresso Machine zoom out
-    public void ZoomOutClicked(){
+    public void ZoomOutClicked()
+    {
         bgScale.localScale = new Vector2(1, 1);
 
         Leftbtn.gameObject.SetActive(true);

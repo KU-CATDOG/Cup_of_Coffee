@@ -64,14 +64,15 @@ public class CsvLoadTest_2 : MonoBehaviour
         {
             if (getCustomerOrder) // 알바생과 점장 대사가 끝났을 때
             {
-                
+
                 // DialogueBox.SetActive(false);
                 // ViewScript.text = "";
                 Customertext.SetActive(true);
                 Customer.SetActive(true);
                 Customer.GetComponent<CsvLoadCustomer>().isActive = true;
 
-                if(gameTime.hour >= closeTime){
+                if (gameTime.hour >= closeTime)
+                {
                     Customertext.SetActive(false);
                     Customer.SetActive(false);
                     Customer.GetComponent<CsvLoadCustomer>().isActive = false;
@@ -79,7 +80,12 @@ public class CsvLoadTest_2 : MonoBehaviour
                     endScript = false;
                 }
             }
-            else{
+            else
+            {
+                if (DialogueBox.activeSelf == false)
+                {
+                    DialogueBox.SetActive(true);
+                }
                 LoadInGameScript();
             }
         }
@@ -111,27 +117,25 @@ public class CsvLoadTest_2 : MonoBehaviour
     }
 
     #endregion
-    
+
 
     void LoadInGameScript()
-    {   
+    {
         dayCount = gameTime.day;
 
         if (endScript || Sorted[currentOrder].day != dayCount) //그 날의 대사가 끝났을 때
         {
             DialogueBox.SetActive(false);
-            if(gameTime.hour < closeTime){ 
+            if (gameTime.hour < closeTime)
+            {
                 getCustomerOrder = true; //손님 주문 받기 시작
             }
             return;
         }
-        else {
-
-            DialogueEvent.EventByDay(Sorted[currentOrder].day, Sorted[currentOrder].order); //각 대사의 이벤트
-
-            
+        else
+        {
             DialogueBox.SetActive(true);
-
+            DialogueEvent.EventByDay(Sorted[currentOrder].day, Sorted[currentOrder].order); //각 대사의 이벤트
             MatchCharacter(Sorted[currentOrder].name);
             ViewScript.text = Sorted[currentOrder].script;
             currentOrder++;
@@ -139,7 +143,7 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     }
 
-    
+
 
     void MatchCharacter(string name)
     {
@@ -166,6 +170,6 @@ public class CsvLoadTest_2 : MonoBehaviour
                 break;
         }
     }
-    
+
 
 }

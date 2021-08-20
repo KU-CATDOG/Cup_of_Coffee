@@ -1874,55 +1874,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &676978366
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 676978368}
-  - component: {fileID: 676978367}
-  m_Layer: 0
-  m_Name: CsvSpecial
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &676978367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676978366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f197e39ec47887489382b43ab67c61a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 1080411797}
-  ViewScript: {fileID: 1029902303}
-  NameTag: {fileID: 1325618757}
-  Customer: {fileID: 1041448812}
-  Customertext: {fileID: 1155570698}
-  CharacterSprite: {fileID: 1707984100}
---- !u!4 &676978368
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 676978366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 953.6299, y: 839.549, z: -159.77016}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &688815697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3066,9 +3017,11 @@ MonoBehaviour:
   Customertext: {fileID: 1155570699}
   Customertextbox: {fileID: 1155570698}
   token: {fileID: 0}
+  recipe: {fileID: 0}
   isActive: 0
   isSuccess: 0
   isFail: 0
+  isLock: 0
   menunumber: 0
   menustring: 
   currentorder: 0
@@ -3077,6 +3030,7 @@ MonoBehaviour:
   - 
   - 
   - 
+  recipe_number: 0
 --- !u!4 &1041448814
 Transform:
   m_ObjectHideFlags: 0
@@ -3604,7 +3558,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1224722151
 GameObject:
@@ -4653,7 +4607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578877094
 GameObject:
@@ -5222,7 +5176,9 @@ MonoBehaviour:
   dayCounter: {fileID: 973937540}
   startTime: 0
   endTime: 24
+  hour: 0
   day: 0
+  resetDialogue: 0
   isTimePassing: 1
   saveLoadUI: {fileID: 1171448798}
 --- !u!4 &1686442244
@@ -5269,6 +5225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drinkImage: {fileID: 429290899}
+  menu: 0
+  Customer: {fileID: 1041448812}
 --- !u!4 &1697729243
 Transform:
   m_ObjectHideFlags: 0
@@ -5359,6 +5317,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707984098}
   m_CullTransparentMesh: 1
+--- !u!1 &1735913346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735913349}
+  - component: {fileID: 1735913348}
+  - component: {fileID: 1735913347}
+  m_Layer: 0
+  m_Name: CsvTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1735913347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735913346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a6b95900606244479fd86b09ba9bc32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CsvLoad: {fileID: 1735913348}
+  movebg: {fileID: 0}
+  gameTime: {fileID: 0}
+  espressoSingle: {fileID: 0}
+  espressoDouble: {fileID: 0}
+  CharacterSprite: {fileID: 0}
+  DialogueBox: {fileID: 0}
+--- !u!114 &1735913348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735913346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f94f315e0f036ed4bb673403d48b1b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueBox: {fileID: 1080411797}
+  ViewScript: {fileID: 1633679054}
+  NameTag: {fileID: 1325618757}
+  Customer: {fileID: 1041448812}
+  Customertext: {fileID: 1155570698}
+  DialogueEvent: {fileID: 1735913347}
+  CharacterSprite: {fileID: 1707984100}
+  getCustomerOrder: 0
+  endScript: 0
+--- !u!4 &1735913349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735913346}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1766802044
 GameObject:
   m_ObjectHideFlags: 0

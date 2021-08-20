@@ -18,27 +18,36 @@ public class DialogueEvent : MonoBehaviour
     [HideInInspector]
     public GameObject CharacterSprite, DialogueBox;
 
-    void Start(){
+    void Start()
+    {
         movebg = GameObject.FindObjectOfType(typeof(MoveBackground)) as MoveBackground;
         gameTime = GameObject.FindObjectOfType(typeof(GameTime)) as GameTime;
         CharacterSprite = GameObject.Find("CharacterSprite");
         espressoSingle = GameObject.Find("SingleShotLeft").GetComponent<Button>();
         espressoDouble = GameObject.Find("DoubleShotLeft").GetComponent<Button>();
-        DialogueBox = GameObject.Find("DialogueBox");
+        DialogueBox = CsvLoad.DialogueBox;
 
         singleColor = espressoSingle.colors;
         doubleColor = espressoDouble.colors;
     }
-    void Update(){
-        if(gameTime.resetDialogue){ //날짜 변경 시 스크립트 컨디션 리셋
+    void Update()
+    {
+        if (gameTime.resetDialogue)
+        { //날짜 변경 시 스크립트 컨디션 리셋
             CsvLoad.endScript = false;
             CsvLoad.getCustomerOrder = false;
             gameTime.resetDialogue = false;
         }
+        if (DialogueBox == null)
+        {
+            DialogueBox = GameObject.Find("DialogueBox");
+        }
     }
 
-    public void EventByDay(int day, int order){
-        switch(day){
+    public void EventByDay(int day, int order)
+    {
+        switch (day)
+        {
             case 0:
                 Day0_tutorial(order);
                 break;
@@ -48,9 +57,10 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    public void Day0_tutorial(int order){
-        
-        switch(order){
+    public void Day0_tutorial(int order)
+    {
+        switch (order)
+        {
             case 0:
                 DialogueBox.SetActive(true);
                 break;
@@ -71,7 +81,7 @@ public class DialogueEvent : MonoBehaviour
 
                 doubleColor.colorMultiplier = 2;
                 espressoDouble.colors = doubleColor;
-                
+
                 break;
             case 15:
                 doubleColor.colorMultiplier = 1;
@@ -102,9 +112,11 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    public void Day1(int order){
+    public void Day1(int order)
+    {
         //event in day1
-        switch(order){
+        switch (order)
+        {
             case 19:
                 CsvLoad.endScript = true;
                 Debug.Log(CsvLoad.endScript);
