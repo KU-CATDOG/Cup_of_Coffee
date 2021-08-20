@@ -15,10 +15,12 @@ public class EspressoMachine : MonoBehaviour
     float shottimingRight = 0;
     float fill = 0;
 
-    public GameObject singleShotButtonLeft;
-    public GameObject singleShotButtonRight;
-    public GameObject DoubleShotButtonLeft;
-    public GameObject DoubleShotButtonRight;
+    public GameObject Left1;
+    public GameObject Left2;
+    public GameObject Left3;
+    public GameObject Right1;
+    public GameObject Right2;
+    public GameObject Right3;
     private Image loadingLeft;
     private Image loadingRight;
 
@@ -29,176 +31,172 @@ public class EspressoMachine : MonoBehaviour
         recipe = GameObject.Find("RecipeTest").GetComponent<Recipe>();
     }
 
-
-
-
-    //left side buttons of the espresso machine
-    public void espressoButtonLeft(int shotAmount)
-    {
-        if (shotAmount == 1 && !shotpullingLeft)
-        {
-            loadingLeft = singleShotButtonLeft.GetComponent<Image>();
-        }
-        else if (shotAmount == 2 && !shotpullingLeft)
-        {
-            loadingLeft = DoubleShotButtonLeft.GetComponent<Image>();
-        }
-
-        if (!shotpullingLeft)
-        {
+    #region SingleShot
+    public void SingleRistretto(){
+        if(!shotpullingLeft){
+            loadingLeft = Left1.GetComponent<Image>();
             shotpullingLeft = true;
-            StartCoroutine(shotTimingLeft(shotAmount, loadingLeft));
+            StartCoroutine(shotTimingLeft(ristretto, loadingLeft));
         }
-        else
-        {
+        else{
+            shotpullingLeft = false;
+            loadingLeft.fillAmount = 1; 
+        }
+
+    }
+
+
+    public void SingleEspresso(){
+        
+        if(!shotpullingLeft){
+            loadingLeft = Left2.GetComponent<Image>();
+            shotpullingLeft = true;
+            StartCoroutine(shotTimingLeft(espresso, loadingLeft));
+        }
+        else{
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
-            loadingLeft.color = new Color32(181, 181, 181, 255);
         }
     }
 
-    IEnumerator shotTimingLeft(int shotAmount, Image loading)
+    public void SingleLungo(){
+        
+        if(!shotpullingLeft){
+            loadingLeft = Left3.GetComponent<Image>();
+            shotpullingLeft = true;
+            StartCoroutine(shotTimingLeft(lungo, loadingLeft));
+        }
+        else{
+            shotpullingLeft = false;
+            loadingLeft.fillAmount = 1;
+        }
+    }
+
+
+    IEnumerator shotTimingLeft(float EspressoType, Image loading)
     {
         shottimingLeft = 0;
 
-        while (shotpullingLeft && shottimingLeft < 4)
+        while (shotpullingLeft && shottimingLeft < EspressoType)
         {
             shottimingLeft += Time.deltaTime;
 
-            fill = (float)shottimingLeft / 4;
-            loading.fillAmount = fill;
-
-            if (shottimingLeft < ristretto)
-            {
-                loading.color = new Color32(255, 255, 255, 255);
-            }
-            else if (shottimingLeft < espresso)
-            {
-                loading.color = new Color32(255, 195, 117, 255);
-            }
-            else if (shottimingLeft < lungo)
-            {
-                loading.color = new Color32(255, 155, 97, 255);
-            }
-            else
-            {
-                loading.color = new Color32(255, 97, 97, 255);
-            }
+            fill = (float)shottimingLeft / EspressoType;
+            loadingLeft.fillAmount = fill;
 
             yield return null;
         }
 
-        if (shottimingLeft < ristretto)
-        {
-            Debug.Log("shot pulling cancelled (Left)");
-        }
-        else if (ristretto <= shottimingLeft && shottimingLeft < espresso)
-        {
-            Debug.Log("ristretto: " + shotAmount + " shots (Left)");
-            for (int i = 0; i < shotAmount; i++) { recipe.Add_shot(); }
-        }
-        else if (espresso < shottimingLeft && shottimingLeft < lungo)
-        {
-            Debug.Log("espresso: " + shotAmount + " shots (Left)");
-            for (int i = 0; i < shotAmount; i++) { recipe.Add_shot(); }
-        }
-        else if (shottimingLeft >= lungo)
-        {
-            Debug.Log("lungo: " + shotAmount + " shots (Left)");
-            for (int i = 0; i < shotAmount; i++) { recipe.Add_shot(); }
+        if(shotpullingLeft){
+            if (EspressoType == ristretto)
+            {
+                Debug.Log("ristretto: 1 shot");
+                recipe.Add_shot();
+            }
+            else if (EspressoType == espresso)
+            {
+                Debug.Log("espresso: 1 shot");
+                recipe.Add_shot();
+            }
+            else if (EspressoType == lungo)
+            {
+                Debug.Log("lungo: 1 shot");
+                recipe.Add_shot();
+            }
         }
 
+        shotpullingLeft = false;
+    }
 
+    #endregion
+
+    #region DoubleShot
+    public void DoubleRistretto(){
+        
+        if(!shotpullingRight){
+            loadingRight = Right1.GetComponent<Image>();
+
+            shotpullingRight = true;
+            StartCoroutine(shotTimingRight(ristretto, loadingRight));
+        }
+        else{
+            shotpullingRight = false;
+            loadingRight.fillAmount = 1; 
+        }
 
     }
 
-
-    //right side of the espresso machine
-    public void espressoButtonRight(int shotAmount)
-    {
-        if (shotAmount == 1 && !shotpullingRight)
-        {
-            loadingRight = singleShotButtonRight.GetComponent<Image>();
-        }
-        else if (shotAmount == 2 && !shotpullingRight)
-        {
-            loadingRight = DoubleShotButtonRight.GetComponent<Image>();
-        }
-
-        if (!shotpullingRight)
-        {
+    public void DoubleEspresso(){
+        
+        if(!shotpullingRight){
+            loadingRight = Right2.GetComponent<Image>();
             shotpullingRight = true;
-            StartCoroutine(shotTimingRight(shotAmount, loadingRight));
+            StartCoroutine(shotTimingRight(espresso, loadingRight));
         }
-        else
-        {
+        else{
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
-            loadingRight.color = new Color32(181, 181, 181, 255);
+        }
+    }
+
+    public void DoubleLungo(){
+        
+        if(!shotpullingRight){
+            loadingRight = Right3.GetComponent<Image>();
+            shotpullingRight = true;
+            StartCoroutine(shotTimingRight(lungo, loadingRight));
+        }
+        else{
+            shotpullingRight = false;
+            loadingRight.fillAmount = 1;
         }
     }
 
 
-    IEnumerator shotTimingRight(int shotAmount, Image loading)
+    IEnumerator shotTimingRight(float EspressoType, Image loading)
     {
         shottimingRight = 0;
 
-        while (shotpullingRight && shottimingRight < 4)
+        while (shotpullingRight && shottimingRight < EspressoType)
         {
             shottimingRight += Time.deltaTime;
 
-            fill = (float)shottimingRight / 4;
-            loading.fillAmount = fill;
-
-            if (shottimingRight < ristretto)
-            {
-                loading.color = new Color32(255, 255, 255, 255);
-            }
-            else if (shottimingRight < espresso)
-            {
-                loading.color = new Color32(255, 195, 117, 255);
-            }
-            else if (shottimingRight < lungo)
-            {
-                loading.color = new Color32(255, 155, 97, 255);
-            }
-            else
-            {
-                loading.color = new Color32(255, 97, 97, 255);
-            }
+            fill = (float)shottimingRight / EspressoType;
+            loadingRight.fillAmount = fill;
 
             yield return null;
         }
 
-        if (shottimingRight < ristretto)
-        {
-            Debug.Log("shot pulling cancelled (Right)");
+        if(shotpullingRight){
+            if (EspressoType == ristretto)
+            {
+                Debug.Log("ristretto: 2 shot");
+                recipe.Add_shot();
+                recipe.Add_shot();
+            }
+            else if (EspressoType == espresso)
+            {
+                Debug.Log("espresso: 2 shot");
+                recipe.Add_shot();
+                recipe.Add_shot();
+            }
+            else if (EspressoType == lungo)
+            {
+                Debug.Log("lungo: 2 shot");
+                recipe.Add_shot();
+                recipe.Add_shot();
+            }
+        }
 
-        }
-        else if (ristretto <= shottimingRight && shottimingRight < espresso)
-        {
-            Debug.Log("ristretto: " + shotAmount + " shots (Right)");
-            for (int i = 0; i < shotAmount; i++) { recipe.Add_shot(); }
-        }
-        else if (espresso < shottimingRight && shottimingRight < lungo)
-        {
-            Debug.Log("espresso: " + shotAmount + " shots (Right)");
-            for (int i = 0; i < shotAmount; i++) { recipe.Add_shot(); }
-        }
-        else if (shottimingRight >= lungo)
-        {
-            Debug.Log("lungo: " + shotAmount + " shots (Right)");
-            for (int i = 0; i < shotAmount; i++) { recipe.Add_shot(); }
-        }
-
+        shotpullingRight = false;
     }
 
 
 
+    #endregion
 
 
 
 
 
-
-}
+ }
