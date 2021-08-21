@@ -393,12 +393,14 @@ public class Recipe : MonoBehaviour
     {
         yogurt++;
         queue.Add('L');
+        SoundManager.Instance.PlaySFXSound("yogurt");
         Debug.Log("Yogurt");
     }
     public void Add_tapioca()
     {
         tapioca++;
         queue.Add('M');
+        SoundManager.Instance.PlaySFXSound("pearl_drop");
         Debug.Log("Tapioca");
     }
     public void Add_blend()
