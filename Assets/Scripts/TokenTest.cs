@@ -10,7 +10,6 @@ public class TokenTest : MonoBehaviour
     public int a; //a = token 종류
     public int b; // b = token 개수
 
-
     public int happy;
     public int love;
     public int hope;
@@ -19,6 +18,8 @@ public class TokenTest : MonoBehaviour
     public int anger;
     public int tired;
     public int fear;
+    public int real;
+    public int fake;
     /*
     토큰 종류 
     token_happy;
@@ -33,71 +34,356 @@ public class TokenTest : MonoBehaviour
  
     void Update() 
     {
-        happy = token.token_anger;
-        love = token.token_love;
-        hope = token.token_hope;
-        peace = token.token_peace;
-        sad = token.token_sad;
-        anger = token.token_anger;
-        tired = token.token_tired;
-        fear = token.token_fear;
+        happy = token.token_happy; // 1
+        love = token.token_love; // 2
+        hope = token.token_hope; // 3
+        peace = token.token_peace; // 4
+        sad = token.token_sad; // 5
+        anger = token.token_anger; // 6
+        tired = token.token_tired; // 7
+        fear = token.token_fear; // 8
+        real = token.real_token;
+        fake = token.fake_token;
 
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            TokenUp();
-
-        }
     }
 
-    public void TokenUp()
+
+    public void happyUp()
     {
-        a = Random.Range(1, 8);
-        b = Random.Range(1, 3);
+        token.token_happy += Random.Range(1,3);
+        Debug.Log("happy는" + token.token_happy);
 
-        if (a == 1)
+    }
+    public void loveUp()
+    {
+        token.token_love += Random.Range(1, 3);
+        Debug.Log("love는" + token.token_love);
+
+    }
+    public void hopeUp()
+    {
+        token.token_hope += Random.Range(1, 3);
+        Debug.Log("hope는" + token.token_hope);
+
+    }
+    public void peaceUp()
+    {
+        token.token_peace += Random.Range(1, 3);
+        Debug.Log("peace는" + token.token_peace);
+
+    }
+    public void sadUp()
+    {
+        token.token_sad += Random.Range(1, 3);
+        Debug.Log("sad는" + token.token_sad);
+
+    }
+    public void angerUp()
+    {
+        token.token_anger += Random.Range(1, 3);
+        Debug.Log("anger는" + token.token_anger);
+
+    }
+    public void tiredUp()
+    {
+        token.token_tired += Random.Range(1, 3);
+        Debug.Log("tired는" + token.token_tired);
+
+    }
+    public void fearUp()
+    {
+        token.token_fear += Random.Range(1, 3);
+        Debug.Log("fear는" + token.token_fear);
+
+    }
+
+    public void RealToken(int customertoken)
+    {
+        token.real_token++;
+
+        if (customertoken == 1)
         {
-            token.token_happy += b;
-            Debug.Log("happy는" + token.token_happy);
+            happyUp();
         }
-        if (a == 2)
+        else if (customertoken == 2)
         {
-            token.token_love += b;
-            Debug.Log("love는" + token.token_love);
+            loveUp();
         }
-        if (a == 3)
+        else if (customertoken == 3)
         {
-            token.token_hope += b;
-            Debug.Log("hope는" + token.token_hope);
+            hopeUp();
         }
-        if (a == 4)
+        else if (customertoken == 4)
         {
-            token.token_peace += b;
-            Debug.Log("peace는" + token.token_peace);
+            peaceUp();
         }
-        if (a == 5)
+        else if (customertoken == 5)
         {
-            token.token_sad += b;
-            Debug.Log("sad는" + token.token_sad);
+            sadUp();
         }
-        if (a == 6)
+        else if (customertoken == 6)
         {
-            token.token_anger += b;
-            Debug.Log("anger는" + token.token_anger);
+            angerUp();
         }
-        if (a == 7)
+        else if (customertoken == 7)
         {
-            token.token_tired += b;
-            Debug.Log("tired는" + token.token_tired);
+            tiredUp();
+        }
+        else
+        {
+            fearUp();
+        }
+    }
+
+    public void FakeToken(int number)
+    {
+        token.fake_token++;
+
+        if(number == 1) //Customer의 진짜 감정이 happy일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1: loveUp();
+                        break;
+                case 2:
+                        hopeUp();
+                        break;
+                case 3:
+                       peaceUp();
+                        break;
+                case 4:
+                        sadUp();
+                        break;
+                case 5:
+                        angerUp();
+                        break;
+                case 6:
+                        tiredUp();
+                        break;
+                case 7:
+                        fearUp();
+                        break;
+
+            }
 
         }
-        if (a == 8)
+        else if (number == 2) //Customer의 진짜 감정이 love일때
         {
-            token.token_fear += b;
-            Debug.Log("fear는" + token.token_fear);
+            int b = Random.Range(1, 7);
 
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    hopeUp();
+                    break;
+                case 3:
+                    peaceUp();
+                    break;
+                case 4:
+                    sadUp();
+                    break;
+                case 5:
+                    angerUp();
+                    break;
+                case 6:
+                    tiredUp();
+                    break;
+                case 7:
+                    fearUp();
+                    break;
+
+            }
         }
+        else if (number == 3) //Customer의 진짜 감정이 hope일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    loveUp();
+                    break;
+                case 3:
+                    peaceUp();
+                    break;
+                case 4:
+                    sadUp();
+                    break;
+                case 5:
+                    angerUp();
+                    break;
+                case 6:
+                    tiredUp();
+                    break;
+                case 7:
+                    fearUp();
+                    break;
+
+            }
+        }
+        else if (number == 4) //Customer의 진짜 감정이 peace일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    loveUp();
+                    break;
+                case 3:
+                    hopeUp();
+                    break;
+                case 4:
+                    sadUp();
+                    break;
+                case 5:
+                    angerUp();
+                    break;
+                case 6:
+                    tiredUp();
+                    break;
+                case 7:
+                    fearUp();
+                    break;
+
+            }
+        }
+        else if (number == 5) //Customer의 진짜 감정이 sad일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    loveUp();
+                    break;
+                case 3:
+                    hopeUp();
+                    break;
+                case 4:
+                    peaceUp();
+                    break;
+                case 5:
+                    angerUp();
+                    break;
+                case 6:
+                    tiredUp();
+                    break;
+                case 7:
+                    fearUp();
+                    break;
+
+            }
+        }
+        else if (number == 6) //Customer의 진짜 감정이 anger일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    loveUp();
+                    break;
+                case 3:
+                    hopeUp();
+                    break;
+                case 4:
+                    peaceUp();
+                    break;
+                case 5:
+                    sadUp();
+                    break;
+                case 6:
+                    tiredUp();
+                    break;
+                case 7:
+                    fearUp();
+                    break;
+
+            }
+        }
+        else if (number == 7) //Customer의 진짜 감정이 tired일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    loveUp();
+                    break;
+                case 3:
+                    hopeUp();
+                    break;
+                case 4:
+                    peaceUp();
+                    break;
+                case 5:
+                    sadUp();
+                    break;
+                case 6:
+                    angerUp();
+                    break;
+                case 7:
+                    fearUp();
+                    break;
+
+            }
+        }
+        else//Customer의 진짜 감정이 fear일때
+        {
+            int b = Random.Range(1, 7);
+
+            switch (b)
+            {
+                case 1:
+                    happyUp();
+                    break;
+                case 2:
+                    loveUp();
+                    break;
+                case 3:
+                    hopeUp();
+                    break;
+                case 4:
+                    peaceUp();
+                    break;
+                case 5:
+                    sadUp();
+                    break;
+                case 6:
+                    angerUp();
+                    break;
+                case 7:
+                    tiredUp();
+                    break;
+
+            }
+        }
+
 
 
     }
+
+
 }

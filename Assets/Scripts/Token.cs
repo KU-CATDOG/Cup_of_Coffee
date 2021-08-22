@@ -13,6 +13,8 @@ public class Token // Token에 필요한 변수를 정의한다.
     public int token_anger;
     public int token_tired;
     public int token_fear;
+    public int real_token;
+    public int fake_token;
 
     public Token()
     {
@@ -24,7 +26,9 @@ public class Token // Token에 필요한 변수를 정의한다.
         token_anger = 0;
         token_tired = 0;
         token_fear = 0;
-    }
+        real_token = 0;
+        fake_token = 0;
+}
 
     public void SaveCheck() // 토큰이 몇개 있는지 확인한다.
     {
