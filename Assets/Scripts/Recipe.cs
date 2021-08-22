@@ -316,78 +316,91 @@ public class Recipe : MonoBehaviour
     {
         vanilla_syrup++;
         queue.Add('A');
+        SoundManager.Instance.PlaySFXSound("syrup_pump");
         Debug.Log("Vanilla Syrup");
     }
     public void Add_chocolate_syrup()
     {
         chocolate_syrup++;
         queue.Add('B');
+        SoundManager.Instance.PlaySFXSound("syrup_pump");
         Debug.Log("Chocolate Syrup");
     }
     public void Add_caramel_syrup()
     {
         caramel_syrup++;
         queue.Add('C');
+        SoundManager.Instance.PlaySFXSound("syrup_pump");
         Debug.Log("Caramel Syrup");
     }
     public void Add_shot()
     {
         shot++;
         queue.Add('D');
+        SoundManager.Instance.PlaySFXSound("shot_extraction");
         Debug.Log("Shot");
     }
     public void Add_milk()
     {
         milk++;
         queue.Add('E');
+        SoundManager.Instance.PlaySFXSound("drink_pour");
         Debug.Log("Milk");
     }
     public void Add_milk_bubble()
     {
         milk_bubble++;
         queue.Add('F');
+        SoundManager.Instance.PlaySFXSound("milk_bubble");
         Debug.Log("Milk Bubble");
     }
     public void Add_ice()
     {
         ice++;
         queue.Add('G');
+        SoundManager.Instance.PlaySFXSound("ice_drop");
         Debug.Log("Ice");
     }
     public void Add_greentea_powder()
     {
         greentea_powder++;
         queue.Add('H');
+        SoundManager.Instance.PlaySFXSound("powder");
         Debug.Log("Greentea powder");
     }
     public void Add_strawberry_powder()
     {
         strawberry_powder++;
         queue.Add('I');
+        SoundManager.Instance.PlaySFXSound("powder");
         Debug.Log("Strawberry powder");
     }
     public void Add_chocolate_powder()
     {
         chocolate_powder++;
         queue.Add('J');
+        SoundManager.Instance.PlaySFXSound("powder");
         Debug.Log("Chocolate powder");
     }
     public void Add_whipped_cream()
     {
         whipped_cream++;
         queue.Add('K');
+        SoundManager.Instance.PlaySFXSound("whipped_cream");
         Debug.Log("Whipped cream");
     }
     public void Add_yogurt()
     {
         yogurt++;
         queue.Add('L');
+        SoundManager.Instance.PlaySFXSound("yogurt");
         Debug.Log("Yogurt");
     }
     public void Add_tapioca()
     {
         tapioca++;
         queue.Add('M');
+        SoundManager.Instance.PlaySFXSound("pearl_drop");
         Debug.Log("Tapioca");
     }
     public void Add_blend()
@@ -400,6 +413,7 @@ public class Recipe : MonoBehaviour
     {
         water++;
         queue.Add('O');
+        SoundManager.Instance.PlaySFXSound("drink_pour");
         Debug.Log("Water");
     }
     #endregion
@@ -410,6 +424,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of espresso!");
         drinkImage.ShowDrink("espresso");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 1;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -417,6 +432,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced caramel macchiato!");
         drinkImage.ShowDrink("caramel_macchiato_ice");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 2;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -424,6 +440,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot caramel macchiato!");
         drinkImage.ShowDrink("caramel_macchiato_hot");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 3;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -431,6 +448,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot americano!");
         drinkImage.ShowDrink("americano_hot");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 4;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
 
@@ -439,6 +457,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced americano!");
         drinkImage.ShowDrink("americano_ice");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 5;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -446,6 +465,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced caffe mocha!");
         drinkImage.ShowDrink("caffe_mocha_ice");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 6;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -453,6 +473,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot caffe mocha!");
         drinkImage.ShowDrink("caffe_mocha_hot");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 7;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -460,6 +481,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of espresso con panna!");
         drinkImage.ShowDrink("espresso_con_panna");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 8;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -467,6 +489,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of espresso macchiato!");
         drinkImage.ShowDrink("espresso_macchiato");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 9;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -474,6 +497,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of cappuccino!");
         drinkImage.ShowDrink("cappuccino");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 10;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -481,6 +505,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot vanilla latte!");
         drinkImage.ShowDrink("vanilla_latte_hot");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 11;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -488,6 +513,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced vanilla latte!");
         drinkImage.ShowDrink("vanilla_latte_ice");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 12;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -495,6 +521,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot caffe latte!");
         drinkImage.ShowDrink("caffe_latte_hot");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 13;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -502,6 +529,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced caffe latte!");
         drinkImage.ShowDrink("caffe_latte_ice");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 14;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -509,6 +537,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot greentea latte!");
         drinkImage.ShowDrink("greentea_latte_hot");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 15;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -516,6 +545,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced greentea latte!");
         drinkImage.ShowDrink("greentea_latte_ice");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 16;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -523,6 +553,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced strawberry latte!");
         drinkImage.ShowDrink("strawberry_latte");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 17;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -530,6 +561,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of hot chocolate!");
         drinkImage.ShowDrink("hot_chocolate");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 18;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -537,6 +569,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of iced chocolate!");
         drinkImage.ShowDrink("ice_chocolate");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 19;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -544,6 +577,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of yogurt smoothie!");
         drinkImage.ShowDrink("yogurt_smoothie");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 20;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -551,6 +585,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of greentea smoothie!");
         drinkImage.ShowDrink("greentea_smoothie");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 21;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -558,6 +593,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of strawberry smoothie!");
         drinkImage.ShowDrink("strawberry_smoothie");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 22;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -565,6 +601,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of bubble tea (yogurt)!");
         drinkImage.ShowDrink("yogurt_pearl");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 23;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -572,6 +609,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of bubble tea (greentea)!");
         drinkImage.ShowDrink("greentea_pearl");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 24;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -579,6 +617,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of bubble tea (strawberry)!");
         drinkImage.ShowDrink("strawberry_pearl");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 25;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -586,6 +625,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of espresso blended!");
         drinkImage.ShowDrink("espresso_frapp");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 26;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -593,6 +633,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of greentea blended!");
         drinkImage.ShowDrink("greentea_frapp");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 27;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -600,6 +641,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of strawberry blended!");
         drinkImage.ShowDrink("strawberry_frapp");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 28;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -607,6 +649,7 @@ public class Recipe : MonoBehaviour
     {
         Debug.Log("You made a cup of chocolate blended!");
         drinkImage.ShowDrink("chocolate_frapp");
+        SoundManager.Instance.PlaySFXSound("cup", 0.75f);
         menu = 29;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
     }
@@ -621,6 +664,7 @@ public class Recipe : MonoBehaviour
 
     public void Reset_Ingredient()
     {
+        SoundManager.Instance.PlaySFXSound("reset");
         IngredientReset();
     }
 
