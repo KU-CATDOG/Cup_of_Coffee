@@ -36,8 +36,10 @@ public class EspressoMachine : MonoBehaviour
         recipe = GameObject.Find("RecipeTest").GetComponent<Recipe>();
     }
 
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.Z)){    //(임시) Z 누르면 컵 제거
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {    //(임시) Z 누르면 컵 제거
             removeCupLeft();
             removeCupRight();
         }
@@ -45,49 +47,59 @@ public class EspressoMachine : MonoBehaviour
 
     #region SingleShot
 
-    public bool placeCupLeft(){
-        if(!cupLeft1){
+    public bool placeCupLeft()
+    {
+        if (!cupLeft1)
+        {
             cupLeft1 = true;
             Debug.Log("First cup placed on the left side");
             return true;
         }
-        else if(cupLeft1 && !cupLeft2){
+        else if (cupLeft1 && !cupLeft2)
+        {
             cupLeft2 = true;
             Debug.Log("Second cup placed on the left side");
             return true;
         }
-        else {
+        else
+        {
             Debug.Log("Remove cups before pulling another shot");
             return false;               //컵 2개가 이미 놓여있을 경우 false
         }
     }
 
-    public void removeCupLeft(){ // cupLeft2 -> 1 순으로 컵 제거
-        if(shotpullingLeft){        //샷 내리는 중 컵 제거하면 샷도 취소
-            shotpullingLeft= false;
+    public void removeCupLeft()
+    { // cupLeft2 -> 1 순으로 컵 제거
+        if (shotpullingLeft)
+        {        //샷 내리는 중 컵 제거하면 샷도 취소
+            shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
         }
-        if(cupLeft2){
+        if (cupLeft2)
+        {
             cupLeft2 = false;
             Debug.Log("Second cup removed (Left)");
         }
-        else if(cupLeft1){
+        else if (cupLeft1)
+        {
             cupLeft1 = false;
             Debug.Log("First cup removed (Left)");
         }
-        else{
+        else
+        {
             Debug.Log("No cup to remove (Left)");
         }
     }
 
-    
+
     public void SingleRistretto()
     {
-        
+
         if (!shotpullingLeft)
         {
-            if(placeCupLeft()){
+            if (placeCupLeft())
+            {
                 loadingLeft = Left1.GetComponent<Image>();
                 shotpullingLeft = true;
                 loadingLeft.color = new Color32(158, 222, 115, 255);
@@ -100,7 +112,7 @@ public class EspressoMachine : MonoBehaviour
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
             removeCupLeft();
-            
+
         }
 
     }
@@ -111,7 +123,8 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingLeft)
         {
-            if(placeCupLeft()){
+            if (placeCupLeft())
+            {
                 loadingLeft = Left2.GetComponent<Image>();
                 shotpullingLeft = true;
                 loadingLeft.color = new Color32(247, 234, 0, 255);
@@ -124,7 +137,7 @@ public class EspressoMachine : MonoBehaviour
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
             removeCupLeft();
-            
+
         }
     }
 
@@ -133,7 +146,8 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingLeft)
         {
-            if(placeCupLeft()){
+            if (placeCupLeft())
+            {
                 loadingLeft = Left3.GetComponent<Image>();
                 shotpullingLeft = true;
                 loadingLeft.color = new Color32(228, 137, 0, 255);
@@ -146,7 +160,7 @@ public class EspressoMachine : MonoBehaviour
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
             removeCupLeft();
-            
+
         }
     }
 
@@ -183,7 +197,7 @@ public class EspressoMachine : MonoBehaviour
             if (EspressoType == ristretto)
             {
                 Debug.Log("ristretto: 1 shot");
-                recipe.Add_shot();
+                recipe.Add_shot_ristretto();
             }
             else if (EspressoType == espresso)
             {
@@ -193,7 +207,7 @@ public class EspressoMachine : MonoBehaviour
             else if (EspressoType == lungo)
             {
                 Debug.Log("lungo: 1 shot");
-                recipe.Add_shot();
+                recipe.Add_shot_lungo();
             }
         }
 
@@ -204,31 +218,38 @@ public class EspressoMachine : MonoBehaviour
 
     #region DoubleShot
 
-    public bool placeCupRight(){
-        if(!cupRight1 && !cupRight2){
+    public bool placeCupRight()
+    {
+        if (!cupRight1 && !cupRight2)
+        {
             cupRight1 = true;
             cupRight2 = true;
             Debug.Log("Both cups placed on the right side");
             return true;
         }
-        else{
+        else
+        {
             Debug.Log("Remove cups before pulling another shot");
             return false;
         }
     }
 
-    public void removeCupRight(){ 
-        if(shotpullingRight){        
-            shotpullingRight= false;
+    public void removeCupRight()
+    {
+        if (shotpullingRight)
+        {
+            shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
         }
-        if(cupRight1 && cupRight1){
+        if (cupRight1 && cupRight1)
+        {
             cupRight1 = false;
             cupRight2 = false;
             Debug.Log("Both cups removed on the right side");
         }
-        else{
+        else
+        {
             Debug.Log("No cup to remove (Right)");
         }
     }
@@ -238,7 +259,8 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingRight)
         {
-            if(placeCupRight()){
+            if (placeCupRight())
+            {
                 loadingRight = Right1.GetComponent<Image>();
                 shotpullingRight = true;
                 loadingRight.color = new Color32(158, 222, 115, 255);
@@ -260,7 +282,8 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingRight)
         {
-            if(placeCupRight()){
+            if (placeCupRight())
+            {
                 loadingRight = Right2.GetComponent<Image>();
                 shotpullingRight = true;
                 loadingRight.color = new Color32(247, 234, 0, 255);
@@ -281,7 +304,8 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingRight)
         {
-            if(placeCupRight()){
+            if (placeCupRight())
+            {
                 loadingRight = Right3.GetComponent<Image>();
                 shotpullingRight = true;
                 loadingRight.color = new Color32(228, 137, 0, 255);
@@ -317,8 +341,8 @@ public class EspressoMachine : MonoBehaviour
             if (EspressoType == ristretto)
             {
                 Debug.Log("ristretto: 2 shot");
-                recipe.Add_shot();
-                recipe.Add_shot();
+                recipe.Add_shot_ristretto();
+                recipe.Add_shot_ristretto();
             }
             else if (EspressoType == espresso)
             {
@@ -329,8 +353,8 @@ public class EspressoMachine : MonoBehaviour
             else if (EspressoType == lungo)
             {
                 Debug.Log("lungo: 2 shot");
-                recipe.Add_shot();
-                recipe.Add_shot();
+                recipe.Add_shot_lungo();
+                recipe.Add_shot_lungo();
             }
         }
 

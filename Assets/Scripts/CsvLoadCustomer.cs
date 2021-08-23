@@ -39,6 +39,7 @@ public class CsvLoadCustomer : MonoBehaviour
     private void SetRandom() //랜덤으로 들어오는 것들 설정 = 메뉴, 토큰
     {
         menunumber = Random.Range(1, 29); //메뉴 1~29까지 랜덤 선택
+        Debug.Log("SetRandom()");
         menu(menunumber);
         customertoken = Random.Range(1, 8);
     }
@@ -95,12 +96,12 @@ public class CsvLoadCustomer : MonoBehaviour
     {
         Customertext.text = "감사합니다. 수고하세요~";
         int random = Random.Range(0, 100);
-        if(random < real) // 진짜 감정을 줄 때
+        if (random < real) // 진짜 감정을 줄 때
         {
             token.GetComponent<TokenTest>().RealToken(customertoken);
 
         }
-        else // 가짜 감정을 줄 떄
+        else // 가짜 감정을 줄 때
         {
             token.GetComponent<TokenTest>().FakeToken(customertoken);
         }
@@ -115,24 +116,26 @@ public class CsvLoadCustomer : MonoBehaviour
     {
         switch (number)
         {
-            case 1: // 에스프레소는 리조트레또, 에스프레소, 룽고;
+            case 1: // 에스프레소는 리스트레토, 에스프레소, 룽고;
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "에스프레소로 쓰지 않게 한 잔 주세요";
+                    text[1] = "에스프레소로 쓰지 않게 한 잔 주세요.";
                     menustring = "espresso_ristretto";
+                    menunumber = 30;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "에스프레소로 한 잔 주세요";
+                    text[1] = "에스프레소로 한 잔 주세요.";
                     menustring = "espresso";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "에스프레소로 시지 않게 한 잔 주세요";
+                    text[1] = "에스프레소로 시지 않게 한 잔 주세요.";
                     menustring = "espresso_lungo";
+                    menunumber = 31;
                     break;
                 }
                 break;
@@ -141,20 +144,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "시원한 카라멜 마끼아또로 한 잔 주세요. 쓰지 않게 해서 주세요";
-                    menustring = "caramel_macchiato_cold_ristretto";
+                    text[1] = "시원한 카라멜 마끼아또로 한 잔 주세요. 쓰지 않게 해서 주세요.";
+                    menustring = "caramel_macchiato_ice_ristretto";
+                    menunumber = 32;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "카라멜 마끼아또로 한 잔 주세요";
-                    menustring = "caramel_macchiato_cold";
+                    text[1] = "카라멜 마끼아또로 한 잔 주세요.";
+                    menustring = "caramel_macchiato_ice";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "시원한 카라멜 마끼아또로 한 잔 주세요. 시지 않게 해서 주세요";
-                    menustring = "caramel_macchiato_cold_lungo";
+                    text[1] = "시원한 카라멜 마끼아또로 한 잔 주세요. 시지 않게 해서 주세요.";
+                    menustring = "caramel_macchiato_ice_lungo";
+                    menunumber = 33;
                     break;
                 }
                 break;
@@ -162,20 +167,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "caramel_macchiato_hot_ristretto";
+                    menunumber = 34;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요";
+                    text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요.";
                     menustring = "caramel_macchiato_hot";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "따뜻한 카라멜 마끼아또로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "caramel_macchiato_hot_lungo";
+                    menunumber = 35;
                     break;
                 }
                 break;
@@ -183,20 +190,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "따뜻한 아메리카노로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "따뜻한 아메리카노로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "americano_hot_ristretto";
+                    menunumber = 38;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "따뜻한 아메리카노로 한 잔 주세요";
+                    text[1] = "따뜻한 아메리카노로 한 잔 주세요.";
                     menustring = "americano_hot";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "따뜻한 아메리카노로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "따뜻한 아메리카노로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "americano_hot_lungo";
+                    menunumber = 39;
                     break;
                 }
                 break;
@@ -204,20 +213,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "아이스 아메리카노로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "아이스 아메리카노로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "americano_ice_ristretto";
+                    menunumber = 36;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "아이스 아메리카노로 한 잔 주세요";
+                    text[1] = "아이스 아메리카노로 한 잔 주세요.";
                     menustring = "americano_ice";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "아이스 아메리카노로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "아이스 아메리카노로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "americano_ice_lungo";
+                    menunumber = 37;
                     break;
                 }
                 break;
@@ -225,20 +236,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "아이스 카페모카로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "아이스 카페모카로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "caffe_mocha_ice_ristretto";
+                    menunumber = 40;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "아이스 카페모카로 한 잔 주세요";
+                    text[1] = "아이스 카페모카로 한 잔 주세요.";
                     menustring = "caffe_mocha_ice";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "아이스 카페모카로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "아이스 카페모카로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "caffe_mocha_ice_lungo";
+                    menunumber = 41;
                     break;
                 }
                 break;
@@ -246,20 +259,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "따뜻한 카페모카로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "따뜻한 카페모카로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "caffe_mocha_hot_ristretto";
+                    menunumber = 42;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "따뜻한 카페모카로 한 잔 주세요";
+                    text[1] = "따뜻한 카페모카로 한 잔 주세요.";
                     menustring = "caffe_mocha_hot";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "따뜻한 카페모카로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "따뜻한 카페모카로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "caffe_mocha_hot_lungo";
+                    menunumber = 43;
                     break;
                 }
                 break;
@@ -267,20 +282,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "에스프레소 콘 파냐로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "에스프레소 콘 파냐로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "espresso_con_panna_ristretto";
+                    menunumber = 44;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "에스프레소 콘 파냐로 한 잔 주세요";
+                    text[1] = "에스프레소 콘 파냐로 한 잔 주세요.";
                     menustring = "espresso_con_panna";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "에스프레소 콘 파냐로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "에스프레소 콘 파냐로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "espresso_con_panna_lungo";
+                    menunumber = 45;
                     break;
                 }
                 break;
@@ -288,20 +305,22 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "에스프레소 마끼아또로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "에스프레소 마끼아또로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "espresso_macchiato_ristretto";
+                    menunumber = 46;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "에스프레소 마끼아또로 한 잔 주세요";
+                    text[1] = "에스프레소 마끼아또로 한 잔 주세요.";
                     menustring = "espresso_macchiato";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "에스프레소 마끼아또로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "에스프레소 마끼아또로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "espresso_macchiato_lungo";
+                    menunumber = 47;
                     break;
                 }
                 break;
@@ -309,49 +328,91 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "카푸치노로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "카푸치노로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "cappuccino_ristretto";
+                    menunumber = 48;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "카푸치노로 한 잔 주세요";
+                    text[1] = "카푸치노로 한 잔 주세요.";
                     menustring = "cappuccino";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "카푸치노로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "카푸치노로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "cappuccino_lungo";
+                    menunumber = 49;
                     break;
                 }
                 break;
             case 11:
-                text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요";
-                menustring = "vanilla_latte_hot";
+                b = Random.Range(1, 100);
+                if (0 <= b && b < 15)
+                {
+                    text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요. 쓰지 않게 해서 주세요.";
+                    menustring = "vanilla_latte_hot_ristretto";
+                    menunumber = 50;
+                    break;
+                }
+                else if (15 <= b && b < 85)
+                {
+                    text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요.";
+                    menustring = "vanilla_latte_hot";
+                    break;
+                }
+                else if (b >= 85)
+                {
+                    text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요. 시지 않게 해서 주세요.";
+                    menustring = "vanilla_latte_hot_lungo";
+                    menunumber = 51;
+                    break;
+                }
                 break;
             case 12:
-                text[1] = "시원한 바닐라 라떼로 한 잔 주세요";
-                menustring = "vanilla_latte_ice";
+                b = Random.Range(1, 100);
+                if (0 <= b && b < 15)
+                {
+                    text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요. 쓰지 않게 해서 주세요.";
+                    menustring = "vanilla_latte_ice_ristretto";
+                    menunumber = 52;
+                    break;
+                }
+                else if (15 <= b && b < 85)
+                {
+                    text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요.";
+                    menustring = "vanilla_latte_ice";
+                    break;
+                }
+                else if (b >= 85)
+                {
+                    text[1] = "따뜻한 바닐라 라떼로 한 잔 주세요. 시지 않게 해서 주세요.";
+                    menustring = "vanilla_latte_ice_lungo";
+                    menunumber = 53;
+                    break;
+                }
                 break;
             case 13:
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "따뜻한 카페 라떼로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "따뜻한 카페 라떼로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "caffe_latte_hot_ristretto";
+                    menunumber = 54;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "따뜻한 카페 라떼로 한 잔 주세요";
+                    text[1] = "따뜻한 카페 라떼로 한 잔 주세요.";
                     menustring = "caffe_latte_hot";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "따뜻한 카페 라떼로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "따뜻한 카페 라떼로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "caffe_latte_hot_lungo";
+                    menunumber = 55;
                     break;
                 }
                 break;
@@ -359,98 +420,102 @@ public class CsvLoadCustomer : MonoBehaviour
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "시원한 카페 라떼로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "시원한 카페 라떼로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "caffe_latte_ice_ristretto";
+                    menunumber = 56;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "시원한 카페 라떼로 한 잔 주세요";
+                    text[1] = "시원한 카페 라떼로 한 잔 주세요.";
                     menustring = "caffe_latte_ice";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "시원한 카페 라떼로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "시원한 카페 라떼로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "caffe_latte_ice_lungo";
+                    menunumber = 57;
                     break;
                 }
                 break;
             case 15:
-                text[1] = "아이스 녹차 라떼로 한 잔 주세요";
+                text[1] = "아이스 녹차 라떼로 한 잔 주세요.";
                 menustring = "greentea_latte_ice";
                 break;
             case 16:
-                text[1] = "따뜻한 녹차 라떼로 한 잔 주세요";
+                text[1] = "따뜻한 녹차 라떼로 한 잔 주세요.";
                 menustring = "greentea_latte_hot ";
                 break;
             case 17:
-                text[1] = "딸기 라떼로 한 잔 주세요";
+                text[1] = "딸기 라떼로 한 잔 주세요.";
                 menustring = "strawberry_latte ";
                 break;
             case 18:
-                text[1] = "따뜻한 쵸코로 한 잔 주세요";
+                text[1] = "따뜻한 쵸코로 한 잔 주세요.";
                 menustring = "hot_chocolate";
                 break;
             case 19:
-                text[1] = "시원한 쵸코로 한 잔 주세요";
+                text[1] = "시원한 쵸코로 한 잔 주세요.";
                 menustring = "ice_chocolate ";
                 break;
             case 20:
-                text[1] = "요거트 스무디로 한 잔 주세요";
+                text[1] = "요거트 스무디로 한 잔 주세요.";
                 menustring = "yogurt_smoothie ";
                 break;
             case 21:
-                text[1] = "녹차 스무디로 한 잔 주세요";
+                text[1] = "녹차 스무디로 한 잔 주세요.";
                 menustring = "greentea_smoothie";
                 break;
             case 22:
-                text[1] = "딸기 스무디로 한 잔 주세요";
+                text[1] = "딸기 스무디로 한 잔 주세요.";
                 menustring = "strawberry_smoothie ";
                 break;
             case 23:
-                text[1] = "요거트 펄로 한 잔 주세요";
+                text[1] = "요거트 펄로 한 잔 주세요.";
                 menustring = "yogurt_pearl ";
                 break;
             case 24:
-                text[1] = "녹차 펄로 한 잔 주세요";
+                text[1] = "녹차 펄로 한 잔 주세요.";
                 menustring = "greentea_pearl ";
                 break;
             case 25:
-                text[1] = "딸기 펄 음료 한 잔 주세요";
+                text[1] = "딸기 펄 음료 한 잔 주세요.";
                 menustring = "strawberry_pearl ";
                 break;
             case 26:
                 b = Random.Range(1, 100);
                 if (0 <= b && b < 15)
                 {
-                    text[1] = "에스프레소 프라푸치노로 한 잔 주세요. 쓰지 않게 해서 주세요";
+                    text[1] = "에스프레소 프라푸치노로 한 잔 주세요. 쓰지 않게 해서 주세요.";
                     menustring = "espresso_frapp_ristretto";
+                    menunumber = 58;
                     break;
                 }
-                if (15 <= b && b < 85)
+                else if (15 <= b && b < 85)
                 {
-                    text[1] = "에스프레소 프라푸치노로 한 잔 주세요";
+                    text[1] = "에스프레소 프라푸치노로 한 잔 주세요.";
                     menustring = "espresso_frapp";
                     break;
                 }
-                if (b >= 85)
+                else if (b >= 85)
                 {
-                    text[1] = "에스프레소 프라푸치노로 한 잔 주세요. 시지 않게 해서 주세요";
+                    text[1] = "에스프레소 프라푸치노로 한 잔 주세요. 시지 않게 해서 주세요.";
                     menustring = "espresso_frapp_lungo";
+                    menunumber = 59;
                     break;
                 }
                 break;
             case 27:
-                text[1] = "녹차 프라푸치노 한 잔 주세요";
+                text[1] = "녹차 프라푸치노 한 잔 주세요.";
                 menustring = "greentea_frapp";
                 break;
             case 28:
-                text[1] = "딸기 프라푸치노 한 잔 주세요";
+                text[1] = "딸기 프라푸치노 한 잔 주세요.";
                 menustring = "strawberry_frapp";
                 break;
             case 29:
-                text[1] = "쵸코 프라푸치노 한 잔 주세요";
+                text[1] = "쵸코 프라푸치노 한 잔 주세요.";
                 menustring = "chocolate_frapp";
                 break;
 
