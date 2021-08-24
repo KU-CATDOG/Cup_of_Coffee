@@ -14,10 +14,12 @@ public class MoveBackground : MonoBehaviour
     public Button Leftbtn;
     public Button Rightbtn;
     public Button ZoomOut;
+    public Button ZoomOut2;
 
     public GameObject Rightbg;
     private RectTransform bgScale;
 
+    public Button espressoMachineButton;
     public GameObject MachineButtons;
 
     public float timeInterval = 0.5f;
@@ -25,6 +27,8 @@ public class MoveBackground : MonoBehaviour
 
     float xpos = 0;
     float movepos = 2560;
+
+    IEnumerator steamFinished;
 
     // Start is called before the first frame update
     void Start()
@@ -86,13 +90,43 @@ public class MoveBackground : MonoBehaviour
         Leftbtn.gameObject.SetActive(true);
     }
 
-
-    public void SteamNozzleClicked(GameObject steamCup)
+    // Steam Nozzle zoom in
+    public void SteamNozzleClicked(MoveSteamCup steamCup)
     {
-        if (!steamCup.activeSelf)
-        {
-            steamCup.SetActive(true);
-        }
+        bgScale.localScale = new Vector2(1.95f, 1.95f);
+        rectTransform.anchoredPosition -= Vector2.right * 700;
+        steamCup.StartSteaming();
+
+        MachineButtons.SetActive(false);
+        espressoMachineButton.interactable = false;
+
+        ZoomOut.gameObject.SetActive(false);
+        ZoomOut2.gameObject.SetActive(true);
+
+        steamFinished = SteamFinished(steamCup);
+        StartCoroutine(steamFinished);
+    }
+
+    public void SteamNozzleZoomOutClicked(MoveSteamCup steamCup)
+    {
+        bgScale.localScale = new Vector2(1.75f, 1.75f);
+        rectTransform.anchoredPosition += Vector2.right * 700;
+        steamCup.StopSteaming();
+
+        MachineButtons.SetActive(true);
+        espressoMachineButton.interactable = true;
+
+        ZoomOut.gameObject.SetActive(true);
+        ZoomOut2.gameObject.SetActive(false);
+
+        StopCoroutine(steamFinished);
+    }
+
+    IEnumerator SteamFinished(MoveSteamCup steamCup)
+    {
+        yield return new WaitForSeconds(5f);
+        steamCup.FinishedSteaming();
+        SteamNozzleZoomOutClicked(steamCup);
     }
 
 
