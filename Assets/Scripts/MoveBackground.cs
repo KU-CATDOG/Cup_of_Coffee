@@ -103,8 +103,8 @@ public class MoveBackground : MonoBehaviour
         ZoomOut.gameObject.SetActive(false);
         ZoomOut2.gameObject.SetActive(true);
 
-        steamFinished = SteamFinished(steamCup);
-        StartCoroutine(steamFinished);
+        steamCup.finishSteaming = SteamFinished(steamCup);
+        //StartCoroutine(steamFinished);
     }
 
     public void SteamNozzleZoomOutClicked(MoveSteamCup steamCup)
@@ -118,8 +118,6 @@ public class MoveBackground : MonoBehaviour
 
         ZoomOut.gameObject.SetActive(true);
         ZoomOut2.gameObject.SetActive(false);
-
-        StopCoroutine(steamFinished);
     }
 
     IEnumerator SteamFinished(MoveSteamCup steamCup)
@@ -128,7 +126,6 @@ public class MoveBackground : MonoBehaviour
         steamCup.FinishedSteaming();
         SteamNozzleZoomOutClicked(steamCup);
     }
-
 
     //Transition between backgrounds
     IEnumerator Transition(float dir, float time)
