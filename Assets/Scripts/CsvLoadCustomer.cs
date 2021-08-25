@@ -25,6 +25,9 @@ public class CsvLoadCustomer : MonoBehaviour
     public int real; // real = 진짜 감정을 줄 확률
     public int customertoken; //손님이 들어올 때 결정되는 토큰
 
+    public Image CustomerSprite;
+    public Image RealEmotionSprite;
+
     void Start()
     {
         isActive = false;
@@ -42,6 +45,9 @@ public class CsvLoadCustomer : MonoBehaviour
         Debug.Log("SetRandom()");
         menu(menunumber);
         customertoken = Random.Range(1, 8);
+
+        LoadCustomerSprite(); //손님 스프라이트
+        LoadEmotionSprite(customertoken);  //감정 스프라이트 로드
     }
 
 
@@ -50,6 +56,7 @@ public class CsvLoadCustomer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Customer();
+            
         }
 
 
@@ -104,7 +111,6 @@ public class CsvLoadCustomer : MonoBehaviour
         isLock = false;
         isSuccess = false;
         isFail = false;
-
     }
 
     public void Pass()
@@ -528,4 +534,41 @@ public class CsvLoadCustomer : MonoBehaviour
 
 
     } 
+
+    void LoadCustomerSprite(){
+        int i = Random.Range(1,24);
+        CustomerSprite.sprite = Resources.Load<Sprite>("CustomerSprites/손님" + i);
+        CustomerSprite.gameObject.SetActive(true);
+    }
+
+    void LoadEmotionSprite(int customertoken){
+        switch(customertoken){
+            case 1:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/행복");
+                break;
+            case 2:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/사랑");
+                break;
+            case 3:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/기대");
+                break;
+            case 4:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/평온");
+                break;
+            case 5:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/슬픔");
+                break;
+            case 6:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/분노");
+                break;
+            case 7:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/피로");
+                break;
+            case 8:
+                RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/공포");
+                break;
+
+        }
+        RealEmotionSprite.gameObject.SetActive(true);
+    }
 }
