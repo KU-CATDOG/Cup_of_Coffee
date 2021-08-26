@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MoveSteamCup : MonoBehaviour, IDragHandler
+public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
 {
     enum SteamType
     {
@@ -20,13 +21,20 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler
     public float bubbleHeight;
     public float steamHeight;
 
+    [NonSerialized]
+    public IEnumerator finishSteaming;
+    [NonSerialized]
+    public IEnumerator steamCheck;
+
     private const float steamingXPos = 395f;
 
-    private bool isSteaming = false;
+    private bool steamingStart = false;
 
     private Vector2 originalPosition;
 
     private SteamType steamType = SteamType.None;
+    private float bubble = 0;
+    private float steam = 0;
 
     private void Start()
     {
@@ -35,24 +43,21 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler
         //gameObject.SetActive(false);
     }
 
-    public void StartSteaming()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        isSteaming = true;
-        steamType = SteamType.None;
-        steamTypeText.text = "";
-        transform.localPosition = new Vector2(steamingXPos, minHeight);
-    }
+        if (!steamingStart)
+        {
+            steamingStart = true;
+            StartCoroutine(finishSteaming);
 
-    public void StopSteaming()
-    {
-        isSteaming = false;
-        steamTypeText.text = "";
-        transform.localPosition = originalPosition;
+            steamCheck = SteamCheck();
+            StartCoroutine(steamCheck);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (isSteaming)
+        if (steamingStart)
         {
             transform.position = new Vector2(transform.position.x, eventData.position.y);
 
@@ -66,45 +71,78 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler
                 transform.localPosition = new Vector2(transform.localPosition.x, maxHeight);
             }
 
-            if (transform.localPosition.y < bubbleHeight)
+            if (transform.localPosition.y < bubbleHeight || transform.localPosition.y == steamHeight)
             {
                 // none
-                //Debug.Log("None");
                 steamTypeText.text = "";
                 steamType = SteamType.None;
             }
             else if (transform.localPosition.y >= bubbleHeight && transform.localPosition.y < steamHeight)
             {
                 // 우유 거품
-                //Debug.Log("Bubble");
                 steamTypeText.text = "Bubble";
                 steamType = SteamType.Bubble;
             }
-            else if (transform.localPosition.y >= steamHeight)
+            else if (transform.localPosition.y > steamHeight)
             {
                 // 스팀
-                //Debug.Log("Steam");
                 steamTypeText.text = "Steam";
                 steamType = SteamType.Steam;
             }
         }
     }
 
+    public void StartSteaming()
+    {
+        steamType = SteamType.None;
+        steamTypeText.text = "";
+
+        bubble = 0;
+        steam = 0;
+        transform.localPosition = new Vector2(steamingXPos, steamHeight);
+    }
+
+    public void StopSteaming()
+    {
+        steamingStart = false;
+        steamTypeText.text = "";
+        transform.localPosition = originalPosition;
+
+        StopCoroutine(finishSteaming);
+        StopCoroutine(steamCheck);
+    }
+
     public void FinishedSteaming()
     {
-        switch (steamType)
+        if (bubble >= steam)
         {
-            case SteamType.None:
-
-                break;
-            case SteamType.Bubble:
-                recipe.Add_milk_bubble();
-                break;
-            case SteamType.Steam:
-                recipe.Add_milk();
-                break;
+            recipe.Add_milk_bubble();
+        }
+        else
+        {
+            recipe.Add_milk();
         }
 
+        //Debug.Log("Bubble: " + bubble + " Steam: " + steam);
         StopSteaming();
+    }
+
+    private IEnumerator SteamCheck()
+    {
+        float time = 5f;
+        while (time >= 0)
+        {
+            switch (steamType)
+            {
+                case SteamType.Bubble:
+                    bubble += Time.deltaTime;
+                    break;
+                case SteamType.Steam:
+                    steam += Time.deltaTime;
+                    break;
+            }
+            time -= Time.deltaTime;
+            yield return null;
+        }
     }
 }
