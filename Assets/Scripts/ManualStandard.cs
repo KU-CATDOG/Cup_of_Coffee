@@ -16,8 +16,4 @@ public class ManualStandard : MonoBehaviour
         
     }
 
-    public void Blend()
-    {
-        gameObject.SetActive(true);
-    }
 }
