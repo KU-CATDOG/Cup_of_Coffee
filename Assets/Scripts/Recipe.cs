@@ -23,34 +23,35 @@ public class Recipe : MonoBehaviour
     private int water = 0;                      //O
     private int shot_ristretto = 0;             //P
     private int shot_lungo = 0;                 //Q
+    private int mix = 0;                        //R
     #endregion
 
     #region--recipe declaration--
     private List<char> espresso = new List<char>(new char[] { 'D' });
-    private List<char> caramel_macchiato_ice = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'G', 'D', 'D' });
-    private List<char> caramel_macchiato_hot = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'D', 'D', 'F' });
+    private List<char> caramel_macchiato_ice = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'R', 'G', 'D', 'D' });
+    private List<char> caramel_macchiato_hot = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'R', 'D', 'D', 'F' });
     private List<char> americano_ice = new List<char>(new char[] { 'O', 'O', 'O', 'D', 'D', 'G' });
     private List<char> americano_hot = new List<char>(new char[] { 'O', 'O', 'O', 'O', 'O', 'O', 'D', 'D' });
-    private List<char> caffe_mocha_ice = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'E', 'E', 'E', 'G', 'K', 'B' });
-    private List<char> caffe_mocha_hot = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
+    private List<char> caffe_mocha_ice = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'R', 'E', 'E', 'E', 'G', 'K', 'B' });
+    private List<char> caffe_mocha_hot = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
     private List<char> espresso_con_panna = new List<char>(new char[] { 'D', 'K' });
     private List<char> espresso_macchiato = new List<char>(new char[] { 'D', 'F' });
     private List<char> cappuccino = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'D', 'D' });
-    private List<char> vanilla_latte_hot = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'N', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
-    private List<char> vanilla_latte_ice = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'N', 'E', 'E', 'E', 'G' });
+    private List<char> vanilla_latte_hot = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
+    private List<char> vanilla_latte_ice = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'R', 'E', 'E', 'E', 'G' });
     private List<char> caffe_latte_hot = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
     private List<char> caffe_latte_ice = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'G' });
-    private List<char> greentea_latte_ice = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'G' });
-    private List<char> greentea_latte_hot = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'H' });
-    private List<char> strawberry_latte = new List<char>(new char[] { 'I', 'I', 'E', 'E', 'E', 'E', 'G' });
-    private List<char> hot_chocolate = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K' });
-    private List<char> ice_chocolate = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'G', 'K', 'B' });
-    private List<char> yogurt_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'N' });
-    private List<char> greentea_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'H', 'H', 'N' });
-    private List<char> strawberry_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'N', 'L', 'I', 'I', 'N' });
-    private List<char> yogurt_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'N' });
-    private List<char> greentea_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'H', 'H', 'N' });
-    private List<char> strawberry_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'N', 'L', 'I', 'I', 'N' });
+    private List<char> greentea_latte_ice = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'R', 'G' });
+    private List<char> greentea_latte_hot = new List<char>(new char[] { 'H', 'H', 'E', 'E', 'E', 'E', 'E', 'E', 'R', 'F', 'H' });
+    private List<char> strawberry_latte = new List<char>(new char[] { 'I', 'I', 'E', 'E', 'E', 'E', 'R', 'G' });
+    private List<char> hot_chocolate = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'E', 'E', 'E', 'R', 'F', 'K' });
+    private List<char> ice_chocolate = new List<char>(new char[] { 'J', 'J', 'E', 'E', 'E', 'R', 'G', 'K', 'B' });
+    private List<char> yogurt_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'L', 'N' });
+    private List<char> greentea_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'L', 'H', 'H', 'N' });
+    private List<char> strawberry_smoothie = new List<char>(new char[] { 'E', 'E', 'E', 'G', 'L', 'I', 'I', 'N' });
+    private List<char> yogurt_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'L', 'N' });
+    private List<char> greentea_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'L', 'H', 'H', 'N' });
+    private List<char> strawberry_pearl = new List<char>(new char[] { 'M', 'E', 'E', 'E', 'G', 'L', 'I', 'I', 'N' });
     private List<char> espresso_frapp = new List<char>(new char[] { 'D', 'E', 'E', 'G', 'N' });
     private List<char> greentea_frapp = new List<char>(new char[] { 'E', 'E', 'E', 'H', 'H', 'N', 'K' });
     private List<char> strawberry_frapp = new List<char>(new char[] { 'E', 'E', 'E', 'I', 'I', 'N', 'K' });
@@ -60,28 +61,28 @@ public class Recipe : MonoBehaviour
 
     private List<char> espresso_ristretto = new List<char>(new char[] { 'P' });
     private List<char> espresso_lungo = new List<char>(new char[] { 'Q' });
-    private List<char> caramel_macchiato_ice_ristretto = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'G', 'P', 'P' });
-    private List<char> caramel_macchiato_ice_lungo = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'G', 'Q', 'Q' });
-    private List<char> caramel_macchiato_hot_ristretto = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'P', 'P', 'F' });
-    private List<char> caramel_macchiato_hot_lungo = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'Q', 'Q', 'F' });
+    private List<char> caramel_macchiato_ice_ristretto = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'R', 'G', 'P', 'P' });
+    private List<char> caramel_macchiato_ice_lungo = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'R', 'G', 'Q', 'Q' });
+    private List<char> caramel_macchiato_hot_ristretto = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'R', 'P', 'P', 'F' });
+    private List<char> caramel_macchiato_hot_lungo = new List<char>(new char[] { 'A', 'A', 'E', 'E', 'E', 'E', 'E', 'E', 'R', 'Q', 'Q', 'F' });
     private List<char> americano_ice_ristretto = new List<char>(new char[] { 'O', 'O', 'O', 'P', 'P', 'G' });
     private List<char> americano_ice_lungo = new List<char>(new char[] { 'O', 'O', 'O', 'Q', 'Q', 'G' });
     private List<char> americano_hot_ristretto = new List<char>(new char[] { 'O', 'O', 'O', 'O', 'O', 'O', 'P', 'P' });
     private List<char> americano_hot_lungo = new List<char>(new char[] { 'O', 'O', 'O', 'O', 'O', 'O', 'Q', 'Q' });
-    private List<char> caffe_mocha_ice_ristretto = new List<char>(new char[] { 'B', 'B', 'P', 'P', 'E', 'E', 'E', 'G', 'K', 'B' });
-    private List<char> caffe_mocha_ice_lungo = new List<char>(new char[] { 'B', 'B', 'Q', 'Q', 'E', 'E', 'E', 'G', 'K', 'B' });
-    private List<char> caffe_mocha_hot_ristretto = new List<char>(new char[] { 'B', 'B', 'P', 'P', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
-    private List<char> caffe_mocha_hot_lungo = new List<char>(new char[] { 'B', 'B', 'Q', 'Q', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
+    private List<char> caffe_mocha_ice_ristretto = new List<char>(new char[] { 'B', 'B', 'R', 'P', 'P', 'E', 'E', 'E', 'G', 'K', 'B' });
+    private List<char> caffe_mocha_ice_lungo = new List<char>(new char[] { 'B', 'B', 'R', 'Q', 'Q', 'E', 'E', 'E', 'G', 'K', 'B' });
+    private List<char> caffe_mocha_hot_ristretto = new List<char>(new char[] { 'B', 'B', 'R', 'P', 'P', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
+    private List<char> caffe_mocha_hot_lungo = new List<char>(new char[] { 'B', 'B', 'R', 'Q', 'Q', 'E', 'E', 'E', 'E', 'E', 'E', 'F', 'K', 'B' });
     private List<char> espresso_con_panna_ristretto = new List<char>(new char[] { 'P', 'K' });
     private List<char> espresso_con_panna_lungo = new List<char>(new char[] { 'Q', 'K' });
     private List<char> espresso_macchiato_ristretto = new List<char>(new char[] { 'P', 'F' });
     private List<char> espresso_macchiato_lungo = new List<char>(new char[] { 'Q', 'F' });
     private List<char> cappuccino_ristretto = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'P', 'P' });
     private List<char> cappuccino_lungo = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'Q', 'Q' });
-    private List<char> vanilla_latte_hot_ristretto = new List<char>(new char[] { 'A', 'A', 'P', 'P', 'N', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
-    private List<char> vanilla_latte_hot_lungo = new List<char>(new char[] { 'A', 'A', 'Q', 'Q', 'N', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
-    private List<char> vanilla_latte_ice_ristretto = new List<char>(new char[] { 'A', 'A', 'P', 'P', 'N', 'E', 'E', 'E', 'G' });
-    private List<char> vanilla_latte_ice_lungo = new List<char>(new char[] { 'A', 'A', 'Q', 'Q', 'N', 'E', 'E', 'E', 'G' });
+    private List<char> vanilla_latte_hot_ristretto = new List<char>(new char[] { 'A', 'A', 'P', 'P', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
+    private List<char> vanilla_latte_hot_lungo = new List<char>(new char[] { 'A', 'A', 'Q', 'Q', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
+    private List<char> vanilla_latte_ice_ristretto = new List<char>(new char[] { 'A', 'A', 'P', 'P', 'R', 'E', 'E', 'E', 'G' });
+    private List<char> vanilla_latte_ice_lungo = new List<char>(new char[] { 'A', 'A', 'Q', 'Q', 'R', 'E', 'E', 'E', 'G' });
     private List<char> caffe_latte_hot_ristretto = new List<char>(new char[] { 'P', 'P', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
     private List<char> caffe_latte_hot_lungo = new List<char>(new char[] { 'Q', 'Q', 'E', 'E', 'E', 'E', 'E', 'E', 'F' });
     private List<char> caffe_latte_ice_ristretto = new List<char>(new char[] { 'P', 'P', 'E', 'E', 'E', 'G' });
@@ -365,6 +366,30 @@ public class Recipe : MonoBehaviour
             else if (queue.SequenceEqual(caramel_macchiato_hot_lungo))
             {
                 Cupofcaramel_macchiato_hot_lungo();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+                IngredientReset();
+            }
+            else if (queue.SequenceEqual(caffe_mocha_ice_ristretto))
+            {
+                Cupofcaffe_mocha_ice_ristretto();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+                IngredientReset();
+            }
+            else if (queue.SequenceEqual(caffe_mocha_ice_lungo))
+            {
+                Cupofcaffe_mocha_ice_lungo();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+                IngredientReset();
+            }
+            else if (queue.SequenceEqual(caffe_mocha_hot_ristretto))
+            {
+                Cupofcaffe_mocha_hot_ristretto();
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+                IngredientReset();
+            }
+            else if (queue.SequenceEqual(caffe_mocha_hot_lungo))
+            {
+                Cupofcaffe_mocha_hot_lungo();
                 Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
