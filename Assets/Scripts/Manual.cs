@@ -35,7 +35,7 @@ public class Manual : MonoBehaviour
         CaramelMacchiato.SetActive(true);
         Americano.SetActive(true);
         CafeMocha.SetActive(true);
-        Cappuchino.SetActive(true);
+        Cappuchino.SetActive(true);          
         VanillaLatte.SetActive(true);
         CafeLatte.SetActive(true);
         GreenteaLatte.SetActive(true);
@@ -69,30 +69,30 @@ public class Manual : MonoBehaviour
         Smoothie.SetActive(false);
         BubbleTea.SetActive(false);
         Frappuccino.SetActive(false);
-
+        
     }
 
-    public void Explain() //Home 키 만 남기기
-    {
-        Square.SetActive(true);
-        Coffee.SetActive(false);
-        Latte.SetActive(false);
-        Else.SetActive(false);
-        Home.SetActive(true);
-        Espresso.SetActive(false);
-        CaramelMacchiato.SetActive(false);
-        CafeMocha.SetActive(false);
-        Cappuchino.SetActive(false);
-        Americano.SetActive(false);
-        CafeMocha.SetActive(false);
-        VanillaLatte.SetActive(false);
-        CafeLatte.SetActive(false);
-        GreenteaLatte.SetActive(false);
-        StrawberryLatte.SetActive(false);
-        Choco.SetActive(false);
-        Smoothie.SetActive(false);
-        BubbleTea.SetActive(false);
-        Frappuccino.SetActive(false);
+    public void Explain() // 메뉴얼과 Home 키 만 남기기
+        {
+            Square.SetActive(true);
+            Coffee.SetActive(false);
+            Latte.SetActive(false);
+            Else.SetActive(false);
+            Home.SetActive(true);
+            Espresso.SetActive(false);
+            CaramelMacchiato.SetActive(false);
+            CafeMocha.SetActive(false);
+            Cappuchino.SetActive(false);
+            Americano.SetActive(false);
+            CafeMocha.SetActive(false);
+            VanillaLatte.SetActive(false);
+            CafeLatte.SetActive(false);
+            GreenteaLatte.SetActive(false);
+            StrawberryLatte.SetActive(false);
+            Choco.SetActive(false);
+            Smoothie.SetActive(false);
+            BubbleTea.SetActive(false);
+            Frappuccino.SetActive(false);
 
     }
 
