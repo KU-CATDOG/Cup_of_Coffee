@@ -2,14 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Drink : MonoBehaviour
+public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public Sprite[] drinkImages;
     private Dictionary<string, Sprite> drinkImagesDic = new Dictionary<string, Sprite>();
 
     private Image image;
     private RectTransform rectTr;
+
+    private Vector2 initPos;
 
     private void Start()
     {
@@ -20,6 +23,8 @@ public class Drink : MonoBehaviour
 
         image = gameObject.GetComponent<Image>();
         rectTr = gameObject.GetComponent<RectTransform>();
+
+
 
         HideDrink();
     }
@@ -45,4 +50,31 @@ public class Drink : MonoBehaviour
         rectTr.sizeDelta = Vector2.one * 100;
         image.color = Color.clear;
     }
+
+    public void OnBeginDrag(PointerEventData data)
+    {
+        //Debug.Log("OnBeginDrag");
+        initPos = rectTr.anchoredPosition;
+    }
+
+    public void OnDrag(PointerEventData data)
+    {
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
+        rectTr.position = mousePos;
+
+    }
+    public void OnEndDrag(PointerEventData data)
+    {
+        //Debug.Log("OnEndDrag");
+        if (rectTr.anchoredPosition.y < -124)
+        {
+            rectTr.anchoredPosition = initPos;
+        }
+        else
+        {
+            Debug.Log("CheckDrink");
+        }
+    }
+
+
 }
