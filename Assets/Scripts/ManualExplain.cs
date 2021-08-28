@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ManualExplain : MonoBehaviour
 {
+    public GameObject Back;
     public GameObject Espresso;
     public GameObject CaramelMacchiato;
     public GameObject Americano;
@@ -37,59 +38,73 @@ public class ManualExplain : MonoBehaviour
     }
     public void EspressoExplain()
     {
+        Back.SetActive(true);
         Espresso.SetActive(true);
     }
     public void CaramelMacchiatoExplain()
     {
+        Back.SetActive(true);
         CaramelMacchiato.SetActive(true);
     }
     public void AmericanoExplain()
     {
+        Back.SetActive(true);
         Americano.SetActive(true);
     }
     public void CafeMochaExplain()
        {
-           CafeMocha.SetActive(true);
+        Back.SetActive(true);
+        CafeMocha.SetActive(true);
        }
     public void CappuchinoExplain()
     {
+        Back.SetActive(true);
         Cappuchino.SetActive(true);
     }
     public void VanillaLatteExplain()
        {
-           VanillaLatte.SetActive(true);
+        Back.SetActive(true);
+        VanillaLatte.SetActive(true);
        }
     public void CafeLatteExplain()
        {
-           CafeLatte.SetActive(true);
+        Back.SetActive(true);
+        CafeLatte.SetActive(true);
        }
     public void GreenteaLatteExplain()
        {
-           GreenteaLatte.SetActive(true);
+        Back.SetActive(true);
+        GreenteaLatte.SetActive(true);
        }
     public void StrawberryLatteExplain()
        {
-           StrawberryLatte.SetActive(true);
+        Back.SetActive(true);
+        StrawberryLatte.SetActive(true);
        }
     public void ChocoExplain()
     {
+        Back.SetActive(true);
         Choco.SetActive(true);
     }
     public void SmoothieExplain()
        {
-           Smoothie.SetActive(true);
+        Back.SetActive(true);
+        Smoothie.SetActive(true);
        }
     public void BubbleteaExplain()
        {
-           BubbleTea.SetActive(true);
+        Back.SetActive(true);
+        BubbleTea.SetActive(true);
        }
     public void FrappuccinoExplain()
        {
-           Frappuccino.SetActive(true);
+        Back.SetActive(true);
+        Frappuccino.SetActive(true);
        }
 
-    public void ManualEnd()
+    public void ManualEnd() //메뉴얼 다 꺼버리기
     {
+        Back.SetActive(false);
         Espresso.SetActive(false);
         CaramelMacchiato.SetActive(false);
         Americano.SetActive(false);

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Manual : MonoBehaviour
 {
     public GameObject Square;
+    public GameObject Back;
     public GameObject Coffee;
     public GameObject Latte;
     public GameObject Else;
@@ -27,6 +28,7 @@ public class Manual : MonoBehaviour
     public void On() //Manual Open할 때
     {
         Square.SetActive(true);
+        Back.SetActive(false);
         Coffee.SetActive(true);
         Latte.SetActive(true);
         Else.SetActive(true);
@@ -51,6 +53,7 @@ public class Manual : MonoBehaviour
     public void Off() // Home키 눌렀을 때 다 비활성화
     {
         Square.SetActive(false);
+        Back.SetActive(false);
         Coffee.SetActive(false);
         Latte.SetActive(false);
         Else.SetActive(false);
@@ -72,9 +75,10 @@ public class Manual : MonoBehaviour
         
     }
 
-    public void Explain() // 메뉴얼과 Home 키 만 남기기
+    public void Explain() // 메뉴얼과 Home 키 , Back 키만 남기기
         {
             Square.SetActive(true);
+            Back.SetActive(true);
             Coffee.SetActive(false);
             Latte.SetActive(false);
             Else.SetActive(false);
@@ -93,6 +97,31 @@ public class Manual : MonoBehaviour
             Smoothie.SetActive(false);
             BubbleTea.SetActive(false);
             Frappuccino.SetActive(false);
+
+    }
+
+    public void GoBack() // Back 눌렀을 때 Back 빼고 다 나오기
+    {
+        Square.SetActive(true);
+        Back.SetActive(false);
+        Coffee.SetActive(true);
+        Latte.SetActive(true);
+        Else.SetActive(true);
+        Home.SetActive(true);
+        Espresso.SetActive(true);
+        CaramelMacchiato.SetActive(true);
+        Americano.SetActive(true);
+        CafeMocha.SetActive(true);
+        Cappuchino.SetActive(true);
+        VanillaLatte.SetActive(true);
+        CafeLatte.SetActive(true);
+        GreenteaLatte.SetActive(true);
+        StrawberryLatte.SetActive(true);
+        Choco.SetActive(true);
+        Smoothie.SetActive(true);
+        BubbleTea.SetActive(true);
+        Frappuccino.SetActive(true);
+
 
     }
 
