@@ -106,10 +106,10 @@ public class Recipe : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            IngredientReset();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    IngredientReset();
+        //}
         #region--ingredient test--
         if (Input.GetKeyDown(KeyCode.Return)) //Determine recipe
         {
