@@ -72,7 +72,7 @@ public class Manual : MonoBehaviour
         
     }
 
-    public void Explain() //Home 키 만 남기기
+    public void Explain() // 메뉴얼과 Home 키 만 남기기
         {
             Square.SetActive(true);
             Coffee.SetActive(false);

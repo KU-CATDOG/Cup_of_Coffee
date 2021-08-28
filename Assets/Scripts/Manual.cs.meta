@@ -3,25 +3,7 @@ guid: d09abe2f8cc4eca41925b788c940e068
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - Square: {instanceID: 0}
-  - Coffee: {instanceID: 0}
-  - Latte: {instanceID: 0}
-  - Else: {instanceID: 0}
-  - Home: {instanceID: 0}
-  - Espresso: {instanceID: 0}
-  - Americano: {instanceID: 0}
-  - CafeMocha: {instanceID: 0}
-  - VanillaLatte: {instanceID: 0}
-  - CafeLatte: {instanceID: 0}
-  - GreenteaLatte: {instanceID: 0}
-  - StrawberryLatte: {instanceID: 0}
-  - YogurtSmoothie: {instanceID: 0}
-  - GreenteaSmoothie: {instanceID: 0}
-  - StrawberySmoothie: {instanceID: 0}
-  - BubbleTea: {instanceID: 0}
-  - GreenteaFrappuccino: {instanceID: 0}
-  - StrawberryFrappuccino: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

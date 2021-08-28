@@ -20,7 +20,7 @@ public class ManualExplain : MonoBehaviour
 
     public void Start()
     {
-        Espresso.SetActive(false);
+ /*       Espresso.SetActive(false);
         CaramelMacchiato.SetActive(false);
         Americano.SetActive(false);
         CafeMocha.SetActive(false);
@@ -33,7 +33,7 @@ public class ManualExplain : MonoBehaviour
         Smoothie.SetActive(false);
         BubbleTea.SetActive(false);
         Frappuccino.SetActive(false);
-
+ */
     }
     public void EspressoExplain()
     {
