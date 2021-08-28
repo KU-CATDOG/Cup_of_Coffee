@@ -48,45 +48,45 @@ public class ManualExplain : MonoBehaviour
         Americano.SetActive(true);
     }
     public void CafeMochaExplain()
-       {
-           CafeMocha.SetActive(true);
-       }
+    {
+        CafeMocha.SetActive(true);
+    }
     public void CappuchinoExplain()
     {
         Cappuchino.SetActive(true);
     }
     public void VanillaLatteExplain()
-       {
-           VanillaLatte.SetActive(true);
-       }
+    {
+        VanillaLatte.SetActive(true);
+    }
     public void CafeLatteExplain()
-       {
-           CafeLatte.SetActive(true);
-       }
+    {
+        CafeLatte.SetActive(true);
+    }
     public void GreenteaLatteExplain()
-       {
-           GreenteaLatte.SetActive(true);
-       }
+    {
+        GreenteaLatte.SetActive(true);
+    }
     public void StrawberryLatteExplain()
-       {
-           StrawberryLatte.SetActive(true);
-       }
+    {
+        StrawberryLatte.SetActive(true);
+    }
     public void ChocoExplain()
     {
         Choco.SetActive(true);
     }
     public void SmoothieExplain()
-       {
-           Smoothie.SetActive(true);
-       }
+    {
+        Smoothie.SetActive(true);
+    }
     public void BubbleteaExplain()
-       {
-           BubbleTea.SetActive(true);
-       }
+    {
+        BubbleTea.SetActive(true);
+    }
     public void FrappuccinoExplain()
-       {
-           Frappuccino.SetActive(true);
-       }
+    {
+        Frappuccino.SetActive(true);
+    }
 
     public void ManualEnd()
     {
@@ -94,8 +94,8 @@ public class ManualExplain : MonoBehaviour
         CaramelMacchiato.SetActive(false);
         Americano.SetActive(false);
         CafeMocha.SetActive(false);
-        Cappuchino.SetActive(false); 
-        VanillaLatte.SetActive(false); 
+        Cappuchino.SetActive(false);
+        VanillaLatte.SetActive(false);
         CafeLatte.SetActive(false);
         GreenteaLatte.SetActive(false);
         StrawberryLatte.SetActive(false);

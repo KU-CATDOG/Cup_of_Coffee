@@ -56,7 +56,7 @@ public class CsvLoadCustomer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Customer();
-            
+
         }
 
 
@@ -85,7 +85,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
             Customertext.text = text[currentorder];
             Debug.Log(currentorder);
-            if(currentorder < 3) // 자꾸 배열 크기 오류 나서 이렇게 설정
+            if (currentorder < 3) // 자꾸 배열 크기 오류 나서 이렇게 설정
             {
                 currentorder++;
             }
@@ -533,16 +533,19 @@ public class CsvLoadCustomer : MonoBehaviour
 
 
 
-    } 
+    }
 
-    void LoadCustomerSprite(){
-        int i = Random.Range(1,24);
+    void LoadCustomerSprite()
+    {
+        int i = Random.Range(1, 24);
         CustomerSprite.sprite = Resources.Load<Sprite>("CustomerSprites/손님" + i);
         CustomerSprite.gameObject.SetActive(true);
     }
 
-    void LoadEmotionSprite(int customertoken){
-        switch(customertoken){
+    void LoadEmotionSprite(int customertoken)
+    {
+        switch (customertoken)
+        {
             case 1:
                 RealEmotionSprite.sprite = Resources.Load<Sprite>("EmotionSprites/행복");
                 break;

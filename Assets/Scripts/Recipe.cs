@@ -301,22 +301,26 @@ public class Recipe : MonoBehaviour
                 Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
-            else if (queue.SequenceEqual(caramel_macchiato_ice_ristretto)){
+            else if (queue.SequenceEqual(caramel_macchiato_ice_ristretto))
+            {
                 Cupofcaramel_macchiato_ice_ristretto();
                 Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
-            else if (queue.SequenceEqual(caramel_macchiato_ice_lungo)){
+            else if (queue.SequenceEqual(caramel_macchiato_ice_lungo))
+            {
                 Cupofcaramel_macchiato_ice_lungo();
                 Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
-            else if (queue.SequenceEqual(caramel_macchiato_hot_ristretto)){
+            else if (queue.SequenceEqual(caramel_macchiato_hot_ristretto))
+            {
                 Cupofcaramel_macchiato_hot_ristretto();
                 Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
             }
-            else if (queue.SequenceEqual(caramel_macchiato_hot_lungo)){
+            else if (queue.SequenceEqual(caramel_macchiato_hot_lungo))
+            {
                 Cupofcaramel_macchiato_hot_lungo();
                 Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
                 IngredientReset();
