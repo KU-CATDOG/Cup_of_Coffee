@@ -69,7 +69,7 @@ public class DialogueEvent : MonoBehaviour
                 Day1(order);
                 break;
             case 3:
-                Day3(order);
+                //Day3(order);
                 break;
             case 4:
                 Day4(order);
