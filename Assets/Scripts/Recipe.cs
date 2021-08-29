@@ -90,10 +90,10 @@ public class Recipe : MonoBehaviour
     private List<char> espresso_frapp_lungo = new List<char>(new char[] { 'Q', 'E', 'E', 'G', 'N' });
     #endregion
 
-    private List<char> queue = new List<char>();
+    public List<char> queue = new List<char>();
 
     public Drink drinkImage;
-    public int menu; // À½·á ¼ø¼­´ë·Î 1~29, Àß¸ø ¸¸µé¾úÀ¸¸é 0
+    public int menu; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1~29, ï¿½ß¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0
 
     public GameObject Customer;
     private void Start()
@@ -477,7 +477,7 @@ public class Recipe : MonoBehaviour
         #endregion
     }
 
-    private void IngredientReset()
+    public void IngredientReset()
     {
         vanilla_syrup = 0;
         chocolate_syrup = 0;
@@ -1148,55 +1148,55 @@ public class Recipe : MonoBehaviour
                 switch (queue[i])
                 {
                     case 'A':
-                        ingredient = "¹Ù´Ò¶ó ½Ã·´";
+                        ingredient = "ï¿½Ù´Ò¶ï¿½ ï¿½Ã·ï¿½";
                         break;
                     case 'B':
-                        ingredient = "ÃÊÄÚ ½Ã·´";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½";
                         break;
                     case 'C':
-                        ingredient = "Ä«¶ó¸á ½Ã·´";
+                        ingredient = "Ä«ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½";
                         break;
                     case 'D':
-                        ingredient = "¼¦";
+                        ingredient = "ï¿½ï¿½";
                         break;
                     case 'E':
-                        ingredient = "¿ìÀ¯";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½";
                         break;
                     case 'F':
-                        ingredient = "¿ìÀ¯ °ÅÇ°";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°";
                         break;
                     case 'G':
-                        ingredient = "¾óÀ½";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½";
                         break;
                     case 'H':
-                        ingredient = "³ìÂ÷ ÆÄ¿ì´õ";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½";
                         break;
                     case 'I':
-                        ingredient = "µþ±â ÆÄ¿ì´õ";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½";
                         break;
                     case 'J':
-                        ingredient = "ÃÊÄÚ ÆÄ¿ì´õ";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½";
                         break;
                     case 'K':
-                        ingredient = "ÈÖÇÎÅ©¸²";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½Å©ï¿½ï¿½";
                         break;
                     case 'L':
-                        ingredient = "¿ä°ÅÆ®";
+                        ingredient = "ï¿½ï¿½ï¿½Æ®";
                         break;
                     case 'M':
-                        ingredient = "Å¸ÇÇ¿ÀÄ«";
+                        ingredient = "Å¸ï¿½Ç¿ï¿½Ä«";
                         break;
                     case 'N':
-                        ingredient = "¼¯¾îÁÖ±â";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½";
                         break;
                     case 'O':
-                        ingredient = "¹°";
+                        ingredient = "ï¿½ï¿½";
                         break;
                     case 'P':
-                        ingredient = "¸®½ºÆ®·¹Åä ¼¦";
+                        ingredient = "ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½";
                         break;
                     case 'Q':
-                        ingredient = "·î°í ¼¦";
+                        ingredient = "ï¿½ï¿½ï¿½ ï¿½ï¿½";
                         break;
                 }
 
@@ -1218,25 +1218,22 @@ public class Recipe : MonoBehaviour
             string unit = "";
             switch (logString)
             {
-                case "¹Ù´Ò¶ó ½Ã·´":
-                case "ÃÊÄÚ ½Ã·´":
-                case "Ä«¶ó¸á ½Ã·´":
-                case "³ìÂ÷ ÆÄ¿ì´õ":
-                case "µþ±â ÆÄ¿ì´õ":
-                case "ÃÊÄÚ ÆÄ¿ì´õ":
-                    unit = "½ºÇ¬";
+                case "ï¿½Ù´Ò¶ï¿½ ï¿½Ã·ï¿½":
+                case "ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½":
+                case "Ä«ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½":
+                case "ï¿½ï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ï¿½":
+                    unit = "ï¿½ï¿½Ç¬";
                     break;
-                case "¼¦":
-                    unit = "°³";
+                case "ï¿½ï¿½":
+                    unit = "ï¿½ï¿½";
                     break;
-                case "¸®½ºÆ®·¹Åä ¼¦":
-                    unit = "°³";
+                case "ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½":
+                    unit = "ï¿½ï¿½";
                     break;
-                case "·î°í ¼¦":
-                    unit = "°³";
+                case "ï¿½ï¿½ï¿½ ï¿½ï¿½":
+                    unit = "ï¿½ï¿½";
                     break;
-                case "¿ìÀ¯":
-                case "¹°":
+                case "ï¿½ï¿½ï¿½ï¿½":
                     unit = "mL";
                     break;
             }
@@ -1247,11 +1244,11 @@ public class Recipe : MonoBehaviour
             }
             else if (unit == "mL")
             {
-                logString += " ¡¿ " + (logCount[i] * 50) + unit;
+                logString += " ï¿½ï¿½ " + (logCount[i] * 50) + unit;
             }
             else
             {
-                logString += " ¡¿ " + logCount[i] + unit;
+                logString += " ï¿½ï¿½ " + logCount[i] + unit;
             }
             log.Add(logString);
         }
