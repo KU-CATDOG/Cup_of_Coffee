@@ -14,6 +14,8 @@ public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
 
     private Vector2 initPos;
 
+    public CsvLoadCustomer Customer;
+
     private void Start()
     {
         foreach (Sprite drinkImage in drinkImages)
@@ -23,6 +25,7 @@ public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
 
         image = gameObject.GetComponent<Image>();
         rectTr = gameObject.GetComponent<RectTransform>();
+
 
 
 
@@ -72,9 +75,10 @@ public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         }
         else
         {
-            Debug.Log("CheckDrink");
+            Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            rectTr.anchoredPosition = initPos;
+            HideDrink();
         }
+
     }
-
-
 }
