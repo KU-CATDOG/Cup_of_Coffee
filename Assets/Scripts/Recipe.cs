@@ -94,7 +94,7 @@ public class Recipe : MonoBehaviour
     public List<char> queue = new List<char>();
 
     public Drink drinkImage;
-    public int menu; // ���� ������� 1~29, �߸� ��������� 0
+    public int menu; // 음료 순서대로 1~29, 잘못 만들었으면 0
 
     public GameObject Customer;
     private void Start()
@@ -1182,55 +1182,58 @@ public class Recipe : MonoBehaviour
                 switch (queue[i])
                 {
                     case 'A':
-                        ingredient = "�ٴҶ� �÷�";
+                        ingredient = "바닐라 시럽";
                         break;
                     case 'B':
-                        ingredient = "���� �÷�";
+                        ingredient = "초코 시럽";
                         break;
                     case 'C':
-                        ingredient = "ī��� �÷�";
+                        ingredient = "카라멜 시럽";
                         break;
                     case 'D':
-                        ingredient = "��";
+                        ingredient = "샷";
                         break;
                     case 'E':
-                        ingredient = "����";
+                        ingredient = "우유";
                         break;
                     case 'F':
-                        ingredient = "���� ��ǰ";
+                        ingredient = "우유 거품";
                         break;
                     case 'G':
-                        ingredient = "����";
+                        ingredient = "얼음";
                         break;
                     case 'H':
-                        ingredient = "���� �Ŀ��";
+                        ingredient = "녹차 파우더";
                         break;
                     case 'I':
-                        ingredient = "���� �Ŀ��";
+                        ingredient = "딸기 파우더";
                         break;
                     case 'J':
-                        ingredient = "���� �Ŀ��";
+                        ingredient = "초코 파우더";
                         break;
                     case 'K':
-                        ingredient = "����ũ��";
+                        ingredient = "휘핑크림";
                         break;
                     case 'L':
-                        ingredient = "���Ʈ";
+                        ingredient = "요거트";
                         break;
                     case 'M':
-                        ingredient = "Ÿ�ǿ�ī";
+                        ingredient = "타피오카";
                         break;
                     case 'N':
-                        ingredient = "�����ֱ�";
+                        ingredient = "갈아주기";
                         break;
                     case 'O':
-                        ingredient = "��";
+                        ingredient = "물";
                         break;
                     case 'P':
-                        ingredient = "����Ʈ���� ��";
+                        ingredient = "리스트레토 샷";
                         break;
                     case 'Q':
-                        ingredient = "��� ��";
+                        ingredient = "룽고 샷";
+                        break;
+                    case 'R':
+                        ingredient = "섞어주기";
                         break;
                 }
 
@@ -1252,22 +1255,27 @@ public class Recipe : MonoBehaviour
             string unit = "";
             switch (logString)
             {
-                case "�ٴҶ� �÷�":
-                case "���� �÷�":
-                case "ī��� �÷�":
-                case "���� �Ŀ��":
-                    unit = "��Ǭ";
+                case "바닐라 시럽":
+                case "초코 시럽":
+                case "카라멜 시럽":
+                    unit = "펌프";
                     break;
-                case "��":
-                    unit = "��";
+                case "녹차 파우더":
+                case "딸기 파우더":
+                case "초코 파우더":
+                    unit = "스푼";
                     break;
-                case "����Ʈ���� ��":
-                    unit = "��";
+                case "샷":
+                    unit = "개";
                     break;
-                case "��� ��":
-                    unit = "��";
+                case "리스트레토 샷":
+                    unit = "개";
                     break;
-                case "����":
+                case "룽고 샷":
+                    unit = "개";
+                    break;
+                case "우유":
+                case "물":
                     unit = "mL";
                     break;
             }
@@ -1278,11 +1286,11 @@ public class Recipe : MonoBehaviour
             }
             else if (unit == "mL")
             {
-                logString += " �� " + (logCount[i] * 50) + unit;
+                logString += " × " + (logCount[i] * 50) + unit;
             }
             else
             {
-                logString += " �� " + logCount[i] + unit;
+                logString += " × " + logCount[i] + unit;
             }
             log.Add(logString);
         }

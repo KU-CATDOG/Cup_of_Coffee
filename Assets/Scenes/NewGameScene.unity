@@ -5452,6 +5452,7 @@ GameObject:
   - component: {fileID: 944316660}
   - component: {fileID: 944316659}
   - component: {fileID: 944316658}
+  - component: {fileID: 944316661}
   m_Layer: 5
   m_Name: EspressoMachine
   m_TagString: Untagged
@@ -5574,6 +5575,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944316656}
   m_CullTransparentMesh: 1
+--- !u!114 &944316661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944316656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 0, y: 0}
+  m_UseGraphicAlpha: 1
 --- !u!1 &952908539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6854,6 +6870,7 @@ GameObject:
   - component: {fileID: 1115607462}
   - component: {fileID: 1115607461}
   - component: {fileID: 1115607460}
+  - component: {fileID: 1115607464}
   m_Layer: 0
   m_Name: SingleEspresso
   m_TagString: Untagged
@@ -6976,6 +6993,21 @@ RectTransform:
   m_AnchoredPosition: {x: 2340, y: 172}
   m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1115607464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115607459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 0, y: 0}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1129671215
 GameObject:
   m_ObjectHideFlags: 0
@@ -8440,6 +8472,7 @@ GameObject:
   - component: {fileID: 1339710172}
   - component: {fileID: 1339710171}
   - component: {fileID: 1339710170}
+  - component: {fileID: 1339710173}
   m_Layer: 5
   m_Name: HotWaterDispenser
   m_TagString: Untagged
@@ -8561,6 +8594,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339710168}
   m_CullTransparentMesh: 1
+--- !u!114 &1339710173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339710168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 0, y: 0}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1348003286
 GameObject:
   m_ObjectHideFlags: 0
@@ -11010,6 +11058,7 @@ GameObject:
   - component: {fileID: 1631172303}
   - component: {fileID: 1631172302}
   - component: {fileID: 1631172301}
+  - component: {fileID: 1631172305}
   m_Layer: 0
   m_Name: DoubleEspresso
   m_TagString: Untagged
@@ -11132,6 +11181,21 @@ RectTransform:
   m_AnchoredPosition: {x: 2768, y: 172}
   m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1631172305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631172300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 0, y: 0}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1631413828
 GameObject:
   m_ObjectHideFlags: 0
@@ -11931,6 +11995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb99c13ab55ac944f93658ba63558fcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  queue: 
   drinkImage: {fileID: 429290899}
   menu: 0
   Customer: {fileID: 1041448812}
@@ -12416,9 +12481,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CsvLoad: {fileID: 1735913348}
   movebg: {fileID: 1852035755}
+  recipe: {fileID: 0}
   gameTime: {fileID: 0}
+  espressoSingle: {fileID: 0}
+  espressoDouble: {fileID: 0}
   CharacterSprite: {fileID: 0}
   DialogueBox: {fileID: 0}
+  EspressoMachine: {fileID: 0}
+  HotWaterDispenser: {fileID: 0}
+  ViewScript: {fileID: 0}
 --- !u!114 &1735913348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12439,8 +12510,10 @@ MonoBehaviour:
   Customertextbox: {fileID: 552260492}
   DialogueEvent: {fileID: 1735913347}
   CharacterSprite: {fileID: 1707984100}
+  currentOrder: 0
   getCustomerOrder: 0
   endScript: 0
+  pausescript: 0
 --- !u!4 &1735913349
 Transform:
   m_ObjectHideFlags: 0
