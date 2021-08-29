@@ -22,11 +22,11 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     GameTime gameTime;
     int dayCount = 0;
-    int closeTime = 2; //마지막 손님 받는 시간
-    int currentOrder = 0;
+    int closeTime = 18; //마지막 손님 받는 시간
+    public int currentOrder = 0;
 
     [HideInInspector]
-    public bool getCustomerOrder = false, endScript = false;
+    public bool getCustomerOrder = false, endScript = false, pausescript = false;
 
     public class scripts
     {   //class to store each script
@@ -137,8 +137,10 @@ public class CsvLoadTest_2 : MonoBehaviour
             DialogueBox.SetActive(true);
             DialogueEvent.EventByDay(Sorted[currentOrder].day, Sorted[currentOrder].order); //각 대사의 이벤트
             MatchCharacter(Sorted[currentOrder].name);
-            ViewScript.text = Sorted[currentOrder].script;
-            currentOrder++;
+            if(!pausescript){
+                ViewScript.text = Sorted[currentOrder].script;
+                currentOrder++;
+            }
         }
 
     }
@@ -167,6 +169,9 @@ public class CsvLoadTest_2 : MonoBehaviour
                 break;
             case "상관":
                 CharacterSprite.sprite = Resources.Load<Sprite>("CharacterSprites/상관");
+                break;
+            default:
+                CharacterSprite.gameObject.SetActive(false);
                 break;
         }
     }
