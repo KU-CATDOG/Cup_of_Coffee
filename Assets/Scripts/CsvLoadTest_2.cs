@@ -14,6 +14,7 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     public GameObject Customer;
     public GameObject Customertext;
+    public GameObject Customertextbox;
 
     public DialogueEvent DialogueEvent;
 
@@ -47,6 +48,7 @@ public class CsvLoadTest_2 : MonoBehaviour
     {
         Customer = GameObject.Find("CsvCustomer");
         gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
+        Customertextbox.SetActive(false);
 
         if (gameTime != null)
         {
@@ -69,6 +71,7 @@ public class CsvLoadTest_2 : MonoBehaviour
                 // ViewScript.text = "";
                 Customertext.SetActive(true);
                 Customer.SetActive(true);
+                Customertextbox.SetActive(true);
                 Customer.GetComponent<CsvLoadCustomer>().isActive = true;
 
                 if (gameTime.hour >= closeTime)
