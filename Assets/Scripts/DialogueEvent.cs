@@ -74,32 +74,32 @@ public class DialogueEvent : MonoBehaviour
             case 4:
                 Day4(order);
                 break;
-            // case 5:
-            //     Day5(order);
-            //     break;
-            // case 6:
-            //     Day6(order);
-            //     break;
+                // case 5:
+                //     Day5(order);
+                //     break;
+                // case 6:
+                //     Day6(order);
+                //     break;
         }
     }
 
     int wrong = 0;
     public void Day0_tutorial(int order)
     {
-        
+
         switch (order)
         {
             case 12:
                 CharacterSprite.GetComponent<RectTransform>().localPosition = new Vector2(700, 500);
                 movebg.ClickMoveRight();
                 outline.effectDistance = new Vector2(10, 10);
-                outline.effectColor = new Color32(0,0,0,255);
+                outline.effectColor = new Color32(0, 0, 0, 255);
 
                 break;
             case 13:
                 outline.effectDistance = new Vector2(0, 0);
-                outline.effectColor = new Color32(255,255,255,255);
-                
+                outline.effectColor = new Color32(255, 255, 255, 255);
+
                 movebg.EspressomachineClicked();
 
                 //highlight 1 shot
@@ -130,16 +130,19 @@ public class DialogueEvent : MonoBehaviour
                 break;
             case 25:
                 List<char> espresso_ristretto = new List<char>(new char[] { 'P' });
-                if(recipe.queue.SequenceEqual(espresso_ristretto)){
+                if (recipe.queue.SequenceEqual(espresso_ristretto))
+                {
                     CsvLoad.pausescript = false;
                     movebg.ZoomOutClicked();
                     CharacterSprite.GetComponent<RectTransform>().localPosition = new Vector2(0, 500);
                 }
-                else{
+                else
+                {
                     CsvLoad.pausescript = true;
                     wrong++;
 
-                    switch(wrong){
+                    switch (wrong)
+                    {
                         case 1:
                             ViewScript.text = "아니 그거 말고.";
                             break;
@@ -178,12 +181,12 @@ public class DialogueEvent : MonoBehaviour
                 //highlight water dispenser
                 outline = HotWaterDispenser.GetComponent<Outline>();
                 outline.effectDistance = new Vector2(10, 10);
-                outline.effectColor = new Color32(0,0,0,255);
-                
+                outline.effectColor = new Color32(0, 0, 0, 255);
+
                 break;
             case 14:
                 outline.effectDistance = new Vector2(0, 0);
-                outline.effectColor = new Color32(255,255,255,255);
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 //highlight espresso double shot
                 movebg.EspressomachineClicked();
                 outline = espressoDouble.GetComponent<Outline>();
@@ -196,11 +199,11 @@ public class DialogueEvent : MonoBehaviour
                 //highlight water dispenser
                 outline = HotWaterDispenser.GetComponent<Outline>();
                 outline.effectDistance = new Vector2(10, 10);
-                outline.effectColor = new Color32(0,0,0,255);
+                outline.effectColor = new Color32(0, 0, 0, 255);
                 break;
             case 16:
                 outline.effectDistance = new Vector2(0, 0);
-                outline.effectColor = new Color32(255,255,255,255);
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 //highlight espresso double
                 movebg.EspressomachineClicked();
                 outline = espressoDouble.GetComponent<Outline>();
@@ -227,26 +230,32 @@ public class DialogueEvent : MonoBehaviour
     }
 
 
-    IEnumerator MiddayEvent(int day){
-        if(day == 3 || day == 4 || day == 5){
+    IEnumerator MiddayEvent(int day)
+    {
+        if (day == 3 || day == 4 || day == 5)
+        {
             CsvLoad.endScript = true;
             CsvLoad.getCustomerOrder = true;
-            while(gameTime.hour != 12){
+            while (gameTime.hour != 12)
+            {
                 yield return null;
             }
 
             CsvLoad.endScript = false;
             CsvLoad.getCustomerOrder = false;
-        
+
         }
-        else{
+        else
+        {
             yield return null;
         }
     }
 
-    
-    public void Day4(int order){
-        switch(order){
+
+    public void Day4(int order)
+    {
+        switch (order)
+        {
             case 6:
                 //손님 +3 이후
                 break;

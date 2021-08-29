@@ -1166,6 +1166,7 @@ public class Recipe : MonoBehaviour
     public void Reset_Ingredient()
     {
         SoundManager.Instance.PlaySFXSound("reset");
+        drinkImage.HideDrink();
         IngredientReset();
     }
 
