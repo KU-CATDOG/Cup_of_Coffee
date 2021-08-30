@@ -96,6 +96,8 @@ public class CsvLoadCustomer : MonoBehaviour
                 if (isLock == false) // 반복해서 주문이 오지 않도록 설정
                 {
                     SetRandom();
+                    SoundManager.Instance.PlaySFXSound("door_open");
+                    SoundManager.Instance.PlaySFXSound("door_bell");
                     isLock = true;
 
                     return;
