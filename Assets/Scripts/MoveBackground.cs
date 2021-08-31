@@ -135,6 +135,8 @@ public class MoveBackground : MonoBehaviour
 
         float elapsedTime = 0;
 
+        SoundManager.Instance.PlaySFXSound("walk");
+
         while (elapsedTime < time)
         {
             rectTransform.anchoredPosition = Vector2.Lerp(startPos, finalPos, (elapsedTime / time));

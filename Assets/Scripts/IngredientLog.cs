@@ -27,7 +27,7 @@ public class IngredientLog : MonoBehaviour
 
     public void ButtonPressEvent()
     {
-        SoundManager.Instance.PlaySFXSound("click", 0.5f);
+        SoundManager.Instance.PlaySFXSound("click");
         if (isOpened == true)
         {
             CloseLog();
