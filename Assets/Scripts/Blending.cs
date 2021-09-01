@@ -8,6 +8,8 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     private RectTransform recttransform;
     public GameObject blend;
     public GameObject spoon;
+    public GameObject Recipe;
+
     bool Spoonmove1 = false;
     bool Spoonmove2 = false;
     int blendtoken = 0;
@@ -16,11 +18,6 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         recttransform = GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Blend()
     {
@@ -37,13 +34,12 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public void OnDrag(PointerEventData eventData) //드래그 중일 때
     {
 
-
         recttransform.anchoredPosition += eventData.delta;
-        if (recttransform.anchoredPosition.x < -160)
+        if (recttransform.anchoredPosition.x < 290)
         {
             Spoonmove1 = true;
         }
-        if (recttransform.anchoredPosition.x > -160 && Spoonmove1 == true)
+        if (recttransform.anchoredPosition.x > 290 && Spoonmove1 == true)
         {
             Spoonmove2 = true;
 
@@ -52,6 +48,16 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         {
             blendtoken++;
             Debug.Log(blendtoken + "번 섞음");
+            if (blendtoken > 10)
+            {
+                Recipe.GetComponent<Recipe>().Add_blend();
+                Debug.Log("다 섞었음");
+                blendtoken = 0;
+                blend.SetActive(false);
+                spoon.SetActive(false);
+                return;
+            }
+
             Spoonmove1 = false;
             Spoonmove2 = false;
 
