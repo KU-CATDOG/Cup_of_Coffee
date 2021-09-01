@@ -61,7 +61,7 @@ public class SoundManager : MonoBehaviour {
     // 효과음 재생 : 이름을 필수 매개변수, 볼륨을 선택적 매개변수로 지정
     public void PlaySFXSound(string name, float volume = 1f) {
         if (sfxAudioClipsDic.ContainsKey(name) == false) {
-            Debug.Log(name + " is not Contained audioClipsDic");
+            Debug.LogError(name + " is not contained. Please add audioclip in sfxAudioClips array (in SoundManager object)");
             return;
         }
         sfxPlayer.PlayOneShot(sfxAudioClipsDic[name], volume * masterVolumeSFX);
@@ -88,9 +88,19 @@ public class SoundManager : MonoBehaviour {
         masterVolumeSFX = volume;
     }
 
+    public float GetSFXVolume()
+    {
+        return masterVolumeSFX;
+    }
+
     // BGM 볼륨 설정
     public void SetBGMVolume(float volume) {
         masterVolumeBGM = volume;
         bgmPlayer.volume = volumeBGM * masterVolumeBGM;
+    }
+
+    public float GetBGMVolume()
+    {
+        return masterVolumeBGM;
     }
 }
