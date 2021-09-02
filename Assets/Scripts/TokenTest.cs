@@ -20,6 +20,10 @@ public class TokenTest : MonoBehaviour
     public int fear;
     public int real;
     public int fake;
+    public int totalToken;
+    public int tokenToGive;
+    public Text GiveTokenText;
+    List<int> TokenList = new List<int>();
     /*
     토큰 종류 
     token_happy;
@@ -31,7 +35,10 @@ public class TokenTest : MonoBehaviour
     token_tired;
     token_fear;
     */
- 
+
+    void Start(){
+        GiveTokenText = GameObject.Find("GiveTokenText").GetComponent<Text>();
+    }
     void Update() 
     {
         happy = token.token_happy; // 1
@@ -44,7 +51,7 @@ public class TokenTest : MonoBehaviour
         fear = token.token_fear; // 8
         real = token.real_token;
         fake = token.fake_token;
-
+        totalToken = happy+love+hope+peace+sad+anger+tired+fear;
 
     }
 
@@ -385,5 +392,95 @@ public class TokenTest : MonoBehaviour
 
     }
 
+
+    public void ClickTokenUp(){
+        if(tokenToGive < totalToken && tokenToGive < 10){
+            tokenToGive++;
+        }
+        GiveTokenText.text = tokenToGive.ToString();
+        Debug.Log("tokenToGive = " + tokenToGive);
+    }
+    public void ClickTokenDown(){
+        if(tokenToGive > 0){
+            tokenToGive--;
+        }
+        GiveTokenText.text = tokenToGive.ToString();
+        Debug.Log("tokenToGive = " + tokenToGive);
+    }
+    public void GiveToken(int n){
+        
+        if(token.token_happy >= n){
+            token.token_happy = token.token_happy-n;
+            return;
+        }
+        else {
+            token.token_happy = 0;
+            n = n - token.token_happy;
+
+            if(token.token_love >= n){
+                token.token_love = token.token_love-n;
+                return;
+            }
+            else {
+                token.token_love = 0;
+                n = n - token.token_love;
+
+                if(token.token_hope >= n){
+                    token.token_hope = token.token_hope-n;
+                    return;
+                }
+                else {
+                    token.token_hope = 0;
+                    n = n - token.token_hope;
+
+                    if(token.token_peace >= n){
+                        token.token_peace = token.token_peace-n;
+                        return;
+                    }
+                    else {
+                        token.token_peace = 0;
+                        n = n - token.token_peace;
+
+                        if(token.token_sad >= n){
+                            token.token_sad = token.token_sad-n;
+                            return;
+                        }
+                        else {
+                            token.token_sad = 0;
+                            n = n - token.token_sad;
+
+                            if(token.token_anger >= n){
+                                token.token_anger = token.token_anger-n;
+                                return;
+                            }
+                            else {
+                                token.token_anger = 0;
+                                n = n - token.token_anger;
+
+                                if(token.token_tired >= n){
+                                    token.token_tired = token.token_tired-n;
+                                    return;
+                                }
+                                else {
+                                    token.token_tired = 0;
+                                    n = n - token.token_tired;
+                                    
+                                    if(token.token_fear >= n){
+                                        token.token_tired = token.token_fear-n;
+                                        return;
+                                    }
+                                    else {
+                                        token.token_fear = 0;
+                                        n = n - token.token_fear;
+                                    }
+                                } 
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
 
 }
