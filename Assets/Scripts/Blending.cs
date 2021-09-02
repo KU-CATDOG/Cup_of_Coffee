@@ -9,6 +9,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public GameObject blend;
     public GameObject spoon;
     public GameObject Recipe;
+    public GameObject blendFront;
 
     bool Spoonmove1 = false;
     bool Spoonmove2 = false;
@@ -23,7 +24,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
         blend.SetActive(true);
         spoon.SetActive(true);
-
+        blendFront.SetActive(true);
     }
     public void OnBeginDrag(PointerEventData eventData) //드래그 시작할 때
     {
@@ -55,6 +56,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                 blendtoken = 0;
                 blend.SetActive(false);
                 spoon.SetActive(false);
+                blendFront.SetActive(false);
                 return;
             }
 
