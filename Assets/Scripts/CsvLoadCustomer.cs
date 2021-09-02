@@ -28,6 +28,8 @@ public class CsvLoadCustomer : MonoBehaviour
     public Image CustomerSprite;
     public Image RealEmotionSprite;
 
+    public int numberOfCustomer = 0;
+
     void Start()
     {
         isActive = false;
@@ -80,9 +82,9 @@ public class CsvLoadCustomer : MonoBehaviour
 
     public void Customer()
     {
+        
         if (isActive == true)
         {
-
             Customertext.text = text[currentorder];
             Debug.Log(currentorder);
             if (currentorder < 3) // 자꾸 배열 크기 오류 나서 이렇게 설정
@@ -95,6 +97,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
                 if (isLock == false) // 반복해서 주문이 오지 않도록 설정
                 {
+                    numberOfCustomer++;
                     SetRandom();
                     SoundManager.Instance.PlaySFXSound("door_open");
                     SoundManager.Instance.PlaySFXSound("door_bell");

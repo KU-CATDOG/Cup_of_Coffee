@@ -76,11 +76,7 @@ public class CsvLoadTest_2 : MonoBehaviour
 
                 if (gameTime.hour >= closeTime)
                 {
-                    Customertext.SetActive(false);
-                    Customer.SetActive(false);
-                    Customer.GetComponent<CsvLoadCustomer>().isActive = false;
-                    getCustomerOrder = false;
-                    endScript = false;
+                    pauseCustomerOrder();
                 }
             }
             else
@@ -92,6 +88,14 @@ public class CsvLoadTest_2 : MonoBehaviour
                 LoadInGameScript();
             }
         }
+    }
+
+    public void pauseCustomerOrder(){
+        Customertext.SetActive(false);
+        Customer.SetActive(false);
+        Customer.GetComponent<CsvLoadCustomer>().isActive = false;
+        getCustomerOrder = false;
+        endScript = false;
     }
 
     #region initialize scripts
@@ -140,6 +144,7 @@ public class CsvLoadTest_2 : MonoBehaviour
             DialogueBox.SetActive(true);
             DialogueEvent.EventByDay(Sorted[currentOrder].day, Sorted[currentOrder].order); //각 대사의 이벤트
             MatchCharacter(Sorted[currentOrder].name);
+            
             if(!pausescript){
                 ViewScript.text = Sorted[currentOrder].script;
                 currentOrder++;
@@ -153,6 +158,7 @@ public class CsvLoadTest_2 : MonoBehaviour
     void MatchCharacter(string name)
     {
         NameTag.text = name;
+        CharacterSprite.gameObject.SetActive(true);
         switch (name)
         {
             case "점장":
