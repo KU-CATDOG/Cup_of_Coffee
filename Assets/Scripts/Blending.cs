@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler
 {
-    private RectTransform recttransform;
+    private RectTransform rt;
     public GameObject blend;
     public GameObject spoon;
     public GameObject Recipe;
@@ -14,10 +14,11 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     bool Spoonmove1 = false;
     bool Spoonmove2 = false;
     int blendtoken = 0;
+    Vector2 initpos;
 
     void Start()
     {
-        recttransform = GetComponent<RectTransform>();
+        rt = GetComponent<RectTransform>();
     }
 
 
@@ -34,13 +35,14 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnDrag(PointerEventData eventData) //드래그 중일 때
     {
+        rt.anchoredPosition += new Vector2(eventData.delta.x / 10, 0);
 
-        recttransform.anchoredPosition += new Vector2(eventData.delta.x / 10, 0);
-        if (recttransform.anchoredPosition.x < 290)
+        
+        if (rt.anchoredPosition.x < -8)
         {
             Spoonmove1 = true;
         }
-        if (recttransform.anchoredPosition.x > 290 && Spoonmove1 == true)
+        if (rt.anchoredPosition.x > 8 && Spoonmove1 == true)
         {
             Spoonmove2 = true;
 
@@ -51,12 +53,13 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             Debug.Log(blendtoken + "번 섞음");
             if (blendtoken > 10)
             {
-                Recipe.GetComponent<Recipe>().Add_blend();
+                Recipe.GetComponent<Recipe>().Add_mix();
                 Debug.Log("다 섞었음");
                 blendtoken = 0;
                 blend.SetActive(false);
                 spoon.SetActive(false);
                 blendFront.SetActive(false);
+
                 return;
             }
 
@@ -69,7 +72,14 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public void OnEndDrag(PointerEventData eventData) //드래그 끝날 때
     {
 
-        
+        if (rt.anchoredPosition.x < -10)
+        {
+            rt.anchoredPosition.Set(-10, rt.anchoredPosition.y);
+        }
+        if (rt.anchoredPosition.x > 10)
+        {
+            rt.anchoredPosition.Set(10, rt.anchoredPosition.y);
+        }
 
     }
 
