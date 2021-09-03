@@ -15,7 +15,7 @@ public class GameTime : MonoBehaviour
     public int endTime = 24;
 
     float sec;
-    
+
     int minute = 0;
     [HideInInspector]
     public int hour = 0;
@@ -28,6 +28,9 @@ public class GameTime : MonoBehaviour
     public bool isTimePassing = true;
 
     public InGameSaveLoadUI saveLoadUI;
+    public GameObject ReceiptObject;
+    Receipt receipt;
+    public Recipe recipe;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,8 @@ public class GameTime : MonoBehaviour
         hour = startTime;
         clock.text = hour.ToString("00") + ":" + minute.ToString("00");
         sec = secPerMin;
+        receipt = ReceiptObject.GetComponent<Receipt>();
+        ReceiptObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -65,6 +70,12 @@ public class GameTime : MonoBehaviour
 
                     if (hour >= endTime)
                     {
+                        ReceiptObject.SetActive(true);
+                        receipt.UpdateGameTime();
+
+                        recipe.totalMistakeCount += recipe.dayMistakeCount;
+                        recipe.dayMistakeCount = 0;
+
                         day++;
                         hour = startTime;
                         resetDialogue = true;
@@ -83,4 +94,13 @@ public class GameTime : MonoBehaviour
 
 
     }
+
+    public void receiptClose()
+    {
+        ReceiptObject.SetActive(false);
+    }
+
 }
+
+
+

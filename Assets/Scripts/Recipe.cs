@@ -5,7 +5,7 @@ using System.Linq;
 
 public class Recipe : MonoBehaviour
 {
-    #region--drinks declaration--
+    #region--ingredients declaration--
     private int vanilla_syrup = 0;              //A
     private int chocolate_syrup = 0;            //B
     private int caramel_syrup = 0;              //C
@@ -92,9 +92,13 @@ public class Recipe : MonoBehaviour
     #endregion
 
     public List<char> queue = new List<char>();
-
+    public int dayMistakeCount;
+    public int totalMistakeCount;
     public Drink drinkImage;
     public int menu; // 음료 순서대로 1~29, 잘못 만들었으면 0
+
+    public GameTime gameTime;
+
 
     public GameObject Customer;
     private void Start()
@@ -1157,6 +1161,7 @@ public class Recipe : MonoBehaviour
     public void Cupofmistake()
     {
         Debug.Log("You made a mistake...");
+        AddMistake();
         //drinkImage.ShowDrink("mistake");
         menu = 0;
         Customer.GetComponent<CsvLoadCustomer>().recipe_number = menu;
@@ -1167,6 +1172,7 @@ public class Recipe : MonoBehaviour
     {
         SoundManager.Instance.PlaySFXSound("reset");
         drinkImage.HideDrink();
+        AddMistake();
         IngredientReset();
     }
 
@@ -1297,5 +1303,13 @@ public class Recipe : MonoBehaviour
         }
 
         return log;
+    }
+
+
+    private void AddMistake()
+    {
+        queue.Remove('N');
+        queue.Remove('R');
+        dayMistakeCount += queue.Count;
     }
 }
