@@ -662,6 +662,7 @@ public class Recipe : MonoBehaviour
     {
         blend++;
         queue.Add('N');
+        SoundManager.Instance.PlaySFXSound("blender", 0.7f);
         Debug.Log("Blend");
     }
     public void Add_water()

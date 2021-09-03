@@ -1798,6 +1798,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fa5e4befa219ac445a3370d732fd6d77, type: 3}
   - {fileID: 8300000, guid: a7cfee12ee41d5641a35bb54e176bfa3, type: 3}
   - {fileID: 8300000, guid: 9a4305985a8d14e47915c464c2e89ba9, type: 3}
+  - {fileID: 8300000, guid: d214cced3a6ec6d4c9ef4281cf58c0d3, type: 3}
 --- !u!4 &247577550
 Transform:
   m_ObjectHideFlags: 0
@@ -2071,6 +2072,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blend: {fileID: 27088535}
   spoon: {fileID: 266274012}
+  Recipe: {fileID: 0}
+  blendFront: {fileID: 0}
 --- !u!1 &288669492
 GameObject:
   m_ObjectHideFlags: 0
@@ -8067,6 +8070,7 @@ MonoBehaviour:
   customertoken: 0
   CustomerSprite: {fileID: 178142638}
   RealEmotionSprite: {fileID: 142421514}
+  numberOfCustomer: 0
 --- !u!4 &1041448814
 Transform:
   m_ObjectHideFlags: 0
@@ -9672,6 +9676,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blend: {fileID: 27088535}
   spoon: {fileID: 266274012}
+  Recipe: {fileID: 0}
+  blendFront: {fileID: 0}
 --- !u!4 &1206944743
 Transform:
   m_ObjectHideFlags: 0
@@ -12184,6 +12190,9 @@ MonoBehaviour:
   fear: 0
   real: 0
   fake: 0
+  totalToken: 0
+  tokenToGive: 0
+  GiveTokenText: {fileID: 0}
 --- !u!4 &1516608344
 Transform:
   m_ObjectHideFlags: 0
@@ -16035,14 +16044,18 @@ MonoBehaviour:
   CsvLoad: {fileID: 1735913348}
   movebg: {fileID: 1852035755}
   recipe: {fileID: 0}
+  CsvCustomer: {fileID: 0}
+  tokenManager: {fileID: 0}
   gameTime: {fileID: 0}
   espressoSingle: {fileID: 0}
   espressoDouble: {fileID: 0}
+  GiveTokenObject: {fileID: 0}
   CharacterSprite: {fileID: 0}
   DialogueBox: {fileID: 0}
   EspressoMachine: {fileID: 0}
   HotWaterDispenser: {fileID: 0}
   ViewScript: {fileID: 0}
+  EndingVar_Escape: 0
 --- !u!114 &1735913348
 MonoBehaviour:
   m_ObjectHideFlags: 0
