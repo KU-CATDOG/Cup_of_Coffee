@@ -16,7 +16,8 @@ public class GameTime : MonoBehaviour
 
     float sec;
     
-    int minute = 0;
+    [HideInInspector]
+    public int minute = 0;
     [HideInInspector]
     public int hour = 0;
     [HideInInspector]

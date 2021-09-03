@@ -16269,6 +16269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e6163a08214624ab99adf439dd21cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoad: {fileID: 515326450}
   gameTime: {fileID: 1686442243}
   pauseBGPanel: {fileID: 394027109}
   pausePanel: {fileID: 814043932}
