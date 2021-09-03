@@ -65,6 +65,8 @@ public class SaveLoad : MonoBehaviour
             if (gameTime != null)
             {
                 gameTime.day = saveObject.dayCount;
+                gameTime.hour = gameTime.startTime;
+                gameTime.minute = 0;
             }
         }
     }

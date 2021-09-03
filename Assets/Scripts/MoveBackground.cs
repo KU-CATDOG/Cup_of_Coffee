@@ -135,7 +135,7 @@ public class MoveBackground : MonoBehaviour
 
         float elapsedTime = 0;
 
-        SoundManager.Instance.PlaySFXSound("walk");
+        SoundManager.Instance.PlaySFXSound("walk", 0.5f);
 
         while (elapsedTime < time)
         {

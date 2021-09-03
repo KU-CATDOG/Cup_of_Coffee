@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameSceneClickEvent : MonoBehaviour
 {
+    public SaveLoad saveLoad;
     public GameTime gameTime;
     public GameObject pauseBGPanel;
     public GameObject pausePanel;
@@ -25,6 +26,11 @@ public class GameSceneClickEvent : MonoBehaviour
     private GameObject[] saveFileButtons = new GameObject[6];
 
     private bool isPaused = false;
+
+    private void Start()
+    {
+        saveLoad.Save(1);
+    }
 
     private void Update()
     {
@@ -75,6 +81,9 @@ public class GameSceneClickEvent : MonoBehaviour
         pausePanel.SetActive(false);
         loadPanel.SetActive(true);
 
+        saveFileCount = SaveSystem.GetSaveFileCount();
+        loadPanelPageMaxIndex = (saveFileCount - 1) / 6;
+
         RefreshLoadPanel();
     }
 
@@ -89,11 +98,13 @@ public class GameSceneClickEvent : MonoBehaviour
 
     public void LoadSaveFile(int saveIndex)
     {
-        PlayClickSound();
+        saveLoad.Load(saveIndex + 1);
 
-        string saveFileName = "save" + (saveIndex + 1) + ".txt";
+        gameTime.dayCounter.text = "Day : " + gameTime.day.ToString();
+        gameTime.clock.text = gameTime.hour.ToString("00") + ":" + gameTime.minute.ToString("00");
 
-        Debug.Log(saveFileName + " Loaded (Not Implemented)");
+        ChangeOutside.instance.InitiateOutside();
+        Resume();
     }
 
     public void ClickNextButton()
