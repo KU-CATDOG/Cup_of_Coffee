@@ -93,18 +93,21 @@ public class MoveBackground : MonoBehaviour
     // Steam Nozzle zoom in
     public void SteamNozzleClicked(MoveSteamCup steamCup)
     {
-        bgScale.localScale = new Vector2(1.95f, 1.95f);
-        rectTransform.anchoredPosition -= Vector2.right * 700;
-        steamCup.StartSteaming();
+        if (UnlockRecipe.Instance.IsMilkUnlocked())
+        {
+            bgScale.localScale = new Vector2(1.95f, 1.95f);
+            rectTransform.anchoredPosition -= Vector2.right * 700;
+            steamCup.StartSteaming();
 
-        MachineButtons.SetActive(false);
-        espressoMachineButton.interactable = false;
+            MachineButtons.SetActive(false);
+            espressoMachineButton.interactable = false;
 
-        ZoomOut.gameObject.SetActive(false);
-        ZoomOut2.gameObject.SetActive(true);
+            ZoomOut.gameObject.SetActive(false);
+            ZoomOut2.gameObject.SetActive(true);
 
-        steamCup.finishSteaming = SteamFinished(steamCup);
-        //StartCoroutine(steamFinished);
+            steamCup.finishSteaming = SteamFinished(steamCup);
+            //StartCoroutine(steamFinished);
+        }
     }
 
     public void SteamNozzleZoomOutClicked(MoveSteamCup steamCup)

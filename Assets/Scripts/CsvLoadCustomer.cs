@@ -44,7 +44,11 @@ public class CsvLoadCustomer : MonoBehaviour
 
     private void SetRandom() //랜덤으로 들어오는 것들 설정 = 메뉴, 토큰
     {
-        menunumber = Random.Range(1, 29); //메뉴 1~29까지 랜덤 선택
+        do
+        {
+            menunumber = Random.Range(1, 29); //메뉴 1~29까지 랜덤 선택
+        }
+        while (UnlockRecipe.Instance.recipeUnlockStatus[menunumber - 1] == false);
         Debug.Log("SetRandom()");
         menu(menunumber);
         customertoken = Random.Range(1, 8);
