@@ -5,37 +5,83 @@ using UnityEngine.UI;
 
 public class Receipt : MonoBehaviour
 {
-    public Text detail;
+    public Text detailLeft;
+    public Text detailRight;
     public Text day;
     public GameTime gameTime;
     private int curDay;
     private int offset;
     private int month;
+    public Recipe recipe;
+    public CsvLoadCustomer customer;
+
+    private int money;
+    private int moneyPerCustomer;
+    private int moneyPerMistake;
+    private int tax;
+    private int bonus;
+    private int totalMoney;
+    private int tipRate;
+    private int tipMoney;
 
     // Start is called before the first frame update
     void Start()
     {
+
+        money = 0;
+        moneyPerCustomer = 5385;
+        moneyPerMistake = 375;
+        tax = 10;
         month = 2;
         offset = 8;
+        bonus = 7600;
+        tipRate = 5;
+        tipMoney = money * tipRate / 100;
+        totalMoney = money + bonus + tipMoney;
+
         curDay = gameTime.day + offset;
         if (curDay > 30)
         {
             curDay %= 30;
             month++;
         }
-        detail.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula viverra turpis a congue. Sed congue sodales sem, ac aliquet nulla mollis eget. In auctor, lectus at euismod blandit, libero nibh finibus nulla, quis cursus ante elit sit amet leo. In libero ante, sollicitudin id elit id, scelerisque interdum nunc.";
+        if (recipe.dayMistakeCount == 0)
+        {
+            detailLeft.text = "총 판매량\n실수\n세금\n오늘의 급료\n완벽 보너스!\n팁\n총 급여";
+            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + bonus + "\n" + tipMoney + "\n" + totalMoney;
+        }
+        else
+        {
+            detailLeft.text = "총 판매량\n실수\n수수료\n오늘의 급료\n팁\n총 급여";
+            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + tipMoney + "\n" + totalMoney;
+        }
         day.text = "2061 년 " + month + "월 " + curDay + "일";
     }
 
     public void UpdateGameTime()
     {
+        tipRate = Random.Range(3, 6);
+        money = customer.numberOfCustomer * moneyPerCustomer - recipe.dayMistakeCount * moneyPerMistake;
+        money *= ((100-tax) / 100);
+        tipMoney = money * tipRate / 100;
+        totalMoney = money + bonus + tipMoney;
+
         curDay = gameTime.day + offset;
+       
         if (curDay > 30)
         {
             curDay %= 30;
             month++;
         }
-        detail.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula viverra turpis a congue. Sed congue sodales sem, ac aliquet nulla mollis eget. In auctor, lectus at euismod blandit, libero nibh finibus nulla, quis cursus ante elit sit amet leo. In libero ante, sollicitudin id elit id, scelerisque interdum nunc.";
-        day.text = "2061 년 2월 " + curDay + "일";
+        if (recipe.dayMistakeCount == 0)
+        {
+            detailLeft.text = "총 판매량\n실수\n세금\n오늘의 급료\n완벽 보너스!\n팁\n총 급여";
+            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + bonus + "\n" + tipMoney + "\n" + totalMoney;
+        }
+        else
+        {
+            detailLeft.text = "총 판매량\n실수\n수수료\n오늘의 급료\n팁\n총 급여";
+            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + tipMoney + "\n" + totalMoney;
+        }
     }
 }

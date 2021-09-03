@@ -98,8 +98,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
                 if (isLock == false) // 반복해서 주문이 오지 않도록 설정
                 {
-                    numberOfCustomer++;
-                    totalNumberOfCustomer++;
+                    
                     SetRandom();
                     SoundManager.Instance.PlaySFXSound("door_open");
                     SoundManager.Instance.PlaySFXSound("door_bell");
@@ -124,6 +123,8 @@ public class CsvLoadCustomer : MonoBehaviour
     {
         Customertext.text = "감사합니다. 수고하세요~";
         CustomerReset();
+        numberOfCustomer++;
+        totalNumberOfCustomer++;
         int random = Random.Range(0, 100);
         if (random < real) // 진짜 감정을 줄 때
         {
