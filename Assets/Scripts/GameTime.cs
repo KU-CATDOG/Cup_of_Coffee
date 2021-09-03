@@ -31,6 +31,7 @@ public class GameTime : MonoBehaviour
     public GameObject ReceiptObject;
     Receipt receipt;
     public Recipe recipe;
+    public CsvLoadCustomer customer;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +76,8 @@ public class GameTime : MonoBehaviour
 
                         recipe.totalMistakeCount += recipe.dayMistakeCount;
                         recipe.dayMistakeCount = 0;
+
+                        customer.ResetNumberOfCustomer();
 
                         day++;
                         hour = startTime;

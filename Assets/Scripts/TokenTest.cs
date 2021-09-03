@@ -36,10 +36,11 @@ public class TokenTest : MonoBehaviour
     token_fear;
     */
 
-    void Start(){
+    void Start()
+    {
         GiveTokenText = GameObject.Find("GiveTokenText").GetComponent<Text>();
     }
-    void Update() 
+    void Update()
     {
         happy = token.token_happy; // 1
         love = token.token_love; // 2
@@ -51,14 +52,14 @@ public class TokenTest : MonoBehaviour
         fear = token.token_fear; // 8
         real = token.real_token;
         fake = token.fake_token;
-        totalToken = happy+love+hope+peace+sad+anger+tired+fear;
+        totalToken = happy + love + hope + peace + sad + anger + tired + fear;
 
     }
 
 
     public void happyUp()
     {
-        token.token_happy += Random.Range(1,3);
+        token.token_happy += Random.Range(1, 3);
         Debug.Log("happy는" + token.token_happy);
 
     }
@@ -147,32 +148,33 @@ public class TokenTest : MonoBehaviour
     {
         token.fake_token++;
 
-        if(number == 1) //Customer의 진짜 감정이 happy일때
+        if (number == 1) //Customer의 진짜 감정이 happy일때
         {
             int b = Random.Range(1, 7);
 
             switch (b)
             {
-                case 1: loveUp();
-                        break;
+                case 1:
+                    loveUp();
+                    break;
                 case 2:
-                        hopeUp();
-                        break;
+                    hopeUp();
+                    break;
                 case 3:
-                       peaceUp();
-                        break;
+                    peaceUp();
+                    break;
                 case 4:
-                        sadUp();
-                        break;
+                    sadUp();
+                    break;
                 case 5:
-                        angerUp();
-                        break;
+                    angerUp();
+                    break;
                 case 6:
-                        tiredUp();
-                        break;
+                    tiredUp();
+                    break;
                 case 7:
-                        fearUp();
-                        break;
+                    fearUp();
+                    break;
 
             }
 
@@ -393,93 +395,114 @@ public class TokenTest : MonoBehaviour
     }
 
 
-    public void ClickTokenUp(){
-        if(tokenToGive < totalToken && tokenToGive < 10){
+    public void ClickTokenUp()
+    {
+        if (tokenToGive < totalToken && tokenToGive < 10)
+        {
             tokenToGive++;
         }
         GiveTokenText.text = tokenToGive.ToString();
         Debug.Log("tokenToGive = " + tokenToGive);
     }
-    public void ClickTokenDown(){
-        if(tokenToGive > 0){
+    public void ClickTokenDown()
+    {
+        if (tokenToGive > 0)
+        {
             tokenToGive--;
         }
         GiveTokenText.text = tokenToGive.ToString();
         Debug.Log("tokenToGive = " + tokenToGive);
     }
-    public void GiveToken(int n){
-        
-        if(token.token_happy >= n){
-            token.token_happy = token.token_happy-n;
+    public void GiveToken(int n)
+    {
+
+        if (token.token_happy >= n)
+        {
+            token.token_happy = token.token_happy - n;
             return;
         }
-        else {
+        else
+        {
             token.token_happy = 0;
             n = n - token.token_happy;
 
-            if(token.token_love >= n){
-                token.token_love = token.token_love-n;
+            if (token.token_love >= n)
+            {
+                token.token_love = token.token_love - n;
                 return;
             }
-            else {
+            else
+            {
                 token.token_love = 0;
                 n = n - token.token_love;
 
-                if(token.token_hope >= n){
-                    token.token_hope = token.token_hope-n;
+                if (token.token_hope >= n)
+                {
+                    token.token_hope = token.token_hope - n;
                     return;
                 }
-                else {
+                else
+                {
                     token.token_hope = 0;
                     n = n - token.token_hope;
 
-                    if(token.token_peace >= n){
-                        token.token_peace = token.token_peace-n;
+                    if (token.token_peace >= n)
+                    {
+                        token.token_peace = token.token_peace - n;
                         return;
                     }
-                    else {
+                    else
+                    {
                         token.token_peace = 0;
                         n = n - token.token_peace;
 
-                        if(token.token_sad >= n){
-                            token.token_sad = token.token_sad-n;
+                        if (token.token_sad >= n)
+                        {
+                            token.token_sad = token.token_sad - n;
                             return;
                         }
-                        else {
+                        else
+                        {
                             token.token_sad = 0;
                             n = n - token.token_sad;
 
-                            if(token.token_anger >= n){
-                                token.token_anger = token.token_anger-n;
+                            if (token.token_anger >= n)
+                            {
+                                token.token_anger = token.token_anger - n;
                                 return;
                             }
-                            else {
+                            else
+                            {
                                 token.token_anger = 0;
                                 n = n - token.token_anger;
 
-                                if(token.token_tired >= n){
-                                    token.token_tired = token.token_tired-n;
+                                if (token.token_tired >= n)
+                                {
+                                    token.token_tired = token.token_tired - n;
                                     return;
                                 }
-                                else {
+                                else
+                                {
                                     token.token_tired = 0;
                                     n = n - token.token_tired;
-                                    
-                                    if(token.token_fear >= n){
-                                        token.token_tired = token.token_fear-n;
+
+                                    if (token.token_fear >= n)
+                                    {
+                                        token.token_tired = token.token_fear - n;
                                         return;
                                     }
-                                    else {
+                                    else
+                                    {
                                         token.token_fear = 0;
                                         n = n - token.token_fear;
                                     }
-                                } 
+                                }
                             }
                         }
                     }
                 }
             }
-            
+
         }
     }
 
