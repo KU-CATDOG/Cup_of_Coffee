@@ -20,7 +20,7 @@ public class GameTime : MonoBehaviour
     public int minute = 0;
     [HideInInspector]
     public int hour = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public int day;
     [HideInInspector]
     public bool resetDialogue = false;
@@ -80,16 +80,16 @@ public class GameTime : MonoBehaviour
 
                         customer.ResetNumberOfCustomer();
 
-                        day++;
-                        hour = startTime;
-                        resetDialogue = true;
+                        //day++;
+                        //hour = startTime;
+                        //resetDialogue = true;
 
                         dayCounter.text = "Day : " + day.ToString();
 
                         UnlockRecipe.Instance.UpdateUnlockStatus();
 
                         isTimePassing = false;
-                        saveLoadUI.OpenSaveLoadPanel();
+                        //saveLoadUI.OpenSaveLoadPanel();
                     }
                 }
 

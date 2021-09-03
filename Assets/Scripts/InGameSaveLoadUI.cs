@@ -89,6 +89,10 @@ public class InGameSaveLoadUI : MonoBehaviour
     {
         chooseSaveLoadPanel.SetActive(false);
         gameTime.isTimePassing = true;
+        gameTime.day++;
+        gameTime.hour = gameTime.startTime;
+        gameTime.resetDialogue = true;
+        gameTime.dayCounter.text = "Day : " + gameTime.day.ToString();
         ChangeOutside.instance.InitiateOutside();
     }
 

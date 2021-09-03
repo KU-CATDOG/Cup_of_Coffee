@@ -20,13 +20,14 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     public Image CharacterSprite;
     private TextAsset[] NPCscripts;
+    public InGameSaveLoadUI saveLoadUI;
 
     GameTime gameTime;
     int dayCount = 0;
     int closeTime = 18; //마지막 손님 받는 시간
     public int currentOrder = 0;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool getCustomerOrder = false, endScript = false, pausescript = false;
 
     public class scripts
@@ -48,11 +49,13 @@ public class CsvLoadTest_2 : MonoBehaviour
     {
         Customer = GameObject.Find("CsvCustomer");
         gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
+        saveLoadUI = GameObject.FindObjectOfType(typeof(InGameSaveLoadUI)) as InGameSaveLoadUI;
         Customertextbox.SetActive(false);
 
         if (gameTime != null)
         {
             dayCount = gameTime.day;
+            closeTime = gameTime.endTime;
         }
 
         LoadCSV();
@@ -88,6 +91,8 @@ public class CsvLoadTest_2 : MonoBehaviour
                 LoadInGameScript();
             }
         }
+
+        closeTime = gameTime.endTime;
     }
 
     public void pauseCustomerOrder(){
@@ -136,6 +141,9 @@ public class CsvLoadTest_2 : MonoBehaviour
             if (gameTime.hour < closeTime)
             {
                 getCustomerOrder = true; //손님 주문 받기 시작
+            }
+            else{
+                saveLoadUI.OpenSaveLoadPanel();
             }
             return;
         }
