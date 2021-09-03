@@ -559,6 +559,8 @@ public class Recipe : MonoBehaviour
     #region--Add ingredients functions--
     public void Add_vanilla_syrup()
     {
+        if (UnlockRecipe.Instance.IsSyrupUnlocked() == false) return;
+
         vanilla_syrup++;
         queue.Add('A');
         SoundManager.Instance.PlaySFXSound("syrup_pump");
@@ -566,6 +568,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_chocolate_syrup()
     {
+        if (UnlockRecipe.Instance.IsSyrupUnlocked() == false) return;
+
         chocolate_syrup++;
         queue.Add('B');
         SoundManager.Instance.PlaySFXSound("syrup_pump");
@@ -573,6 +577,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_caramel_syrup()
     {
+        if (UnlockRecipe.Instance.IsSyrupUnlocked() == false) return;
+
         caramel_syrup++;
         queue.Add('C');
         SoundManager.Instance.PlaySFXSound("syrup_pump");
@@ -601,6 +607,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_milk()
     {
+        if (UnlockRecipe.Instance.IsMilkUnlocked() == false) return;
+
         milk++;
         queue.Add('E');
         SoundManager.Instance.PlaySFXSound("drink_pour");
@@ -608,6 +616,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_milk_bubble()
     {
+        if (UnlockRecipe.Instance.IsMilkUnlocked() == false) return;
+
         milk_bubble++;
         queue.Add('F');
         SoundManager.Instance.PlaySFXSound("milk_bubble");
@@ -650,6 +660,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_yogurt()
     {
+        if (UnlockRecipe.Instance.IsYogurtUnlocked() == false) return;
+
         yogurt++;
         queue.Add('L');
         SoundManager.Instance.PlaySFXSound("yogurt");
@@ -657,6 +669,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_tapioca()
     {
+        if (UnlockRecipe.Instance.IsBubblePearlUnlocked() == false) return;
+
         tapioca++;
         queue.Add('M');
         SoundManager.Instance.PlaySFXSound("pearl_drop");
@@ -664,6 +678,8 @@ public class Recipe : MonoBehaviour
     }
     public void Add_blend()
     {
+        if (UnlockRecipe.Instance.IsBlenderUnlocked() == false) return;
+
         blend++;
         queue.Add('N');
         SoundManager.Instance.PlaySFXSound("blender", 0.7f);

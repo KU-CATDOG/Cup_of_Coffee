@@ -1799,6 +1799,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a7cfee12ee41d5641a35bb54e176bfa3, type: 3}
   - {fileID: 8300000, guid: 9a4305985a8d14e47915c464c2e89ba9, type: 3}
   - {fileID: 8300000, guid: d214cced3a6ec6d4c9ef4281cf58c0d3, type: 3}
+  - {fileID: 8300000, guid: ba5db1290c1eaa5498e4013a6c783655, type: 3}
+  - {fileID: 8300000, guid: 3af15aea86fe51e449b3156c6bcab758, type: 3}
 --- !u!4 &247577550
 Transform:
   m_ObjectHideFlags: 0
@@ -8071,6 +8073,7 @@ MonoBehaviour:
   CustomerSprite: {fileID: 178142638}
   RealEmotionSprite: {fileID: 142421514}
   numberOfCustomer: 0
+  totalNumberOfCustomer: 0
 --- !u!4 &1041448814
 Transform:
   m_ObjectHideFlags: 0
@@ -11913,6 +11916,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428690056}
   m_CullTransparentMesh: 1
+--- !u!1 &1482534808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482534810}
+  - component: {fileID: 1482534809}
+  m_Layer: 0
+  m_Name: UnlockRecipe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482534809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482534808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fad96d376ecb984c9bd0f83a4f1c9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTime: {fileID: 1686442243}
+  syrupUnlockDay: 1
+  milkUnlockDay: 1
+  yogurtUnlockDay: 2
+  bubblePearlUnlockDay: 3
+  blenderUnlockDay: 4
+  recipeUnlockStatus: 0000000000000000000000000000000000000000000000000000000000
+--- !u!4 &1482534810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482534808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1671.6365, y: 722.39465, z: -102.50849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1490000294
 GameObject:
   m_ObjectHideFlags: 0
@@ -15333,11 +15386,15 @@ MonoBehaviour:
   dayCounter: {fileID: 973937540}
   startTime: 0
   endTime: 24
+  minute: 0
   hour: 0
   day: 0
   resetDialogue: 0
   isTimePassing: 1
   saveLoadUI: {fileID: 1171448798}
+  ReceiptObject: {fileID: 0}
+  recipe: {fileID: 0}
+  customer: {fileID: 0}
 --- !u!4 &1686442244
 Transform:
   m_ObjectHideFlags: 0
@@ -15558,8 +15615,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   queue: 
+  dayMistakeCount: 0
+  totalMistakeCount: 0
   drinkImage: {fileID: 429290899}
   menu: 0
+  gameTime: {fileID: 0}
   Customer: {fileID: 1041448812}
 --- !u!4 &1697729243
 Transform:

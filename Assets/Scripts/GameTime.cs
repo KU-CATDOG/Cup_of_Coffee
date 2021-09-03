@@ -86,6 +86,8 @@ public class GameTime : MonoBehaviour
 
                         dayCounter.text = "Day : " + day.ToString();
 
+                        UnlockRecipe.Instance.UpdateUnlockStatus();
+
                         isTimePassing = false;
                         saveLoadUI.OpenSaveLoadPanel();
                     }
