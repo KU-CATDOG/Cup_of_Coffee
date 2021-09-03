@@ -14,6 +14,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     bool Spoonmove1 = false;
     bool Spoonmove2 = false;
     int blendtoken = 0;
+
     void Start()
     {
         recttransform = GetComponent<RectTransform>();
@@ -29,13 +30,12 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public void OnBeginDrag(PointerEventData eventData) //드래그 시작할 때
     {
 
-
     }
 
     public void OnDrag(PointerEventData eventData) //드래그 중일 때
     {
 
-        recttransform.anchoredPosition += eventData.delta;
+        recttransform.anchoredPosition += new Vector2(eventData.delta.x / 10, 0);
         if (recttransform.anchoredPosition.x < 290)
         {
             Spoonmove1 = true;
@@ -69,9 +69,10 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public void OnEndDrag(PointerEventData eventData) //드래그 끝날 때
     {
 
-
+        
 
     }
+
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -82,4 +83,10 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
+    
 }
+

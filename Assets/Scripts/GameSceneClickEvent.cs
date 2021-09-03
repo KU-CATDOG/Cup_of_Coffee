@@ -29,7 +29,7 @@ public class GameSceneClickEvent : MonoBehaviour
 
     private void Start()
     {
-        saveLoad.Save(1);
+        //saveLoad.Save(1);
     }
 
     private void Update()
