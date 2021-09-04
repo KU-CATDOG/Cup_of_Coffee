@@ -269,13 +269,13 @@ public class GameSceneClickEvent : MonoBehaviour
         PlayClickSound();
 
         if (fullscreenButton.interactable)
-        {   
+        {
             fullscreenButton.interactable = false;
             windowButton.interactable = true;
             Screen.fullScreen = true;
         }
         else
-        {    
+        {
             fullscreenButton.interactable = true;
             windowButton.interactable = false;
             Screen.fullScreen = false;

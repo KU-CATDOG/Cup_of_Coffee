@@ -90,7 +90,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
     public void Customer()
     {
-        
+
         if (isActive == true)
         {
             Customertext.text = text[currentorder];
@@ -105,7 +105,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
                 if (isLock == false) // 반복해서 주문이 오지 않도록 설정
                 {
-                    
+
                     SetRandom();
                     SoundManager.Instance.PlaySFXSound("door_open");
                     SoundManager.Instance.PlaySFXSound("door_bell");
@@ -610,12 +610,15 @@ public class CsvLoadCustomer : MonoBehaviour
         return;
     }
 
-    public void ClickAgentButton(){
-        if(!isActive){
+    public void ClickAgentButton()
+    {
+        if (!isActive)
+        {
             return;
         }
 
-        if(numberOfCustomer != recentClick){
+        if (numberOfCustomer != recentClick)
+        {
             recentClick = numberOfCustomer;
             AgentButtonCount++;
         }
