@@ -5,6 +5,7 @@ using System.Linq;
 
 public class Recipe : MonoBehaviour
 {
+    public int pitcherMilkCount = 0;
     #region--ingredients declaration--
     private int vanilla_syrup = 0;              //A
     private int chocolate_syrup = 0;            //B
@@ -36,7 +37,7 @@ public class Recipe : MonoBehaviour
     private List<char> caffe_mocha_hot = new List<char>(new char[] { 'B', 'B', 'D', 'D', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'C', 'F', 'K', 'B' });
     private List<char> espresso_con_panna = new List<char>(new char[] { 'D', 'K' });
     private List<char> espresso_macchiato = new List<char>(new char[] { 'D', 'F' });
-    private List<char> cappuccino = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'D', 'D' });
+    private List<char> cappuccino = new List<char>(new char[] { 'E', 'E', 'E', 'C', 'F', 'F', 'F', 'D', 'D' });
     private List<char> vanilla_latte_hot = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'C', 'F' });
     private List<char> vanilla_latte_ice = new List<char>(new char[] { 'A', 'A', 'D', 'D', 'R', 'E', 'E', 'E', 'G' });
     private List<char> caffe_latte_hot = new List<char>(new char[] { 'D', 'D', 'E', 'E', 'E', 'E', 'E', 'E', 'C', 'F' });
@@ -77,8 +78,8 @@ public class Recipe : MonoBehaviour
     private List<char> espresso_con_panna_lungo = new List<char>(new char[] { 'Q', 'K' });
     private List<char> espresso_macchiato_ristretto = new List<char>(new char[] { 'P', 'F' });
     private List<char> espresso_macchiato_lungo = new List<char>(new char[] { 'Q', 'F' });
-    private List<char> cappuccino_ristretto = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'P', 'P' });
-    private List<char> cappuccino_lungo = new List<char>(new char[] { 'E', 'E', 'E', 'F', 'F', 'F', 'Q', 'Q' });
+    private List<char> cappuccino_ristretto = new List<char>(new char[] { 'E', 'E', 'E', 'C', 'F', 'F', 'F', 'P', 'P' });
+    private List<char> cappuccino_lungo = new List<char>(new char[] { 'E', 'E', 'E', 'C', 'F', 'F', 'F', 'Q', 'Q' });
     private List<char> vanilla_latte_hot_ristretto = new List<char>(new char[] { 'A', 'A', 'P', 'P', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'C', 'F' });
     private List<char> vanilla_latte_hot_lungo = new List<char>(new char[] { 'A', 'A', 'Q', 'Q', 'R', 'E', 'E', 'E', 'E', 'E', 'E', 'C', 'F' });
     private List<char> vanilla_latte_ice_ristretto = new List<char>(new char[] { 'A', 'A', 'P', 'P', 'R', 'E', 'E', 'E', 'G' });
@@ -98,7 +99,7 @@ public class Recipe : MonoBehaviour
     public int menu; // 음료 순서대로 1~29, 잘못 만들었으면 0
 
     public GameTime gameTime;
-
+    public milkDisplay steamCup;
 
     public GameObject Customer;
     private void Start()
@@ -530,6 +531,8 @@ public class Recipe : MonoBehaviour
         shot_lungo = 0;
         mix = 0;
         steam = 0;
+        pitcherMilkCount = 0;
+        steamCup.UpdateMilkAmount();
         queue.Clear();
         Debug.Log("Ingredient Resetted");
     }
@@ -601,10 +604,10 @@ public class Recipe : MonoBehaviour
     public void Add_milk()
     {
         if (UnlockRecipe.Instance.IsMilkUnlocked() == false) return;
-
+        pitcherMilkCount--;
         milk++;
         queue.Add('E');
-        SoundManager.Instance.PlaySFXSound("drink_pour");
+        //SoundManager.Instance.PlaySFXSound("drink_pour");
         Debug.Log("Milk");
     }
     public void Add_milk_bubble()
@@ -689,6 +692,30 @@ public class Recipe : MonoBehaviour
     {
         queue.Add('R');
         Debug.Log("Mixed");
+    }
+
+    public void Add_steam()
+    {
+        queue.Add('C');
+        SoundManager.Instance.PlaySFXSound("milk_bubble");
+        Debug.Log("Steamed");
+    }
+
+    public void Add_milk_to_pitcher()
+    {
+        pitcherMilkCount++;
+        steamCup.UpdateMilkAmount();
+        SoundManager.Instance.PlaySFXSound("drink_pour");
+    }
+    public void Add_multiple_milk()
+    {
+        int temp = pitcherMilkCount;
+        for (int i = 0; i < temp; i++)
+        {
+            Add_milk();
+        }
+        steamCup.UpdateMilkAmount();
+        SoundManager.Instance.PlaySFXSound("drink_pour");
     }
     #endregion
 
@@ -1294,6 +1321,9 @@ public class Recipe : MonoBehaviour
                 case "우유":
                 case "물":
                     unit = "mL";
+                    break;
+                case "우유 거품":
+                    unit = "회";
                     break;
             }
 

@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
+public class MoveSteamCup : MonoBehaviour
 {
-    enum SteamType
+    public enum SteamType
     {
         None,
         Bubble,
@@ -16,6 +16,8 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     public Recipe recipe;
     public Text steamTypeText;
+    public GameObject MilkCup;
+
     public float maxHeight;
     public float minHeight;
     public float bubbleHeight;
@@ -28,11 +30,12 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     private const float steamingXPos = 395f;
 
-    private bool steamingStart = false;
+    [HideInInspector]
+    public bool steamingStart = false;
 
     private Vector2 originalPosition;
 
-    private SteamType steamType = SteamType.None;
+    public SteamType steamType = SteamType.None;
     private float bubble = 0;
     private float steam = 0;
 
@@ -41,59 +44,14 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
         originalPosition = transform.localPosition;
         //transform.localPosition = new Vector2(transform.localPosition.x, minHeight);
         //gameObject.SetActive(false);
+        MilkCup.SetActive(false);
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        if (!steamingStart)
-        {
-            steamingStart = true;
-            StartCoroutine(finishSteaming);
-
-            steamCheck = SteamCheck();
-            StartCoroutine(steamCheck);
-        }
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (steamingStart)
-        {
-            transform.position = new Vector2(transform.position.x, eventData.position.y);
-
-            // y좌표가 범위 밖으로 못 나가게 함
-            if (transform.localPosition.y < minHeight)
-            {
-                transform.localPosition = new Vector2(transform.localPosition.x, minHeight);
-            }
-            else if (transform.localPosition.y > maxHeight)
-            {
-                transform.localPosition = new Vector2(transform.localPosition.x, maxHeight);
-            }
-
-            if (transform.localPosition.y < bubbleHeight || transform.localPosition.y == steamHeight)
-            {
-                // none
-                steamTypeText.text = "";
-                steamType = SteamType.None;
-            }
-            else if (transform.localPosition.y >= bubbleHeight && transform.localPosition.y < steamHeight)
-            {
-                // 우유 거품
-                steamTypeText.text = "Bubble";
-                steamType = SteamType.Bubble;
-            }
-            else if (transform.localPosition.y > steamHeight)
-            {
-                // 스팀
-                steamTypeText.text = "Steam";
-                steamType = SteamType.Steam;
-            }
-        }
-    }
+    
 
     public void StartSteaming()
     {
+        MilkCup.SetActive(true);
         steamType = SteamType.None;
         steamTypeText.text = "";
 
@@ -110,6 +68,7 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
 
         StopCoroutine(finishSteaming);
         StopCoroutine(steamCheck);
+        MilkCup.SetActive(false);
     }
 
     public void FinishedSteaming()
@@ -120,14 +79,24 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
         }
         else
         {
-            recipe.Add_milk();
+            if (recipe.pitcherMilkCount > 0)
+            {
+                int temp = recipe.pitcherMilkCount;
+                for (int i = 0; i < temp; i++)
+                {
+                    recipe.Add_milk();
+                }
+            }
+
+            recipe.Add_steam();
         }
 
         //Debug.Log("Bubble: " + bubble + " Steam: " + steam);
         StopSteaming();
     }
-
-    private IEnumerator SteamCheck()
+    
+    
+    public IEnumerator SteamCheck()
     {
         float time = 5f;
         while (time >= 0)
@@ -145,4 +114,5 @@ public class MoveSteamCup : MonoBehaviour, IDragHandler, IBeginDragHandler
             yield return null;
         }
     }
+    
 }

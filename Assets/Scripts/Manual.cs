@@ -25,6 +25,13 @@ public class Manual : MonoBehaviour
     public GameObject BubbleTea;
     public GameObject Frappuccino;
 
+    private void Start()
+    {
+        On();
+        Off();
+    }
+
+
     public void On() //Manual Open«“ ∂ß
     {
         Square.SetActive(true);
@@ -46,7 +53,6 @@ public class Manual : MonoBehaviour
         Smoothie.SetActive(true);
         BubbleTea.SetActive(true);
         Frappuccino.SetActive(true);
-
     }
 
 
