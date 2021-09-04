@@ -24,6 +24,8 @@ public class CsvLoadCustomer : MonoBehaviour
     public int b; // 에스프레소, 룽고, 리스트레토 중 무엇인가를 담당
     public int real; // real = 진짜 감정을 줄 확률
     public int customertoken; //손님이 들어올 때 결정되는 토큰
+    public int AgentButtonCount = 0; //의심 버튼 누른 횟수
+    int recentClick = 0; //의심 버튼 중복 클릭 방지
 
     public Image CustomerSprite;
     public Image RealEmotionSprite;
@@ -576,5 +578,17 @@ public class CsvLoadCustomer : MonoBehaviour
 
         }
         RealEmotionSprite.gameObject.SetActive(true);
+    }
+
+    public void ClickAgentButton(){
+        if(!isActive){
+            return;
+        }
+
+        if(numberOfCustomer != recentClick){
+            recentClick = numberOfCustomer;
+            AgentButtonCount++;
+        }
+
     }
 }

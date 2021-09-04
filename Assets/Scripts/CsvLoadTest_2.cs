@@ -115,7 +115,11 @@ public class CsvLoadTest_2 : MonoBehaviour
 
             for (int i = 0; i < data.Length - 1; i++)
             {
+                
                 var singleData = Regex.Split(data[i], ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
+                if(singleData[0] == null){
+                    continue;
+                }
                 inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0] });
             }
         }
@@ -155,7 +159,9 @@ public class CsvLoadTest_2 : MonoBehaviour
             
             if(!pausescript){
                 ViewScript.text = Sorted[currentOrder].script;
-                currentOrder++;
+                if(currentOrder<Sorted.Count){
+                    currentOrder++;
+                }
             }
         }
 
@@ -165,7 +171,13 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     void MatchCharacter(string name)
     {
-        NameTag.text = name;
+        if(gameTime.day < 14 && name == "반란군"){
+            NameTag.text = "???";
+        }
+        else{
+            NameTag.text = name;
+        }
+        
         CharacterSprite.gameObject.SetActive(true);
         switch (name)
         {
