@@ -21,6 +21,7 @@ public class MoveBackground : MonoBehaviour
 
     public Button espressoMachineButton;
     public GameObject MachineButtons;
+    public GameObject shotGlasses;
 
     public float timeInterval = 0.5f;
 
@@ -177,7 +178,7 @@ public class MoveBackground : MonoBehaviour
         Leftbtn.interactable = true;
 
         MachineButtons.SetActive(false);
-
+        
         ZoomOut.gameObject.SetActive(false);
 
     }
