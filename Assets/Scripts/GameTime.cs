@@ -72,11 +72,8 @@ public class GameTime : MonoBehaviour
 
                     if (hour >= endTime)
                     {
-                        ReceiptObject.SetActive(true);
-                        receipt.UpdateGameTime();
 
-                        recipe.totalMistakeCount += recipe.dayMistakeCount;
-                        recipe.dayMistakeCount = 0;
+                        //OpenReceiptAndUpdate();
 
                         customer.ResetNumberOfCustomer();
 
@@ -101,9 +98,19 @@ public class GameTime : MonoBehaviour
 
     }
 
-    public void receiptClose()
+    public void ReceiptClose()
     {
         ReceiptObject.SetActive(false);
+        saveLoadUI.OpenSaveLoadPanel();
+    }
+
+    public void OpenReceiptAndUpdate()
+    {
+        ReceiptObject.SetActive(true);
+        receipt.UpdateGameTime();
+
+        recipe.totalMistakeCount += recipe.dayMistakeCount;
+        recipe.dayMistakeCount = 0;
     }
 
 }

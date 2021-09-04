@@ -57,49 +57,49 @@ public class TokenTest : MonoBehaviour
     }
 
 
-    public void happyUp()
+    public void HappyUp()
     {
         token.token_happy += Random.Range(1, 3);
         Debug.Log("happy는" + token.token_happy);
 
     }
-    public void loveUp()
+    public void LoveUp()
     {
         token.token_love += Random.Range(1, 3);
         Debug.Log("love는" + token.token_love);
 
     }
-    public void hopeUp()
+    public void HopeUp()
     {
         token.token_hope += Random.Range(1, 3);
         Debug.Log("hope는" + token.token_hope);
 
     }
-    public void peaceUp()
+    public void PeaceUp()
     {
         token.token_peace += Random.Range(1, 3);
         Debug.Log("peace는" + token.token_peace);
 
     }
-    public void sadUp()
+    public void SadUp()
     {
         token.token_sad += Random.Range(1, 3);
         Debug.Log("sad는" + token.token_sad);
 
     }
-    public void angerUp()
+    public void AngerUp()
     {
         token.token_anger += Random.Range(1, 3);
         Debug.Log("anger는" + token.token_anger);
 
     }
-    public void tiredUp()
+    public void TiredUp()
     {
         token.token_tired += Random.Range(1, 3);
         Debug.Log("tired는" + token.token_tired);
 
     }
-    public void fearUp()
+    public void FearUp()
     {
         token.token_fear += Random.Range(1, 3);
         Debug.Log("fear는" + token.token_fear);
@@ -112,35 +112,35 @@ public class TokenTest : MonoBehaviour
 
         if (customertoken == 1)
         {
-            happyUp();
+            HappyUp();
         }
         else if (customertoken == 2)
         {
-            loveUp();
+            LoveUp();
         }
         else if (customertoken == 3)
         {
-            hopeUp();
+            HopeUp();
         }
         else if (customertoken == 4)
         {
-            peaceUp();
+            PeaceUp();
         }
         else if (customertoken == 5)
         {
-            sadUp();
+            SadUp();
         }
         else if (customertoken == 6)
         {
-            angerUp();
+            AngerUp();
         }
         else if (customertoken == 7)
         {
-            tiredUp();
+            TiredUp();
         }
         else
         {
-            fearUp();
+            FearUp();
         }
     }
 
@@ -155,25 +155,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 2:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 3:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 4:
-                    sadUp();
+                    SadUp();
                     break;
                 case 5:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 6:
-                    tiredUp();
+                    TiredUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -186,25 +186,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 3:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 4:
-                    sadUp();
+                    SadUp();
                     break;
                 case 5:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 6:
-                    tiredUp();
+                    TiredUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -216,25 +216,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 3:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 4:
-                    sadUp();
+                    SadUp();
                     break;
                 case 5:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 6:
-                    tiredUp();
+                    TiredUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -246,25 +246,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 3:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 4:
-                    sadUp();
+                    SadUp();
                     break;
                 case 5:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 6:
-                    tiredUp();
+                    TiredUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -276,25 +276,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 3:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 4:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 5:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 6:
-                    tiredUp();
+                    TiredUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -306,25 +306,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 3:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 4:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 5:
-                    sadUp();
+                    SadUp();
                     break;
                 case 6:
-                    tiredUp();
+                    TiredUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -336,25 +336,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 3:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 4:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 5:
-                    sadUp();
+                    SadUp();
                     break;
                 case 6:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 7:
-                    fearUp();
+                    FearUp();
                     break;
 
             }
@@ -366,25 +366,25 @@ public class TokenTest : MonoBehaviour
             switch (b)
             {
                 case 1:
-                    happyUp();
+                    HappyUp();
                     break;
                 case 2:
-                    loveUp();
+                    LoveUp();
                     break;
                 case 3:
-                    hopeUp();
+                    HopeUp();
                     break;
                 case 4:
-                    peaceUp();
+                    PeaceUp();
                     break;
                 case 5:
-                    sadUp();
+                    SadUp();
                     break;
                 case 6:
-                    angerUp();
+                    AngerUp();
                     break;
                 case 7:
-                    tiredUp();
+                    TiredUp();
                     break;
 
             }

@@ -157,18 +157,12 @@ public class DialogueEvent : MonoBehaviour
                     CsvLoad.pausescript = true;
                     scriptByCondition++;
 
-                    switch (scriptByCondition)
+                    ViewScript.text = scriptByCondition switch
                     {
-                        case 1:
-                            ViewScript.text = "아니 그거 말고.";
-                            break;
-                        case 2:
-                            ViewScript.text = "리스트레또. 제일 왼쪽 버튼.";
-                            break;
-                        default:
-                            ViewScript.text = "버튼 하나 누르는게 그렇게 어려워?";
-                            break;
-                    }
+                        1 => "아니 그거 말고.",
+                        2 => "리스트레또. 제일 왼쪽 버튼.",
+                        _ => "버튼 하나 누르는게 그렇게 어려워?",
+                    };
                 }
                 recipe.IngredientReset();
                 break;
@@ -287,7 +281,7 @@ public class DialogueEvent : MonoBehaviour
             {
                 yield return null;
             }
-            CsvLoad.pauseCustomerOrder(); 
+            CsvLoad.PauseCustomerOrder(); 
 
         }
         else
@@ -302,7 +296,7 @@ public class DialogueEvent : MonoBehaviour
             yield return null;
         }
 
-        CsvLoad.pauseCustomerOrder();
+        CsvLoad.PauseCustomerOrder();
     }
 
     public void Day5(int order){

@@ -50,7 +50,7 @@ public class CsvLoadCustomer : MonoBehaviour
         }
         while (UnlockRecipe.Instance.recipeUnlockStatus[menunumber - 1] == false);
         Debug.Log("SetRandom()");
-        menu(menunumber);
+        Menu(menunumber);
         customertoken = Random.Range(1, 8);
 
         LoadCustomerSprite(); //손님 스프라이트
@@ -148,7 +148,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
     }
 
-    public void menu(int number) // 메뉴 호출
+    public void Menu(int number) // 메뉴 호출
     {
         switch (number)
         {

@@ -40,14 +40,14 @@ public class EspressoMachine : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {    //(임시) Z 누르면 컵 제거
-            removeCupLeft();
-            removeCupRight();
+            RemoveCupLeft();
+            RemoveCupRight();
         }
     }
 
     #region SingleShot
 
-    public bool placeCupLeft()
+    public bool PlaceCupLeft()
     {
         if (!cupLeft1)
         {
@@ -68,7 +68,7 @@ public class EspressoMachine : MonoBehaviour
         }
     }
 
-    public void removeCupLeft()
+    public void RemoveCupLeft()
     { // cupLeft2 -> 1 순으로 컵 제거
         if (shotpullingLeft)
         {        //샷 내리는 중 컵 제거하면 샷도 취소
@@ -98,12 +98,12 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingLeft)
         {
-            if (placeCupLeft())
+            if (PlaceCupLeft())
             {
                 loadingLeft = Left1.GetComponent<Image>();
                 shotpullingLeft = true;
                 loadingLeft.color = new Color32(158, 222, 115, 255);
-                StartCoroutine(shotTimingLeft(ristretto, loadingLeft));
+                StartCoroutine(ShotTimingLeft(ristretto, loadingLeft));
             }
         }
         else
@@ -111,7 +111,7 @@ public class EspressoMachine : MonoBehaviour
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
-            removeCupLeft();
+            RemoveCupLeft();
 
         }
 
@@ -123,12 +123,12 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingLeft)
         {
-            if (placeCupLeft())
+            if (PlaceCupLeft())
             {
                 loadingLeft = Left2.GetComponent<Image>();
                 shotpullingLeft = true;
                 loadingLeft.color = new Color32(247, 234, 0, 255);
-                StartCoroutine(shotTimingLeft(espresso, loadingLeft));
+                StartCoroutine(ShotTimingLeft(espresso, loadingLeft));
             }
         }
         else
@@ -136,7 +136,7 @@ public class EspressoMachine : MonoBehaviour
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
-            removeCupLeft();
+            RemoveCupLeft();
 
         }
     }
@@ -146,12 +146,12 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingLeft)
         {
-            if (placeCupLeft())
+            if (PlaceCupLeft())
             {
                 loadingLeft = Left3.GetComponent<Image>();
                 shotpullingLeft = true;
                 loadingLeft.color = new Color32(228, 137, 0, 255);
-                StartCoroutine(shotTimingLeft(lungo, loadingLeft));
+                StartCoroutine(ShotTimingLeft(lungo, loadingLeft));
             }
         }
         else
@@ -159,13 +159,12 @@ public class EspressoMachine : MonoBehaviour
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
-            removeCupLeft();
+            RemoveCupLeft();
 
         }
     }
 
-
-    IEnumerator shotTimingLeft(float EspressoType, Image loading)
+    private IEnumerator ShotTimingLeft(float EspressoType, Image loading)
     {
         // if(cupLeft1 && cupLeft2){
         //     Debug.Log("remove cups before pulling another shot!");
@@ -218,7 +217,7 @@ public class EspressoMachine : MonoBehaviour
 
     #region DoubleShot
 
-    public bool placeCupRight()
+    public bool PlaceCupRight()
     {
         if (!cupRight1 && !cupRight2)
         {
@@ -234,7 +233,7 @@ public class EspressoMachine : MonoBehaviour
         }
     }
 
-    public void removeCupRight()
+    public void RemoveCupRight()
     {
         if (shotpullingRight)
         {
@@ -259,12 +258,12 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingRight)
         {
-            if (placeCupRight())
+            if (PlaceCupRight())
             {
                 loadingRight = Right1.GetComponent<Image>();
                 shotpullingRight = true;
                 loadingRight.color = new Color32(158, 222, 115, 255);
-                StartCoroutine(shotTimingRight(ristretto, loadingRight));
+                StartCoroutine(ShotTimingRight(ristretto, loadingRight));
             }
         }
         else
@@ -272,7 +271,7 @@ public class EspressoMachine : MonoBehaviour
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
-            removeCupRight();
+            RemoveCupRight();
         }
 
     }
@@ -282,12 +281,12 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingRight)
         {
-            if (placeCupRight())
+            if (PlaceCupRight())
             {
                 loadingRight = Right2.GetComponent<Image>();
                 shotpullingRight = true;
                 loadingRight.color = new Color32(247, 234, 0, 255);
-                StartCoroutine(shotTimingRight(espresso, loadingRight));
+                StartCoroutine(ShotTimingRight(espresso, loadingRight));
             }
         }
         else
@@ -295,7 +294,7 @@ public class EspressoMachine : MonoBehaviour
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
-            removeCupRight();
+            RemoveCupRight();
         }
     }
 
@@ -304,12 +303,12 @@ public class EspressoMachine : MonoBehaviour
 
         if (!shotpullingRight)
         {
-            if (placeCupRight())
+            if (PlaceCupRight())
             {
                 loadingRight = Right3.GetComponent<Image>();
                 shotpullingRight = true;
                 loadingRight.color = new Color32(228, 137, 0, 255);
-                StartCoroutine(shotTimingRight(lungo, loadingRight));
+                StartCoroutine(ShotTimingRight(lungo, loadingRight));
             }
         }
         else
@@ -317,12 +316,11 @@ public class EspressoMachine : MonoBehaviour
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
-            removeCupRight();
+            RemoveCupRight();
         }
     }
 
-
-    IEnumerator shotTimingRight(float EspressoType, Image loading)
+    private IEnumerator ShotTimingRight(float EspressoType, Image loading)
     {
         shottimingRight = 0;
 

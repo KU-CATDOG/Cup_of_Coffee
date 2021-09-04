@@ -26,7 +26,7 @@ public class CsvLoadTest : MonoBehaviour
 
 
 
-    public class scripts
+    public class Scripts
     {   //class to store each script
         public int day;
         public int order;
@@ -34,8 +34,8 @@ public class CsvLoadTest : MonoBehaviour
         public string name;
     }
 
-    List<scripts> inGameScripts = new List<scripts>(); //list to store all scripts
-    List<scripts> Sorted = new List<scripts>(); //sort scripts by day and order
+    List<Scripts> inGameScripts = new List<Scripts>(); //list to store all scripts
+    List<Scripts> Sorted = new List<Scripts>(); //sort scripts by day and order
 
     void Start()
     {
@@ -82,7 +82,7 @@ public class CsvLoadTest : MonoBehaviour
             for (int i = 0; i < data.Length - 1; i++)
             {
                 var singleData = Regex.Split(data[i], ",(?=(?:[^\"]*\"[^\"]*\")*(?![^\"]*\"))");
-                inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0] });
+                inGameScripts.Add(new Scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0] });
             }
         }
 
