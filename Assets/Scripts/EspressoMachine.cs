@@ -8,17 +8,19 @@ public class EspressoMachine : MonoBehaviour
     float ristretto = 1;
     float espresso = 2;
     float lungo = 3;
+    public float shotType;
 
-    bool shotpullingLeft = false;
+
+    public bool shotpullingLeft = false;
     float shottimingLeft = 0;
-    bool shotpullingRight = false;
+    public bool shotpullingRight = false;
     float shottimingRight = 0;
-    float fill = 0;
+    public float fill = 0;
 
-    bool cupLeft1 = false;
-    bool cupLeft2 = false;
-    bool cupRight1 = false;
-    bool cupRight2 = false;
+    public bool cupLeft1 = false;
+    public bool cupLeft2 = false;
+    public bool cupRight1 = false;
+    public bool cupRight2 = false;
 
     public GameObject Left1;
     public GameObject Left2;
@@ -29,6 +31,8 @@ public class EspressoMachine : MonoBehaviour
     private Image loadingLeft;
     private Image loadingRight;
 
+    public shotGlassDisplay shotGlass;
+    public bool isCanceled;
     Recipe recipe;
 
     void Start()
@@ -51,13 +55,13 @@ public class EspressoMachine : MonoBehaviour
     {
         if (!cupLeft1)
         {
-            cupLeft1 = true;
+            shotGlass.ChangeState(1, true, (int)shotType);
             Debug.Log("First cup placed on the left side");
             return true;
         }
         else if (cupLeft1 && !cupLeft2)
         {
-            cupLeft2 = true;
+            shotGlass.ChangeState(2, true, (int)shotType);
             Debug.Log("Second cup placed on the left side");
             return true;
         }
@@ -78,12 +82,12 @@ public class EspressoMachine : MonoBehaviour
         }
         if (cupLeft2)
         {
-            cupLeft2 = false;
+            shotGlass.ChangeState(2, false);
             Debug.Log("Second cup removed (Left)");
         }
         else if (cupLeft1)
         {
-            cupLeft1 = false;
+            shotGlass.ChangeState(1, false);
             Debug.Log("First cup removed (Left)");
         }
         else
@@ -96,6 +100,7 @@ public class EspressoMachine : MonoBehaviour
     public void SingleRistretto()
     {
 
+        shotType = ristretto;
         if (!shotpullingLeft)
         {
             if (PlaceCupLeft())
@@ -108,6 +113,7 @@ public class EspressoMachine : MonoBehaviour
         }
         else
         {
+            isCanceled = true;
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
@@ -120,7 +126,7 @@ public class EspressoMachine : MonoBehaviour
 
     public void SingleEspresso()
     {
-
+        shotType = espresso;
         if (!shotpullingLeft)
         {
             if (PlaceCupLeft())
@@ -133,6 +139,7 @@ public class EspressoMachine : MonoBehaviour
         }
         else
         {
+            isCanceled = true;
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
@@ -143,7 +150,7 @@ public class EspressoMachine : MonoBehaviour
 
     public void SingleLungo()
     {
-
+        shotType = lungo;
         if (!shotpullingLeft)
         {
             if (PlaceCupLeft())
@@ -156,6 +163,7 @@ public class EspressoMachine : MonoBehaviour
         }
         else
         {
+            isCanceled = true;
             shotpullingLeft = false;
             loadingLeft.fillAmount = 1;
             loadingLeft.color = new Color32(200, 200, 200, 128);
@@ -180,7 +188,7 @@ public class EspressoMachine : MonoBehaviour
         // }
 
         shottimingLeft = 0;
-
+        SoundManager.Instance.PlaySFXSound("shot_extraction");
         while (shotpullingLeft && shottimingLeft < EspressoType)
         {
             shottimingLeft += Time.deltaTime;
@@ -193,20 +201,22 @@ public class EspressoMachine : MonoBehaviour
 
         if (shotpullingLeft)
         {
+
+
             if (EspressoType == ristretto)
             {
                 Debug.Log("ristretto: 1 shot");
-                recipe.Add_shot_ristretto();
+                //recipe.Add_shot_ristretto();
             }
             else if (EspressoType == espresso)
             {
                 Debug.Log("espresso: 1 shot");
-                recipe.Add_shot();
+                //recipe.Add_shot();
             }
             else if (EspressoType == lungo)
             {
                 Debug.Log("lungo: 1 shot");
-                recipe.Add_shot_lungo();
+                //recipe.Add_shot_lungo();
             }
         }
 
@@ -221,8 +231,8 @@ public class EspressoMachine : MonoBehaviour
     {
         if (!cupRight1 && !cupRight2)
         {
-            cupRight1 = true;
-            cupRight2 = true;
+            shotGlass.ChangeState(3, true, (int)shotType);
+            shotGlass.ChangeState(4, true, (int)shotType);
             Debug.Log("Both cups placed on the right side");
             return true;
         }
@@ -243,8 +253,8 @@ public class EspressoMachine : MonoBehaviour
         }
         if (cupRight1 && cupRight1)
         {
-            cupRight1 = false;
-            cupRight2 = false;
+            shotGlass.ChangeState(3, false);
+            shotGlass.ChangeState(4, false);
             Debug.Log("Both cups removed on the right side");
         }
         else
@@ -255,7 +265,7 @@ public class EspressoMachine : MonoBehaviour
 
     public void DoubleRistretto()
     {
-
+        shotType = ristretto;
         if (!shotpullingRight)
         {
             if (PlaceCupRight())
@@ -268,6 +278,7 @@ public class EspressoMachine : MonoBehaviour
         }
         else
         {
+            isCanceled = true;
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
@@ -278,7 +289,7 @@ public class EspressoMachine : MonoBehaviour
 
     public void DoubleEspresso()
     {
-
+        shotType = espresso;
         if (!shotpullingRight)
         {
             if (PlaceCupRight())
@@ -291,6 +302,7 @@ public class EspressoMachine : MonoBehaviour
         }
         else
         {
+            isCanceled = true;
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
@@ -300,7 +312,7 @@ public class EspressoMachine : MonoBehaviour
 
     public void DoubleLungo()
     {
-
+        shotType = lungo;
         if (!shotpullingRight)
         {
             if (PlaceCupRight())
@@ -313,6 +325,7 @@ public class EspressoMachine : MonoBehaviour
         }
         else
         {
+            isCanceled = true;
             shotpullingRight = false;
             loadingRight.fillAmount = 1;
             loadingRight.color = new Color32(200, 200, 200, 128);
@@ -322,8 +335,9 @@ public class EspressoMachine : MonoBehaviour
 
     private IEnumerator ShotTimingRight(float EspressoType, Image loading)
     {
-        shottimingRight = 0;
 
+        shottimingRight = 0;
+        SoundManager.Instance.PlaySFXSound("shot_extraction");
         while (shotpullingRight && shottimingRight < EspressoType)
         {
             shottimingRight += Time.deltaTime;
@@ -336,24 +350,26 @@ public class EspressoMachine : MonoBehaviour
 
         if (shotpullingRight)
         {
+
             if (EspressoType == ristretto)
             {
                 Debug.Log("ristretto: 2 shot");
-                recipe.Add_shot_ristretto();
-                recipe.Add_shot_ristretto();
+                //recipe.Add_shot_ristretto();
+                //recipe.Add_shot_ristretto();
             }
             else if (EspressoType == espresso)
             {
                 Debug.Log("espresso: 2 shot");
-                recipe.Add_shot();
-                recipe.Add_shot();
+                //recipe.Add_shot();
+                //recipe.Add_shot();
             }
             else if (EspressoType == lungo)
             {
                 Debug.Log("lungo: 2 shot");
-                recipe.Add_shot_lungo();
-                recipe.Add_shot_lungo();
+                //recipe.Add_shot_lungo();
+                //recipe.Add_shot_lungo();
             }
+
         }
 
         shotpullingRight = false;

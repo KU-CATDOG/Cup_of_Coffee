@@ -36,20 +36,20 @@ public class MoveBackground : MonoBehaviour
         rectTransform = background.GetComponent<RectTransform>();
         bgScale = Rightbg.GetComponent<RectTransform>();
         movepos = rectTransform.rect.width;
-
+        MachineButtons.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && Leftbtn.interactable && Rightbtn.interactable)
-        {
-            Leftbtn.onClick.Invoke();
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && Leftbtn.interactable && Rightbtn.interactable)
-        {
-            Rightbtn.onClick.Invoke();
-        }
+        //if (Input.GetKeyDown(KeyCode.LeftArrow) && Leftbtn.interactable && Rightbtn.interactable)
+        //{
+        //    Leftbtn.onClick.Invoke();
+        //}
+        //if (Input.GetKeyDown(KeyCode.RightArrow) && Leftbtn.interactable && Rightbtn.interactable)
+        //{
+        //    Rightbtn.onClick.Invoke();
+        //}
     }
 
     public void ClickMoveLeft()

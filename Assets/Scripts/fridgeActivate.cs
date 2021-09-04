@@ -25,11 +25,13 @@ public class fridgeActivate : MonoBehaviour
 
     public void FridgeActivate()
     {
+        SoundManager.Instance.PlaySFXSound("fridge_open");
         fridge.SetActive(true);
     }
 
     public void FridgeDeactivate()
     {
+        SoundManager.Instance.PlaySFXSound("fridge_close");
         fridge.SetActive(false);
     }
 }

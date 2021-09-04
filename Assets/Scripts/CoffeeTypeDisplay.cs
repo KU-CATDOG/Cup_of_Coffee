@@ -17,6 +17,6 @@ public class CoffeeTypeDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = Customer.text[1];
+        text.text = "주문 내역: \"" + Customer.text[1] + "\"";
     }
 }

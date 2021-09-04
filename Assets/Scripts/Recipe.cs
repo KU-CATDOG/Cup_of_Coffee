@@ -588,21 +588,22 @@ public class Recipe : MonoBehaviour
     {
         shot++;
         queue.Add('D');
-        SoundManager.Instance.PlaySFXSound("shot_extraction");
+        SoundManager.Instance.PlaySFXSound("drink_pour");
         Debug.Log("Shot");
     }
     public void Add_shot_ristretto()
     {
         shot_ristretto++;
         queue.Add('P');
-        SoundManager.Instance.PlaySFXSound("shot_extraction");
+        SoundManager.Instance.PlaySFXSound("drink_pour");
         Debug.Log("Shot_ristretto");
     }
     public void Add_shot_lungo()
     {
         shot_lungo++;
         queue.Add('Q');
-        SoundManager.Instance.PlaySFXSound("shot_extraction");
+        SoundManager.Instance.PlaySFXSound("drink_pour");
+        //SoundManager.Instance.PlaySFXSound("shot_extraction");
         Debug.Log("Shot_lungo");
     }
     public void Add_milk()

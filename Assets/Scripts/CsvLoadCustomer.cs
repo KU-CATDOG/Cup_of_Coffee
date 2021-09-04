@@ -31,6 +31,8 @@ public class CsvLoadCustomer : MonoBehaviour
     public int numberOfCustomer = 0;
     public int totalNumberOfCustomer = 0;
 
+    private int customerTextType;
+
     void Start()
     {
         isActive = false;
@@ -50,6 +52,7 @@ public class CsvLoadCustomer : MonoBehaviour
         }
         while (UnlockRecipe.Instance.recipeUnlockStatus[menunumber - 1] == false);
         Debug.Log("SetRandom()");
+        customerTextType = Random.Range(0, 4);
         Menu(menunumber);
         customertoken = Random.Range(1, 8);
 
@@ -63,11 +66,9 @@ public class CsvLoadCustomer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             Customer();
-
         }
-
-
     }
+
     public void RecipeCheck()
     {
         if (menunumber == recipe_number)
@@ -125,7 +126,14 @@ public class CsvLoadCustomer : MonoBehaviour
 
     public void Pass()
     {
-        Customertext.text = "감사합니다. 수고하세요~";
+        Customertext.text = customerTextType switch
+        {
+            0 => "감사합니다.",
+            1 => "수고해.",
+            2 => "감사합니다...",
+            3 => "와, 맛있어요! 감사합니다.",
+            _ => "",
+        };
         CustomerReset();
         numberOfCustomer++;
         totalNumberOfCustomer++;
@@ -133,7 +141,6 @@ public class CsvLoadCustomer : MonoBehaviour
         if (random < real) // 진짜 감정을 줄 때
         {
             token.GetComponent<TokenTest>().RealToken(customertoken);
-
         }
         else // 가짜 감정을 줄 때
         {
@@ -143,9 +150,16 @@ public class CsvLoadCustomer : MonoBehaviour
 
     public void Fail()
     {
-        Customertext.text = "아니 이걸 시킨 적이 없는데... 이게 왜 나와요;;";
+        Customertext.text = customerTextType switch
+        {
+            0 => "저 이거 안 시켰는데...아무튼 감사합니다.",
+            1 => "뭐야? 내가 시킨 게 아니잖아!",
+            2 => "어... 음료를 잘못 주신 거 같은데요...",
+            3 => "으... 이거 맛이 이상한데요.",
+            _ => "",
+        };
+        //Customertext.text = "아니 이걸 시킨 적이 없는데... 이게 왜 나와요;;";
         CustomerReset();
-
     }
 
     public void Menu(int number) // 메뉴 호출
