@@ -766,7 +766,7 @@ public class DialogueEvent : MonoBehaviour
             {
                 yield return null;
             }
-            CsvLoad.pauseCustomerOrder(); 
+            CsvLoad.PauseCustomerOrder(); 
 
         }
         else if(day == 2){   //2일차 하루 끝에 대사 출력
@@ -796,7 +796,7 @@ public class DialogueEvent : MonoBehaviour
             yield return null;
         }
 
-        CsvLoad.pauseCustomerOrder();
+        CsvLoad.PauseCustomerOrder();
     }
 
     public void SpecialOrder(){ //특수 등장인물 음료 제조 시 대화창 끄기
