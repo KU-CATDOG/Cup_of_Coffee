@@ -34,10 +34,17 @@ public class SaveLoad : MonoBehaviour
 
         Debug.Log("save activated");
 
+        //DialogueEvent에서 변수 받아와 저장
+        DialogueEvent DEvent = GameObject.Find("CsvTest").GetComponent<DialogueEvent>();
+
         SaveObject saveObject = new SaveObject
         {
             dayCount = dayCount,
-            falseCount = falseCount
+            falseCount = falseCount,
+            RebelObject = DEvent.RebelObject,
+            EndingVar_RebelOrAgent = DEvent.EndingVar_RebelOrAgent,
+            Ending_Rebel = DEvent.Ending_Rebel,
+            currentOrder = DEvent.CsvLoad.currentOrder
         };
         string json = JsonUtility.ToJson(saveObject);
         bool saveCheck = SaveSystem.Save(json, saveNum);
@@ -68,6 +75,13 @@ public class SaveLoad : MonoBehaviour
                 gameTime.hour = gameTime.startTime;
                 gameTime.minute = 0;
             }
+
+            //Dialogue Event에 변수 적용
+            DialogueEvent DEvent = GameObject.Find("CsvTest").GetComponent<DialogueEvent>();
+            DEvent.RebelObject = saveObject.RebelObject;
+            DEvent.EndingVar_RebelOrAgent = saveObject.EndingVar_RebelOrAgent;
+            DEvent.Ending_Rebel = saveObject.Ending_Rebel;
+            DEvent.CsvLoad.currentOrder = saveObject.currentOrder;
         }
     }
 
@@ -88,6 +102,10 @@ public class SaveLoad : MonoBehaviour
     {
         public int dayCount;
         public int falseCount;
+        public int RebelObject;
+        public int EndingVar_RebelOrAgent;
+        public bool Ending_Rebel;
+        public int currentOrder;
     }
 
 }

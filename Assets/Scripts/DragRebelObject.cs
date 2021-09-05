@@ -20,11 +20,13 @@ public class DragRebelObject : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         RebelSmth = GameObject.Find("RebelObject");
         DEvent = GameObject.FindObjectOfType(typeof(DialogueEvent)) as DialogueEvent;
         rectTr = gameObject.GetComponent<RectTransform>();
-        //HideDrink();
     }
 
     public void ShowObject(){
         rectTr.anchoredPosition = new Vector2(200, -250);
+    }
+    public void HideObject(){
+        rectTr.anchoredPosition = new Vector2(200, -800);
     }
 
     public void OnBeginDrag(PointerEventData data)
@@ -34,16 +36,19 @@ public class DragRebelObject : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     public void OnDrag(PointerEventData data)
     {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
-        rectTr.position = mousePos;
-        if(rectTr.anchoredPosition.y > -100){
-            RebelSmth.transform.GetChild(0).gameObject.GetComponent<Text>().text = "주기";
-        }
-        else if(rectTr.anchoredPosition.y < -400){
-            RebelSmth.transform.GetChild(0).gameObject.GetComponent<Text>().text = "주지 않기";
-        }
-        else{
-            RebelSmth.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+        if(DEvent.gameTime.day == 9){
+            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f);
+            rectTr.position = mousePos;
+            
+            if(rectTr.anchoredPosition.y > -100){
+                RebelSmth.transform.GetChild(0).gameObject.GetComponent<Text>().text = "주기";
+            }
+            else if(rectTr.anchoredPosition.y < -400){
+                RebelSmth.transform.GetChild(0).gameObject.GetComponent<Text>().text = "주지 않기";
+            }
+            else{
+                RebelSmth.transform.GetChild(0).gameObject.GetComponent<Text>().text = "";
+            }
         }
 
     }

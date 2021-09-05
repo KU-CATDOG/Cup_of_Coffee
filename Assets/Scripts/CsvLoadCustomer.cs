@@ -8,6 +8,7 @@ public class CsvLoadCustomer : MonoBehaviour
 {
     public Text Customertext;
     public GameObject Customertextbox;
+    public GameObject TextImg;
     public GameObject token;
     public GameObject recipe;
 
@@ -44,6 +45,7 @@ public class CsvLoadCustomer : MonoBehaviour
         real = 80;
         token = GameObject.Find("TokenObject");
         recipe = GameObject.Find("RecipeTest");
+        TextImg = GameObject.Find("TextImage");
     }
 
     private void SetRandom() //랜덤으로 들어오는 것들 설정 = 메뉴, 토큰
@@ -73,6 +75,7 @@ public class CsvLoadCustomer : MonoBehaviour
 
     public void RecipeCheck()
     {
+        TextImg.SetActive(true);
         if (menunumber == recipe_number)
         {
             Pass();
@@ -95,11 +98,16 @@ public class CsvLoadCustomer : MonoBehaviour
         {
             Customertext.text = text[currentorder];
             Debug.Log(currentorder);
+            
+            if(currentorder >= 2){
+                TextImg.SetActive(false);
+            }
             if (currentorder < 3) // 자꾸 배열 크기 오류 나서 이렇게 설정
             {
                 currentorder++;
+                
+                
             }
-
             if (currentorder == 1)
             {
 
