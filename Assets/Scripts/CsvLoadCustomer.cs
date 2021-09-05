@@ -106,8 +106,6 @@ public class CsvLoadCustomer : MonoBehaviour
             if (currentorder < 3) // 자꾸 배열 크기 오류 나서 이렇게 설정
             {
                 currentorder++;
-
-
             }
             if (currentorder == 1)
             {
@@ -118,6 +116,7 @@ public class CsvLoadCustomer : MonoBehaviour
                     SetRandom();
                     SoundManager.Instance.PlaySFXSound("door_open");
                     SoundManager.Instance.PlaySFXSound("door_bell");
+                    numberOfCustomer++;
                     isLock = true;
 
                     return;
