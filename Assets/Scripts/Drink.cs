@@ -23,13 +23,8 @@ public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         {
             drinkImagesDic.Add(drinkImage.name, drinkImage);
         }
-
         image = gameObject.GetComponent<Image>();
         rectTr = gameObject.GetComponent<RectTransform>();
-
-
-
-
         HideDrink();
     }
 

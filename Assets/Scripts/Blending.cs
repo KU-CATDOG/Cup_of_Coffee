@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler
@@ -10,6 +11,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public GameObject spoon;
     public GameObject Recipe;
     public GameObject blendFront;
+    public GameObject text;
 
     bool Spoonmove1 = false;
     bool Spoonmove2 = false;
@@ -27,6 +29,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         blend.SetActive(true);
         spoon.SetActive(true);
         blendFront.SetActive(true);
+        text.SetActive(true);
     }
     public void OnBeginDrag(PointerEventData eventData) //드래그 시작할 때
     {
@@ -38,11 +41,11 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         rt.anchoredPosition += new Vector2(eventData.delta.x / 10, 0);
 
 
-        if (rt.anchoredPosition.x < -8)
+        if (rt.anchoredPosition.x < -6)
         {
             Spoonmove1 = true;
         }
-        if (rt.anchoredPosition.x > 8 && Spoonmove1 == true)
+        if (rt.anchoredPosition.x > 6 && Spoonmove1 == true)
         {
             Spoonmove2 = true;
 
@@ -60,7 +63,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                 blend.SetActive(false);
                 spoon.SetActive(false);
                 blendFront.SetActive(false);
-
+                text.SetActive(false);
                 return;
             }
 
@@ -87,6 +90,13 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
 
     }
+
+    private void Update()
+    {
+        text.GetComponent<Text>().text = blendtoken + " 회 섞음";
+    }
+
+
 
 }
 

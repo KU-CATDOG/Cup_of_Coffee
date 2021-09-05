@@ -11,6 +11,7 @@ public class CsvLoadCustomer : MonoBehaviour
     public GameObject TextImg;
     public GameObject token;
     public GameObject recipe;
+    public GameObject tokenDisplay;
 
     public bool isActive;
     public bool isSuccess;
@@ -31,6 +32,7 @@ public class CsvLoadCustomer : MonoBehaviour
     public Image CustomerSprite;
     public Image RealEmotionSprite;
 
+    public int successCustomer = 0;
     public int numberOfCustomer = 0;
     public int totalNumberOfCustomer = 0;
 
@@ -79,7 +81,10 @@ public class CsvLoadCustomer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Customer();
+            if (tokenDisplay.GetComponent<TokenControl>().isHidden)
+            {
+                Customer();
+            }
         }
     }
 
@@ -103,9 +108,18 @@ public class CsvLoadCustomer : MonoBehaviour
 
     public void Customer()
     {
+        
 
         if (isActive == true)
         {
+            text[0] = customerTextType switch
+            {
+                0 => "안녕하세요.",
+                1 => "여기.",
+                2 => "저...",
+                3 => "안녕하세요?",
+                _ => "",
+            };
             Customertext.text = text[currentorder];
             Debug.Log(currentorder);
 
@@ -127,6 +141,7 @@ public class CsvLoadCustomer : MonoBehaviour
                     SoundManager.Instance.PlaySFXSound("door_open");
                     SoundManager.Instance.PlaySFXSound("door_bell");
                     numberOfCustomer++;
+                    totalNumberOfCustomer++;
                     isLock = true;
 
                     return;
@@ -155,8 +170,7 @@ public class CsvLoadCustomer : MonoBehaviour
             _ => "",
         };
         CustomerReset();
-        numberOfCustomer++;
-        totalNumberOfCustomer++;
+        successCustomer++;
         int random = Random.Range(0, 100);
         if (random < real) // 진짜 감정을 줄 때
         {

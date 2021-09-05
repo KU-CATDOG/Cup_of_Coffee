@@ -83,8 +83,8 @@ public class CsvLoadTest_2 : MonoBehaviour
                 {
                     StartCustomerOrder();
                 }
-                
-                if (gameTime.hour >= closeTime && Customer.GetComponent<CsvLoadCustomer>().currentorder == 0)
+
+                if (gameTime.hour >= closeTime && Customer.GetComponent<CsvLoadCustomer>().currentorder == 1)
                 {
                     PauseCustomerOrder();
                 }

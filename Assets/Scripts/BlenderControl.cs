@@ -15,7 +15,6 @@ public class BlenderControl : MonoBehaviour
 
     public void ActivateBlenderLiquid()
     {
-        blenderInside.SetActive(true);
         StartCoroutine(Waiter());
     }
     public void DeactivateBlenderLiquid()
@@ -25,10 +24,20 @@ public class BlenderControl : MonoBehaviour
 
     IEnumerator Waiter()
     {
-        SoundManager.Instance.PlaySFXSound("blender", 0.7f);
-        yield return new WaitForSeconds(5);
-        recipe.Add_blend();
-        DeactivateBlenderLiquid();
+        if (UnlockRecipe.Instance.IsBlenderUnlocked() == false)
+        {
+            yield break;
+        }
+
+        else
+        {
+            blenderInside.SetActive(true);
+            SoundManager.Instance.PlaySFXSound("blender", 0.7f);
+            yield return new WaitForSeconds(5);
+            recipe.Add_blend();
+            DeactivateBlenderLiquid();
+        }
+
     }
 
 }

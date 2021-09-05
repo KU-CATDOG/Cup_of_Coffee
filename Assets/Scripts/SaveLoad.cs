@@ -6,6 +6,7 @@ using System.IO;
 public class SaveLoad : MonoBehaviour
 {
     public bool overwriteCheck;
+    public Receipt receipt;
 
 
     // Start is called before the first frame update
@@ -44,7 +45,8 @@ public class SaveLoad : MonoBehaviour
             RebelObject = DEvent.RebelObject,
             EndingVar_RebelOrAgent = DEvent.EndingVar_RebelOrAgent,
             Ending_Rebel = DEvent.Ending_Rebel,
-            currentOrder = DEvent.CsvLoad.currentOrder
+            currentOrder = DEvent.CsvLoad.currentOrder,
+            bankMoney = receipt.bankMoney,
         };
         string json = JsonUtility.ToJson(saveObject);
         bool saveCheck = SaveSystem.Save(json, saveNum);
@@ -82,6 +84,7 @@ public class SaveLoad : MonoBehaviour
             DEvent.EndingVar_RebelOrAgent = saveObject.EndingVar_RebelOrAgent;
             DEvent.Ending_Rebel = saveObject.Ending_Rebel;
             DEvent.CsvLoad.currentOrder = saveObject.currentOrder;
+            receipt.bankMoney = saveObject.bankMoney;
         }
     }
 
@@ -106,6 +109,7 @@ public class SaveLoad : MonoBehaviour
         public int EndingVar_RebelOrAgent;
         public bool Ending_Rebel;
         public int currentOrder;
+        public int bankMoney;
     }
 
 }

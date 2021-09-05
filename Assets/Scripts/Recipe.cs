@@ -115,400 +115,7 @@ public class Recipe : MonoBehaviour
         //{
         //    IngredientReset();
         //}
-        #region--ingredient test--
-        if (Input.GetKeyDown(KeyCode.Return)) //Determine recipe
-        {
-
-            if (queue.SequenceEqual(espresso))
-            {
-                Cupofespresso();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_ice))
-            {
-
-                Cupofcaramel_macchiato_ice();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_hot))
-            {
-                Cupofcaramel_macchiato_hot();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(americano_hot))
-            {
-                Cupofamericano_hot();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(americano_ice))
-            {
-                Cupofamericano_ice();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_mocha_ice))
-            {
-                Cupofcaffe_mocha_ice();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_mocha_hot))
-            {
-                Cupofcaffe_mocha_hot();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_con_panna))
-            {
-                Cupofespresso_con_panna();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_macchiato))
-            {
-                Cupofespresso_macchiato();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(cappuccino))
-            {
-                Cupofcappuccino();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(vanilla_latte_hot))
-            {
-                Cupofvanilla_latte_hot();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(vanilla_latte_ice))
-            {
-                Cupofvanilla_latte_ice();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_latte_hot))
-            {
-                Cupofcaffe_latte_hot();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_latte_ice))
-            {
-                Cupofcaffe_latte_ice();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(greentea_latte_hot))
-            {
-                Cupofgreentea_latte_hot();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(greentea_latte_ice))
-            {
-                Cupofgreentea_latte_ice();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(strawberry_latte))
-            {
-                Cupofstrawberry_latte();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(hot_chocolate))
-            {
-                Cupofhot_chocolate();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(ice_chocolate))
-            {
-                Cupofice_chocolate();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(yogurt_smoothie))
-            {
-                Cupofyogurt_smoothie();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(greentea_smoothie))
-            {
-                Cupofgreentea_smoothie();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(strawberry_smoothie))
-            {
-                Cupofstrawberry_smoothie();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(yogurt_pearl))
-            {
-                Cupofyogurt_pearl();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(greentea_pearl))
-            {
-                Cupofgreentea_pearl();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(strawberry_pearl))
-            {
-                Cupofstrawberry_pearl();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_frapp))
-            {
-                Cupofespresso_frapp();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(greentea_frapp))
-            {
-                Cupofgreentea_frapp();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(strawberry_frapp))
-            {
-                Cupofstrawberry_frapp();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(chocolate_frapp))
-            {
-                Cupofchocolate_frapp();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_ristretto))
-            {
-                Cupofespresso_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_lungo))
-            {
-                Cupofespresso_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_ice_ristretto))
-            {
-                Cupofcaramel_macchiato_ice_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_ice_lungo))
-            {
-                Cupofcaramel_macchiato_ice_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_hot_ristretto))
-            {
-                Cupofcaramel_macchiato_hot_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_hot_lungo))
-            {
-                Cupofcaramel_macchiato_hot_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(americano_ice_ristretto))
-            {
-                Cupofamericano_ice_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(americano_ice_lungo))
-            {
-                Cupofamericano_ice_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(americano_hot_ristretto))
-            {
-                Cupofamericano_hot_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(americano_hot_lungo))
-            {
-                Cupofamericano_hot_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_ice_ristretto))
-            {
-                Cupofcaramel_macchiato_ice_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_ice_lungo))
-            {
-                Cupofcaramel_macchiato_ice_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_hot_ristretto))
-            {
-                Cupofcaramel_macchiato_hot_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caramel_macchiato_hot_lungo))
-            {
-                Cupofcaramel_macchiato_hot_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_mocha_ice_ristretto))
-            {
-                Cupofcaffe_mocha_ice_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_mocha_ice_lungo))
-            {
-                Cupofcaffe_mocha_ice_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_mocha_hot_ristretto))
-            {
-                Cupofcaffe_mocha_hot_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_mocha_hot_lungo))
-            {
-                Cupofcaffe_mocha_hot_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_con_panna_ristretto))
-            {
-                Cupofespresso_con_panna_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_con_panna_lungo))
-            {
-                Cupofespresso_con_panna_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_macchiato_ristretto))
-            {
-                Cupofespresso_macchiato_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_macchiato_lungo))
-            {
-                Cupofespresso_macchiato_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(cappuccino_ristretto))
-            {
-                Cupofcappuccino_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(cappuccino_lungo))
-            {
-                Cupofcappuccino_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(vanilla_latte_hot_ristretto))
-            {
-                Cupofvanilla_latte_hot_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(vanilla_latte_hot_lungo))
-            {
-                Cupofvanilla_latte_hot_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(vanilla_latte_ice_ristretto))
-            {
-                Cupofvanilla_latte_ice_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(vanilla_latte_ice_lungo))
-            {
-                Cupofvanilla_latte_ice_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_latte_hot_ristretto))
-            {
-                Cupofcaffe_latte_hot_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_latte_hot_lungo))
-            {
-                Cupofcaffe_latte_hot_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_latte_ice_ristretto))
-            {
-                Cupofcaffe_latte_ice_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(caffe_latte_ice_lungo))
-            {
-                Cupofcaffe_latte_ice_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_frapp_ristretto))
-            {
-                Cupofespresso_frapp_ristretto();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else if (queue.SequenceEqual(espresso_frapp_lungo))
-            {
-                Cupofespresso_frapp_lungo();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-            else
-            {
-                //Debug.Log("You made a mistake...");
-                //drinkImage.ShowDrink("mistake");
-                Cupofmistake();
-                //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-                IngredientReset();
-            }
-
-        }
-        #endregion
+       
     }
 
     public void IngredientReset()
@@ -607,6 +214,7 @@ public class Recipe : MonoBehaviour
         pitcherMilkCount--;
         milk++;
         queue.Add('E');
+        steamCup.UpdateMilkAmount();
         //SoundManager.Instance.PlaySFXSound("drink_pour");
         Debug.Log("Milk");
     }
@@ -710,12 +318,16 @@ public class Recipe : MonoBehaviour
     public void Add_multiple_milk()
     {
         int temp = pitcherMilkCount;
-        for (int i = 0; i < temp; i++)
+        if (temp != 0)
         {
-            Add_milk();
+            for (int i = 0; i < temp; i++)
+            {
+                Add_milk();
+            }
+            steamCup.UpdateMilkAmount();
+            SoundManager.Instance.PlaySFXSound("drink_pour");
         }
-        steamCup.UpdateMilkAmount();
-        SoundManager.Instance.PlaySFXSound("drink_pour");
+        
     }
     #endregion
 
@@ -1352,5 +964,396 @@ public class Recipe : MonoBehaviour
         queue.Remove('R');
         queue.Remove('C');
         dayMistakeCount += queue.Count;
+    }
+
+    public void Determine()
+    {
+        if (queue.SequenceEqual(espresso))
+        {
+            Cupofespresso();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_ice))
+        {
+
+            Cupofcaramel_macchiato_ice();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_hot))
+        {
+            Cupofcaramel_macchiato_hot();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(americano_hot))
+        {
+            Cupofamericano_hot();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(americano_ice))
+        {
+            Cupofamericano_ice();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_mocha_ice))
+        {
+            Cupofcaffe_mocha_ice();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_mocha_hot))
+        {
+            Cupofcaffe_mocha_hot();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_con_panna))
+        {
+            Cupofespresso_con_panna();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_macchiato))
+        {
+            Cupofespresso_macchiato();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(cappuccino))
+        {
+            Cupofcappuccino();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(vanilla_latte_hot))
+        {
+            Cupofvanilla_latte_hot();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(vanilla_latte_ice))
+        {
+            Cupofvanilla_latte_ice();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_latte_hot))
+        {
+            Cupofcaffe_latte_hot();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_latte_ice))
+        {
+            Cupofcaffe_latte_ice();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(greentea_latte_hot))
+        {
+            Cupofgreentea_latte_hot();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(greentea_latte_ice))
+        {
+            Cupofgreentea_latte_ice();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(strawberry_latte))
+        {
+            Cupofstrawberry_latte();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(hot_chocolate))
+        {
+            Cupofhot_chocolate();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(ice_chocolate))
+        {
+            Cupofice_chocolate();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(yogurt_smoothie))
+        {
+            Cupofyogurt_smoothie();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(greentea_smoothie))
+        {
+            Cupofgreentea_smoothie();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(strawberry_smoothie))
+        {
+            Cupofstrawberry_smoothie();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(yogurt_pearl))
+        {
+            Cupofyogurt_pearl();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(greentea_pearl))
+        {
+            Cupofgreentea_pearl();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(strawberry_pearl))
+        {
+            Cupofstrawberry_pearl();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_frapp))
+        {
+            Cupofespresso_frapp();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(greentea_frapp))
+        {
+            Cupofgreentea_frapp();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(strawberry_frapp))
+        {
+            Cupofstrawberry_frapp();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(chocolate_frapp))
+        {
+            Cupofchocolate_frapp();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_ristretto))
+        {
+            Cupofespresso_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_lungo))
+        {
+            Cupofespresso_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_ice_ristretto))
+        {
+            Cupofcaramel_macchiato_ice_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_ice_lungo))
+        {
+            Cupofcaramel_macchiato_ice_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_hot_ristretto))
+        {
+            Cupofcaramel_macchiato_hot_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_hot_lungo))
+        {
+            Cupofcaramel_macchiato_hot_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(americano_ice_ristretto))
+        {
+            Cupofamericano_ice_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(americano_ice_lungo))
+        {
+            Cupofamericano_ice_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(americano_hot_ristretto))
+        {
+            Cupofamericano_hot_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(americano_hot_lungo))
+        {
+            Cupofamericano_hot_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_ice_ristretto))
+        {
+            Cupofcaramel_macchiato_ice_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_ice_lungo))
+        {
+            Cupofcaramel_macchiato_ice_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_hot_ristretto))
+        {
+            Cupofcaramel_macchiato_hot_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caramel_macchiato_hot_lungo))
+        {
+            Cupofcaramel_macchiato_hot_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_mocha_ice_ristretto))
+        {
+            Cupofcaffe_mocha_ice_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_mocha_ice_lungo))
+        {
+            Cupofcaffe_mocha_ice_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_mocha_hot_ristretto))
+        {
+            Cupofcaffe_mocha_hot_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_mocha_hot_lungo))
+        {
+            Cupofcaffe_mocha_hot_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_con_panna_ristretto))
+        {
+            Cupofespresso_con_panna_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_con_panna_lungo))
+        {
+            Cupofespresso_con_panna_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_macchiato_ristretto))
+        {
+            Cupofespresso_macchiato_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_macchiato_lungo))
+        {
+            Cupofespresso_macchiato_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(cappuccino_ristretto))
+        {
+            Cupofcappuccino_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(cappuccino_lungo))
+        {
+            Cupofcappuccino_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(vanilla_latte_hot_ristretto))
+        {
+            Cupofvanilla_latte_hot_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(vanilla_latte_hot_lungo))
+        {
+            Cupofvanilla_latte_hot_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(vanilla_latte_ice_ristretto))
+        {
+            Cupofvanilla_latte_ice_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(vanilla_latte_ice_lungo))
+        {
+            Cupofvanilla_latte_ice_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_latte_hot_ristretto))
+        {
+            Cupofcaffe_latte_hot_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_latte_hot_lungo))
+        {
+            Cupofcaffe_latte_hot_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_latte_ice_ristretto))
+        {
+            Cupofcaffe_latte_ice_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(caffe_latte_ice_lungo))
+        {
+            Cupofcaffe_latte_ice_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_frapp_ristretto))
+        {
+            Cupofespresso_frapp_ristretto();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else if (queue.SequenceEqual(espresso_frapp_lungo))
+        {
+            Cupofespresso_frapp_lungo();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
+        else
+        {
+            //Debug.Log("You made a mistake...");
+            //drinkImage.ShowDrink("mistake");
+            Cupofmistake();
+            //Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+            IngredientReset();
+        }
     }
 }

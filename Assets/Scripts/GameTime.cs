@@ -101,6 +101,7 @@ public class GameTime : MonoBehaviour
     public void ReceiptClose()
     {
         ReceiptObject.SetActive(false);
+        customer.successCustomer = 0;
         saveLoadUI.OpenSaveLoadPanel();
     }
 

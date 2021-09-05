@@ -23,6 +23,7 @@ public class Receipt : MonoBehaviour
     private int totalMoney;
     private int tipRate;
     private int tipMoney;
+    public int bankMoney = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +49,12 @@ public class Receipt : MonoBehaviour
         if (recipe.dayMistakeCount == 0)
         {
             detailLeft.text = "총 판매량\n실수\n세금\n오늘의 급료\n완벽 보너스!\n팁\n총 급여";
-            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + bonus + "\n" + tipMoney + "\n" + totalMoney;
+            detailRight.text = "" + customer.successCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + bonus + "\n" + tipMoney + "\n" + totalMoney;
         }
         else
         {
             detailLeft.text = "총 판매량\n실수\n수수료\n오늘의 급료\n팁\n총 급여";
-            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + tipMoney + "\n" + totalMoney;
+            detailRight.text = "" + customer.successCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + tipMoney + "\n" + totalMoney;
         }
         day.text = "2061 년 " + month + "월 " + curDay + "일";
     }
@@ -61,7 +62,7 @@ public class Receipt : MonoBehaviour
     public void UpdateGameTime()
     {
         tipRate = Random.Range(3, 6);
-        money = customer.numberOfCustomer * moneyPerCustomer - recipe.dayMistakeCount * moneyPerMistake;
+        money = customer.successCustomer * moneyPerCustomer - recipe.dayMistakeCount * moneyPerMistake;
         money *= ((100-tax) / 100);
         tipMoney = money * tipRate / 100;
         totalMoney = money + bonus + tipMoney;
@@ -76,12 +77,14 @@ public class Receipt : MonoBehaviour
         if (recipe.dayMistakeCount == 0)
         {
             detailLeft.text = "총 판매량\n실수\n세금\n오늘의 급료\n완벽 보너스!\n팁\n총 급여";
-            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + bonus + "\n" + tipMoney + "\n" + totalMoney;
+            detailRight.text = "" + customer.successCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + bonus + "\n" + tipMoney + "\n" + totalMoney;
+            bankMoney += totalMoney;
         }
         else
         {
             detailLeft.text = "총 판매량\n실수\n수수료\n오늘의 급료\n팁\n총 급여";
-            detailRight.text = "" + customer.numberOfCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + tipMoney + "\n" + totalMoney;
+            detailRight.text = "" + customer.successCustomer + "\n" + recipe.dayMistakeCount + "\n10%\n" + money + "\n" + tipMoney + "\n" + totalMoney;
+            bankMoney += totalMoney;
         }
     }
 }

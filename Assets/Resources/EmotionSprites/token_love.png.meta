@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5f096ba5b10e8ee4bbe4f6db8ff6cce6
+guid: 2fbb5c7b9525585458fe2d0e342e396c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6025426756035546218
-    second: "\uAC10\uC815\uD1A0\uD070_\uD3C9\uC628_0"
+      213: -4016327020565227838
+    second: token_love
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,7 +94,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uAC10\uC815\uD1A0\uD070_\uD3C9\uC628_0"
+      name: token_love
       rect:
         serializedVersion: 2
         x: 589
@@ -102,14 +102,14 @@ TextureImporter:
         width: 95
         height: 51
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 693fd5a1a42616ca0800000000000000
-      internalID: -6025426756035546218
+      spriteID: 2c6186daad32348c0800000000000000
+      internalID: -4016327020565227838
       vertices: []
       indices: 
       edges: []

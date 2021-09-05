@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TokenTest : MonoBehaviour
 {
-
+    public TokenControl tokenControl;
     public Token token = new Token();
     public int a; //a = token 종류
     public int b; // b = token 개수
@@ -59,49 +59,56 @@ public class TokenTest : MonoBehaviour
 
     public void HappyUp()
     {
-        token.token_happy += Random.Range(1, 3);
+        token.token_happy++;
+        tokenControl.ShowToken("token_happy");
         Debug.Log("happy는" + token.token_happy);
 
     }
     public void LoveUp()
     {
-        token.token_love += Random.Range(1, 3);
+        token.token_love++;
+        tokenControl.ShowToken("token_love");
         Debug.Log("love는" + token.token_love);
 
     }
     public void HopeUp()
     {
-        token.token_hope += Random.Range(1, 3);
+        token.token_hope++;
+        tokenControl.ShowToken("token_anticipation");
         Debug.Log("hope는" + token.token_hope);
 
     }
     public void PeaceUp()
     {
-        token.token_peace += Random.Range(1, 3);
+        token.token_peace++;
+        tokenControl.ShowToken("token_calm");
         Debug.Log("peace는" + token.token_peace);
 
     }
     public void SadUp()
     {
-        token.token_sad += Random.Range(1, 3);
+        token.token_sad++;
+        tokenControl.ShowToken("token_sad");
         Debug.Log("sad는" + token.token_sad);
 
     }
     public void AngerUp()
     {
-        token.token_anger += Random.Range(1, 3);
+        token.token_anger++;
+        tokenControl.ShowToken("token_rage");
         Debug.Log("anger는" + token.token_anger);
 
     }
     public void TiredUp()
     {
-        token.token_tired += Random.Range(1, 3);
+        token.token_tired++;
+        tokenControl.ShowToken("token_tired");
         Debug.Log("tired는" + token.token_tired);
 
     }
     public void FearUp()
     {
-        token.token_fear += Random.Range(1, 3);
+        token.token_fear++;
         Debug.Log("fear는" + token.token_fear);
 
     }
