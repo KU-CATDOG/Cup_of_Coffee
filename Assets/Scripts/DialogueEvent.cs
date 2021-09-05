@@ -14,12 +14,13 @@ public class DialogueEvent : MonoBehaviour
     public CsvLoadCustomer CsvCustomer;
     public TokenTest tokenManager;
     public DragRebelObject DragRebelObject;
+    public Drink DragDrink;
     
     [HideInInspector]
     public GameTime gameTime;
     [HideInInspector]
     public GameObject singleRistretto, singleEspresso, singleLungo, doubleRistretto, doubleEspresso, doubleLungo, 
-                        GiveTokenObject, DialogueBox, EspressoMachine, HotWaterDispenser, BgCenter;
+                        GiveTokenObject, DialogueBox, EspressoMachine, HotWaterDispenser, BlackOut, Fridge;
     [HideInInspector]
     public Image CharacterSprite;
     private Outline outline;
@@ -46,6 +47,7 @@ public class DialogueEvent : MonoBehaviour
         CsvCustomer = GameObject.FindObjectOfType(typeof(CsvLoadCustomer)) as CsvLoadCustomer;
         tokenManager = GameObject.FindObjectOfType(typeof(TokenTest)) as TokenTest;
         DragRebelObject = GameObject.FindObjectOfType(typeof(DragRebelObject)) as DragRebelObject;
+        DragDrink = GameObject.FindObjectOfType(typeof(Drink)) as Drink;
         CharacterSprite = CsvLoad.CharacterSprite;
         DialogueBox = CsvLoad.DialogueBox;
         ViewScript = CsvLoad.ViewScript;
@@ -64,13 +66,14 @@ public class DialogueEvent : MonoBehaviour
         RebelGive = GameObject.Find("RebelGive");
         RebelNotGive = GameObject.Find("RebelNotGive");
         AgentButton = GameObject.Find("AgentButton");
-        BgCenter = GameObject.Find("Center");
+        BlackOut = GameObject.Find("BlackOut");
 
         
         GiveTokenObject.SetActive(false);
         RebelGive.SetActive(false);
         RebelNotGive.SetActive(false);
         AgentButton.SetActive(false);
+        BlackOut.SetActive(false);
 
         StartCoroutine(MiddayEvent(gameTime.day));
     }
@@ -169,35 +172,91 @@ public class DialogueEvent : MonoBehaviour
 
                 //highlight 1 shot
                 outline = singleRistretto.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
                 outline = singleEspresso.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
                 outline = singleLungo.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
                 break;
             case 14:
                 outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 outline = singleRistretto.GetComponent<Outline>();
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 outline.effectDistance = new Vector2(0, 0);
                 outline = singleEspresso.GetComponent<Outline>();
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 outline.effectDistance = new Vector2(0, 0);
 
                 //highlight doubleshot
                 outline = doubleRistretto.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
                 outline = doubleEspresso.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
                 outline = doubleLungo.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
 
                 break;
             case 15:
                 outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 outline = doubleRistretto.GetComponent<Outline>();
                 outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 outline = doubleEspresso.GetComponent<Outline>();
                 outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
 
+                break;
+            case 17:
+                outline = singleRistretto.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
+                outline.effectDistance = new Vector2(5, 5);
+                outline = doubleRistretto.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
+                outline.effectDistance = new Vector2(5, 5);
+                break;
+            case 18:
+                outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
+                outline = singleRistretto.GetComponent<Outline>();
+                outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
+
+                outline = singleEspresso.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
+                outline.effectDistance = new Vector2(5, 5);
+                outline = doubleEspresso.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
+                outline.effectDistance = new Vector2(5, 5);
+
+                break;
+            case 19:
+                outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
+                outline = singleEspresso.GetComponent<Outline>();
+                outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
+
+                outline = singleLungo.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
+                outline.effectDistance = new Vector2(5, 5);
+                outline = doubleLungo.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
+                outline.effectDistance = new Vector2(5, 5);
+                break;
+            case 20:
+                outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
+                outline = singleLungo.GetComponent<Outline>();
+                outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 break;
             case 25:
                 List<char> espresso_ristretto = new List<char>(new char[] { 'P' });
@@ -261,12 +320,14 @@ public class DialogueEvent : MonoBehaviour
                 //highlight espresso double shot
                 movebg.EspressomachineClicked();
                 outline = doubleEspresso.GetComponent<Outline>();
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 outline.effectDistance = new Vector2(5, 5);
                 //recipe done + recipe sprite + recipe reset
                 break;
             case 15:
                 movebg.ZoomOutClicked();
                 outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 //highlight water dispenser
                 outline = HotWaterDispenser.GetComponent<Outline>();
                 outline.effectDistance = new Vector2(10, 10);
@@ -279,29 +340,37 @@ public class DialogueEvent : MonoBehaviour
                 movebg.EspressomachineClicked();
                 outline = doubleEspresso.GetComponent<Outline>();
                 outline.effectDistance = new Vector2(5, 5);
+                outline.effectColor = new Color32(255, 255, 255, 255);
                 break;
             case 17:
                 movebg.ZoomOutClicked();
                 outline.effectDistance = new Vector2(0, 0);
+                outline.effectColor = new Color32(181, 181, 181, 255);
                 //highlight fridge
+
+
                 //recipe done + recipe sprite + recipe reset
                 break;
             case 19:
                 CsvLoad.endScript = true;
-                recipe.menu = -1;
+                recipe.menu = 0;
                 break;
             case 23:
                 CsvLoad.pausescript = true;
-                SpecialOrder();
-                if(recipe.menu == 4 && scriptByCondition == 0){
-                    CsvLoad.pausescript = false;
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
+                    StartCoroutine(Special(1, 23));
+                    return;
                 }
-                else if(scriptByCondition > 0){
+                
+                
+                if(recipe.menu == 4){
+                    CsvLoad.pausescript = false;
                     CsvLoad.currentOrder++;
-                    CsvLoad.pausescript = false;
+                    ViewScript.text = "오 잘 마시겠네.";
                 }
-                else if(recipe.menu != 4 && recipe.menu != -1){
-                    scriptByCondition++;
+                else if(recipe.menu != 4 && recipe.menu != 0){
+                    CsvLoad.pausescript = false;
+                    CsvLoad.currentOrder++;
                     ViewScript.text = "음...이걸 원했던 건 아닌데 말이야.";
                 }
 
@@ -319,13 +388,18 @@ public class DialogueEvent : MonoBehaviour
         switch (order)
         {
             case 3:
-                recipe.menu = -1;
+                recipe.menu = 0;
                 break;
             case 4:
                 CsvLoad.pausescript = true;
-                SpecialOrder();
-                if(recipe.menu == 1){ //RANDOM MENU
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
+                    StartCoroutine(Special(4, 4));
+                    return;
+                }
+
+                if(recipe.menu == 1){ 
                     CsvLoad.pausescript = false;
+                    ViewScript.text = "... 고맙다.";
                 }
                 break;
             case 7:
@@ -448,6 +522,12 @@ public class DialogueEvent : MonoBehaviour
                 StartCoroutine(MiddayEvent(-1));
                 RebelObject = 1;
                 break;
+            case 18:
+                DragRebelObject.ShowObject();
+                break;
+            case 22:
+                DragRebelObject.HideObject();
+                break;
         }
     }
 
@@ -455,13 +535,20 @@ public class DialogueEvent : MonoBehaviour
     public void Day9(int order){
         switch(order){
             case 1:
-                recipe.menu = -1;
+                recipe.menu = 0;
                 break;
             case 2:
                 CsvLoad.pausescript = true;
-                SpecialOrder();
-                if(recipe.menu == 30){ //RANDOM MENU
+                
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
+                    StartCoroutine(Special(9, 2));
+                    return;
+                }
+                
+                if(recipe.menu != 0){
                     CsvLoad.pausescript = false;
+                    CsvLoad.currentOrder++;
+                    ViewScript.text = "......";
                     DragRebelObject.ShowObject();
                 }
                 break;
@@ -518,39 +605,44 @@ public class DialogueEvent : MonoBehaviour
     public void Day13(int order){
         switch(order){
             case 2:
-                recipe.menu = -1;
+                recipe.menu = 0;
                 break;
             case 3:
                 CsvLoad.pausescript = true;
                 
-                SpecialOrder();
-
-                switch(scriptByCondition){//TEST REQUIRED
-                    case 0:
-                        if(recipe.menu == 13){
-                            CsvLoad.pausescript = false;
-                        }
-                        else if(recipe.menu != -1){
-                            scriptByCondition++;
-                            ViewScript.text = "허허...이상한 걸 줬구만 그래. ";
-                        }
-                        break;
-                    case 1:
-                        CsvLoad.currentOrder++;
-                        CsvLoad.pausescript = false;
-                        break;
-                } 
-
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
+                    StartCoroutine(Special(13, 3));
+                    return;
+                }
+                
+                if(recipe.menu == 13){
+                    CsvLoad.pausescript = false;
+                    CsvLoad.currentOrder++;
+                    ViewScript.text = "냄새가 정말 좋구만~ 잘 마시겠네.";
+                }
+                else if(recipe.menu != 13 && recipe.menu != 0){
+                    CsvLoad.pausescript = false;
+                    CsvLoad.currentOrder++;
+                    ViewScript.text = "허허...이상한 걸 줬구만 그래.";
+                }
                 break;
         }
     }
 
     public void Day14(int order){
         switch(order){
+            case 7:
+                recipe.menu = 0;
+                break;
             case 8:
                 CsvLoad.pausescript = true;
-                SpecialOrder();
-                if(recipe.menu == 12){ //아바라, 정부소속
+                
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
+                    StartCoroutine(Special(14, 8));
+                    return;
+                }
+
+                if(recipe.menu == 12 ){ //아바라, 정부소속
                     EndingVar_RebelOrAgent--;
                     CsvLoad.pausescript = false;
                 }
@@ -573,7 +665,9 @@ public class DialogueEvent : MonoBehaviour
                 RebelNotGive.SetActive(false);
                 CsvLoad.pausescript = true;
                 if(Ending_Escape == true){ //탈출엔딩
+                    ViewScript.text = "좋아, 출발하자고.";
                     CsvLoad.pausescript = false;
+                    Debug.Log("탈출엔딩");
                 }
                 else if(Ending_Escape == false){
                     ViewScript.text = "아쉽구만. 잘 지내시게, 젊은이.";
@@ -589,8 +683,6 @@ public class DialogueEvent : MonoBehaviour
                 }
                 break;
             case 15:
-                CsvLoad.pausescript = true;
-                Debug.Log("탈출엔딩");
                 
                 break;
         }
@@ -624,11 +716,15 @@ public class DialogueEvent : MonoBehaviour
                 }
                 break;
             case 5:
-                recipe.menu = -1;
+                recipe.menu = 0;
                 break;
             case 6:
                 CsvLoad.pausescript = true;
-                SpecialOrder();
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
+                    StartCoroutine(Special(17, 6));
+                    return;
+                }
+
                 if(recipe.menu == 21){ //녹차스무디 (수상한 인물 있음)
                     CsvLoad.pausescript = false;
                     EndingVar_RebelOrAgent--;
@@ -720,11 +816,7 @@ public class DialogueEvent : MonoBehaviour
     public void Day19(int order){
         switch(order){
             case 9:
-                
-                Debug.Log("BlackOut");
-                StartCoroutine(BlackOut());
-
-                
+                StartCoroutine(Flickering());           
                 break;
             case 29:
                 CsvLoad.endScript = true;
@@ -739,19 +831,12 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    IEnumerator BlackOut(){
-        float c = 1;
+    IEnumerator Flickering(){
         for(int i =0; i<3; i++){
-            while(c > 0.5){
-                c-=0.01f;
-                BgCenter.GetComponent<Image>().color = new Color((float)c, (float)c, (float)c);
-                yield return new WaitForSeconds(0.01f);
-            }
-            while(c < 1){
-                c+=0.01f;
-                BgCenter.GetComponent<Image>().color = new Color((float)c, (float)c, (float)c);
-                yield return new WaitForSeconds(0.01f);
-            }
+            BlackOut.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            BlackOut.SetActive(false);
+            yield return new WaitForSeconds(0.3f);
         }
     }
     IEnumerator MiddayEvent(int day) //조건에 따라 대사 출력 여부 결정
@@ -761,8 +846,9 @@ public class DialogueEvent : MonoBehaviour
             if(day != -1){
                 CsvLoad.endScript = true;
                 CsvLoad.getCustomerOrder = true;
+                //CsvLoad.startCustomerOrder();
             }
-            while (gameTime.hour != 12 || CsvCustomer.currentorder != 1)
+            while (gameTime.hour < 12 || CsvCustomer.currentorder != 1)
             {
                 yield return null;
             }
@@ -792,20 +878,46 @@ public class DialogueEvent : MonoBehaviour
 
     IEnumerator CountCustomer(){ //손님 3명 이후 특수 대사 출력
         int n = CsvCustomer.numberOfCustomer;
-        while(CsvCustomer.numberOfCustomer - n != 4 || CsvCustomer.currentorder != 1){ //손님 3명 이후 나머지 대사 출력
+        while(CsvCustomer.numberOfCustomer - n < 3 || CsvCustomer.currentorder != 1){ //손님 3명 이후 나머지 대사 출력
             yield return null;
         }
 
         CsvLoad.pauseCustomerOrder();
     }
 
-    public void SpecialOrder(){ //특수 등장인물 음료 제조 시 대화창 끄기
-        if(recipe.menu == -1){
-            DialogueBox.SetActive(false);
-            return;
+
+    IEnumerator Special(int day, int order){ //특수 등장인물 음료 제조 시 대화창 끄기 & 드래그로 음료 주기
+        if(DragDrink.SpecialCustomer ){
+            yield return null;
         }
-        else{
-            DialogueBox.SetActive(true);
+
+        DialogueBox.SetActive(false);
+        while(recipe.menu == 0 || !DragDrink.SpecialCustomer){
+            yield return null;
+        }
+        
+        DialogueBox.SetActive(true);
+        switch(day){ 
+            case 1:
+                Day1(order);
+                break;
+            case 4:
+                Day4(order);
+                break;
+            case 9:
+                Day9(order);
+                break;
+            case 13:
+                Day13(order);
+                break;
+            case 14:
+                Day14(order);
+                break;
+            case 17:
+                Day17(order);
+                break;
+            default:   
+                break;
         }
     }
 

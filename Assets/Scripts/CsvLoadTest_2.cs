@@ -15,6 +15,7 @@ public class CsvLoadTest_2 : MonoBehaviour
     public GameObject Customer;
     public GameObject Customertext;
     public GameObject Customertextbox;
+    public GameObject CustomerSprites;
 
     public DialogueEvent DialogueEvent;
 
@@ -72,10 +73,13 @@ public class CsvLoadTest_2 : MonoBehaviour
 
                 // DialogueBox.SetActive(false);
                 // ViewScript.text = "";
-                Customertext.SetActive(true);
-                Customer.SetActive(true);
-                Customertextbox.SetActive(true);
-                Customer.GetComponent<CsvLoadCustomer>().isActive = true;
+                // Customertext.SetActive(true);
+                // Customer.SetActive(true);
+                // Customertextbox.SetActive(true);
+                // Customer.GetComponent<CsvLoadCustomer>().isActive = true;
+                if(Customertextbox.activeSelf == false){
+                    startCustomerOrder();
+                }
 
                 if (gameTime.hour >= closeTime)
                 {
@@ -95,10 +99,17 @@ public class CsvLoadTest_2 : MonoBehaviour
         closeTime = gameTime.endTime;
     }
 
+    public void startCustomerOrder(){
+        Customertext.SetActive(true);
+        Customer.SetActive(true);
+        Customer.GetComponent<CsvLoadCustomer>().isActive = true;
+        Customertextbox.SetActive(true);
+    }
     public void pauseCustomerOrder(){
         Customertext.SetActive(false);
         Customer.SetActive(false);
         Customer.GetComponent<CsvLoadCustomer>().isActive = false;
+        Customertextbox.SetActive(false);
         getCustomerOrder = false;
         endScript = false;
     }
@@ -122,6 +133,7 @@ public class CsvLoadTest_2 : MonoBehaviour
                 }
                 inGameScripts.Add(new scripts { day = int.Parse(singleData[0]), order = int.Parse(singleData[1]), script = singleData[2].Trim('"'), name = script.name.Split(' ')[0] });
             }
+            inGameScripts.Add(new scripts {day = 20, order = 0, script = "End of the Script", name = "" });
         }
 
 
@@ -144,7 +156,9 @@ public class CsvLoadTest_2 : MonoBehaviour
             DialogueBox.SetActive(false);
             if (gameTime.hour < closeTime)
             {
+                
                 getCustomerOrder = true; //손님 주문 받기 시작
+                
             }
             else{
                 saveLoadUI.OpenSaveLoadPanel();
@@ -153,15 +167,14 @@ public class CsvLoadTest_2 : MonoBehaviour
         }
         else
         {
+            Customertextbox.SetActive(false);
             DialogueBox.SetActive(true);
             DialogueEvent.EventByDay(Sorted[currentOrder].day, Sorted[currentOrder].order); //각 대사의 이벤트
             MatchCharacter(Sorted[currentOrder].name);
             
             if(!pausescript){
                 ViewScript.text = Sorted[currentOrder].script;
-                if(currentOrder<Sorted.Count){
-                    currentOrder++;
-                }
+                currentOrder++;
             }
         }
 

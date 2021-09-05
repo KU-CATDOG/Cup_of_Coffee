@@ -15,6 +15,7 @@ public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
     private Vector2 initPos;
 
     public CsvLoadCustomer Customer;
+    public bool SpecialCustomer = false;
 
     private void Start()
     {
@@ -75,9 +76,16 @@ public class Drink : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHan
         }
         else
         {
-            Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
-            rectTr.anchoredPosition = initPos;
-            HideDrink();
+            if(Customer.GetComponent<CsvLoadCustomer>().isActive){
+                Customer.GetComponent<CsvLoadCustomer>().RecipeCheck();
+                rectTr.anchoredPosition = initPos;
+                HideDrink();
+            }
+            else{
+                SpecialCustomer = true;
+                rectTr.anchoredPosition = initPos;
+                HideDrink();
+            }
         }
 
     }
