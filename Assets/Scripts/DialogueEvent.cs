@@ -15,11 +15,11 @@ public class DialogueEvent : MonoBehaviour
     public TokenTest tokenManager;
     public DragRebelObject DragRebelObject;
     public Drink DragDrink;
-
+    
     [HideInInspector]
     public GameTime gameTime;
     [HideInInspector]
-    public GameObject singleRistretto, singleEspresso, singleLungo, doubleRistretto, doubleEspresso, doubleLungo,
+    public GameObject singleRistretto, singleEspresso, singleLungo, doubleRistretto, doubleEspresso, doubleLungo, 
                         GiveTokenObject, DialogueBox, EspressoMachine, HotWaterDispenser, BlackOut, Fridge;
     [HideInInspector]
     public Image CharacterSprite;
@@ -57,7 +57,7 @@ public class DialogueEvent : MonoBehaviour
 
         singleRistretto = GameObject.Find("SingleRistretto");
         singleEspresso = GameObject.Find("SingleEspresso");
-        singleLungo = GameObject.Find("SingleLungo");
+        singleLungo= GameObject.Find("SingleLungo");
         doubleRistretto = GameObject.Find("DoubleRistretto");
         doubleEspresso = GameObject.Find("DoubleEspresso");
         doubleLungo = GameObject.Find("DoubleLungo");
@@ -68,7 +68,7 @@ public class DialogueEvent : MonoBehaviour
         AgentButton = GameObject.Find("AgentButton");
         BlackOut = GameObject.Find("BlackOut");
 
-
+        
         GiveTokenObject.SetActive(false);
         RebelGive.SetActive(false);
         RebelNotGive.SetActive(false);
@@ -93,7 +93,7 @@ public class DialogueEvent : MonoBehaviour
         }
 
         AgentButtonCount = CsvCustomer.AgentButtonCount;
-
+        
     }
 
     public void EventByDay(int day, int order)
@@ -151,7 +151,7 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-
+    
     public void Day0_tutorial(int order)
     {
 
@@ -353,25 +353,25 @@ public class DialogueEvent : MonoBehaviour
                 break;
             case 19:
                 CsvLoad.endScript = true;
+                
+                break;
+            case 22:
                 recipe.menu = 0;
                 break;
             case 23:
                 CsvLoad.pausescript = true;
-                if (recipe.menu == 0 && DialogueBox.activeSelf == true)
-                {
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
                     StartCoroutine(Special(1, 23));
                     return;
                 }
-
-
-                if (recipe.menu == 4)
-                {
+                
+                
+                if(recipe.menu == 4){
                     CsvLoad.pausescript = false;
                     CsvLoad.currentOrder++;
                     ViewScript.text = "오 잘 마시겠네.";
                 }
-                else if (recipe.menu != 4 && recipe.menu != 0)
-                {
+                else if(recipe.menu != 4 && recipe.menu != 0){
                     CsvLoad.pausescript = false;
                     CsvLoad.currentOrder++;
                     ViewScript.text = "음...이걸 원했던 건 아닌데 말이야.";
@@ -395,14 +395,16 @@ public class DialogueEvent : MonoBehaviour
                 break;
             case 4:
                 CsvLoad.pausescript = true;
-                if (recipe.menu == 0 && DialogueBox.activeSelf == true)
-                {
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
                     StartCoroutine(Special(4, 4));
                     return;
                 }
 
-                if (recipe.menu == 1)
-                {
+                if(recipe.menu == 1){ 
+                    CsvLoad.pausescript = false;
+                    ViewScript.text = "... 고맙다.";
+                }
+                else if(recipe.menu != 1 && recipe.menu !=0){ 
                     CsvLoad.pausescript = false;
                     ViewScript.text = "... 고맙다.";
                 }
@@ -412,18 +414,16 @@ public class DialogueEvent : MonoBehaviour
                 StartCoroutine(CountCustomer());
                 break;
             case 8:
-
+                
                 //손님 +3 이후
                 break;
         }
     }
 
-
-    public void Day5(int order)
-    {
-
-        switch (order)
-        {
+    
+    public void Day5(int order){
+        
+        switch(order){
             case 0:
                 //하루 중간
                 break;
@@ -436,24 +436,19 @@ public class DialogueEvent : MonoBehaviour
                 GiveTokenObject.SetActive(false);
                 CsvLoad.pausescript = true;
 
-                switch (scriptByCondition)
-                {
+                switch(scriptByCondition){
                     case 0:
-                        if (tokenToGive == 0)
-                        {
+                        if(tokenToGive == 0){
                             EndingVar_RebelOrAgent--;
                             ViewScript.text = "줄 수 없다고? 그것 참 실망이구만.";
                             scriptByCondition++;
                         }
-                        else if (tokenToGive >= 1)
-                        {
-                            if (tokenToGive <= 3)
-                            {
+                        else if(tokenToGive >= 1){
+                            if(tokenToGive <=3){
                                 EndingVar_RebelOrAgent++;
                             }
-                            else if (tokenToGive >= 4)
-                            {
-                                EndingVar_RebelOrAgent += 2;
+                            else if(tokenToGive >= 4){
+                                EndingVar_RebelOrAgent+=2;
                             }
                             tokenManager.GiveToken(tokenToGive);
                             ViewScript.text = tokenToGive.ToString() + "개 받았네.";
@@ -461,17 +456,15 @@ public class DialogueEvent : MonoBehaviour
                         }
                         break;
                     case 1:
-                        if (tokenToGive == 0)
-                        {
+                        if(tokenToGive == 0){
                             CsvLoad.pausescript = false;
                             CsvLoad.endScript = true;
                             CsvLoad.currentOrder++;
                             CsvLoad.DialogueBox.SetActive(false);
                             StartCoroutine(CountCustomer());
                         }
-                        else if (tokenToGive >= 1)
-                        {
-                            ViewScript.text = "여기 " + (tokenToGive * 10).ToString() + "만원일세. 잘 받으시게나. 정말 고맙네~";
+                        else if(tokenToGive >= 1){
+                            ViewScript.text = "여기 " + (tokenToGive*10).ToString() + "만원일세. 잘 받으시게나. 정말 고맙네~";
                             //돈++
                             scriptByCondition++;
                         }
@@ -492,27 +485,22 @@ public class DialogueEvent : MonoBehaviour
             case 9:
                 CsvLoad.pausescript = true;
 
-                switch (scriptByCondition)
-                {
+                switch(scriptByCondition){
                     case 0:
-                        if (tokenToGive >= 4)
-                        {
+                        if(tokenToGive >= 4){
                             ViewScript.text = "근데 이거, 어째 양이 좀 적은 것 같은데? 흠..."; //브로커에게 토큰을 4개 이상 주었을 경우
                             scriptByCondition++;
                         }
-                        else
-                        {
+                        else{
                             CsvLoad.pausescript = false; //브로커에게 토큰을 0~3개 주었을 경우
                         }
                         break;
                     case 1:
-                        if (tokenToGive >= 4 && tokenToGive <= 7)
-                        {
+                        if(tokenToGive >= 4 && tokenToGive <=7){
                             CsvLoad.pausescript = false;
                             CsvLoad.currentOrder++;
                         }
-                        else if (tokenToGive >= 8 && tokenToGive <= 10)
-                        {
+                        else if(tokenToGive >= 8 && tokenToGive <= 10){
                             ViewScript.text = "조사를 좀 해봐야 할 것 같은데, 같이 서까지 가주셔야겠습니다."; //브로커에게 토큰을 8개 이상 주었을 경우
                             Debug.Log("체포엔딩");
                         }
@@ -522,21 +510,17 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-
-    public void Day6(int order)
-    {
-        switch (order)
-        {
+    
+    public void Day6(int order){
+        switch(order){
             case 0:
-                break;
+            break;
         }
     }
 
 
-    public void Day8(int order)
-    {
-        switch (order)
-        {
+    public void Day8(int order){
+        switch(order){
             case 5:
                 AgentButton.SetActive(true);
                 break;
@@ -555,24 +539,20 @@ public class DialogueEvent : MonoBehaviour
     }
 
 
-    public void Day9(int order)
-    {
-        switch (order)
-        {
+    public void Day9(int order){
+        switch(order){
             case 1:
                 recipe.menu = 0;
                 break;
             case 2:
                 CsvLoad.pausescript = true;
-
-                if (recipe.menu == 0 && DialogueBox.activeSelf == true)
-                {
+                
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
                     StartCoroutine(Special(9, 2));
                     return;
                 }
-
-                if (recipe.menu != 0)
-                {
+                
+                if(recipe.menu != 0){
                     CsvLoad.pausescript = false;
                     CsvLoad.currentOrder++;
                     ViewScript.text = "......";
@@ -582,7 +562,7 @@ public class DialogueEvent : MonoBehaviour
             case 3:
                 CsvLoad.pausescript = true;
 
-                if (RebelObjectChoice == true)
+                if(RebelObjectChoice == true)
                 {
                     if (RebelObject == 2) //반란군 물건 줬을 때
                     {
@@ -600,65 +580,54 @@ public class DialogueEvent : MonoBehaviour
                     }
                     CsvLoad.currentOrder++;
                 }
-
+                
                 break;
         }
     }
+    
 
-
-    public void Day10(int order)
-    {
-        switch (order)
-        {
+    public void Day10(int order){
+        switch(order){
             case 4:
                 SoundManager.Instance.PlaySFXSound("radio_channel");
                 break;
         }
     }
 
-
-    public void Day11(int order)
-    {
-        switch (order)
-        {
+    
+    public void Day11(int order){
+        switch(order){
             case 0:
                 break;
         }
     }
 
-    public void Day12(int order)
-    {
-        switch (order)
-        {
+    public void Day12(int order){
+        switch(order){
             case 0:
                 break;
         }
     }
 
-    public void Day13(int order)
-    {
-        switch (order)
-        {
+    public void Day13(int order){
+        switch(order){
             case 2:
                 recipe.menu = 0;
                 break;
             case 3:
                 CsvLoad.pausescript = true;
-
-                if (recipe.menu == 0 && DialogueBox.activeSelf == true)
-                {
+                
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
                     StartCoroutine(Special(13, 3));
                     return;
                 }
-
-                if (recipe.menu == 13)
-                {
+                
+                if(recipe.menu == 13){
                     CsvLoad.pausescript = false;
                     CsvLoad.currentOrder++;
                     ViewScript.text = "냄새가 정말 좋구만~ 잘 마시겠네.";
                 }
-                else if (recipe.menu != 13 && recipe.menu != 0)
-                {
+                else if(recipe.menu != 13 && recipe.menu != 0){
                     CsvLoad.pausescript = false;
                     CsvLoad.currentOrder++;
                     ViewScript.text = "허허...이상한 걸 줬구만 그래.";
@@ -667,29 +636,25 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    public void Day14(int order)
-    {
-        switch (order)
-        {
+    public void Day14(int order){
+        switch(order){
             case 7:
                 recipe.menu = 0;
                 break;
             case 8:
                 CsvLoad.pausescript = true;
-
-                if (recipe.menu == 0 && DialogueBox.activeSelf == true)
-                {
+                
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
                     StartCoroutine(Special(14, 8));
                     return;
                 }
 
-                if (recipe.menu == 12)
-                { //아바라, 정부소속
+
+                if(recipe.menu == 12 && recipe.menu !=0){ //아바라, 정부소속
                     EndingVar_RebelOrAgent--;
                     CsvLoad.pausescript = false;
                 }
-                else if (recipe.menu == 17)
-                { //딸기라떼, 고민 중
+                else if(recipe.menu == 17 && recipe.menu !=0){ //딸기라떼, 고민 중
                     CsvLoad.pausescript = false;
                 }
                 break;
@@ -707,66 +672,54 @@ public class DialogueEvent : MonoBehaviour
                 RebelGive.SetActive(false);
                 RebelNotGive.SetActive(false);
                 CsvLoad.pausescript = true;
-                if (Ending_Escape == true)
-                { //탈출엔딩
+                if(Ending_Escape == true){ //탈출엔딩
                     ViewScript.text = "좋아, 출발하자고.";
                     CsvLoad.pausescript = false;
                     Debug.Log("탈출엔딩");
                 }
-                else if (Ending_Escape == false)
-                {
+                else if(Ending_Escape == false){
                     ViewScript.text = "아쉽구만. 잘 지내시게, 젊은이.";
                     CsvLoad.pausescript = false;
                     //반란군 루트 분기점
-                    if (EndingVar_RebelOrAgent >= 2)
-                    { //수치가 2 이상일 경우 반란군 엔딩 확정
+                    if(EndingVar_RebelOrAgent >= 2){ //수치가 2 이상일 경우 반란군 엔딩 확정
                         Ending_Rebel = true;
                         CsvLoad.currentOrder++;
                     }
-                    else
-                    {
+                    else{
                         CsvLoad.currentOrder += 27; //반란군 루트가 아닐 경우 관련 대사 스킵
                     }
                 }
                 break;
             case 15:
-
+                
                 break;
         }
 
     }
 
-    public void Day15(int order)
-    {
-        switch (order)
-        {
+    public void Day15(int order){
+        switch(order){
             case 0:
                 break;
         }
     }
 
-    public void Day16(int order)
-    {
-        switch (order)
-        {
+    public void Day16(int order){
+        switch(order){
             case 0:
                 break;
         }
     }
+    
 
-
-    public void Day17(int order)
-    {
-        switch (order)
-        {
+    public void Day17(int order){
+        switch(order){
             case 1:
                 CsvLoad.pausescript = true;
-                if (Ending_Rebel)
-                {
+                if(Ending_Rebel){
                     Day17_RebelEvent(scriptByCondition);
                 }
-                else
-                {
+                else{
                     CsvLoad.pausescript = false;
                 }
                 break;
@@ -775,19 +728,16 @@ public class DialogueEvent : MonoBehaviour
                 break;
             case 6:
                 CsvLoad.pausescript = true;
-                if (recipe.menu == 0 && DialogueBox.activeSelf == true)
-                {
+                if(recipe.menu == 0 && DialogueBox.activeSelf ==true){
                     StartCoroutine(Special(17, 6));
                     return;
                 }
 
-                if (recipe.menu == 21)
-                { //녹차스무디 (수상한 인물 있음)
+                if(recipe.menu == 21 && recipe.menu !=0){ //녹차스무디 (수상한 인물 있음)
                     CsvLoad.pausescript = false;
                     EndingVar_RebelOrAgent--;
                 }
-                else if (recipe.menu == 19)
-                { //아이스초코 (수상한 인물 없음)
+                else if(recipe.menu == 19 && recipe.menu !=0){ //아이스초코 (수상한 인물 없음)
                     CsvLoad.pausescript = false;
                     EndingVar_RebelOrAgent++;
                 }
@@ -795,8 +745,8 @@ public class DialogueEvent : MonoBehaviour
             case 7:
                 CsvLoad.pausescript = true;
                 ViewScript.text = "알겠어요. 다음에 봐요 학생.";
-
-                CsvLoad.currentOrder += 3;
+                
+                CsvLoad.currentOrder +=3;
                 break;
             case 10:
                 CsvLoad.pausescript = false;
@@ -806,10 +756,8 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    public void Day17_RebelEvent(int order)
-    {
-        switch (order)
-        {
+    public void Day17_RebelEvent(int order){
+        switch(order){
             case 0:
                 ViewScript.text = "오늘도 평소와 같이 수거하러 왔어요.";
                 break;
@@ -842,25 +790,21 @@ public class DialogueEvent : MonoBehaviour
             case 8:
                 RebelGive.SetActive(false);
                 RebelNotGive.SetActive(false);
-                if (Rebel_17)
-                {
+                if(Rebel_17){
                     ViewScript.text = "학생 고마워요. 이만 가 볼게요.";
                 }
-                else
-                {
+                else{
                     ViewScript.text = "학생이 이럴 줄은 몰랐는데...";
                 }
                 break;
             case 9:
-                if (Rebel_17)
-                {
+                if(Rebel_17){
                     CsvLoad.pausescript = false;
                     CsvLoad.endScript = true;
                     CsvLoad.currentOrder += 9;
-                    CsvLoad.DialogueBox.SetActive(false);
+                    CsvLoad.DialogueBox.SetActive(false); 
                 }
-                else
-                {
+                else{
                     ViewScript.text = "같이 서까지 가 주셔야겠습니다.";
                     Debug.Log("체포엔딩");
                 }
@@ -870,21 +814,17 @@ public class DialogueEvent : MonoBehaviour
     }
 
 
-    public void Day18(int order)
-    {
-        switch (order)
-        {
+    public void Day18(int order){
+        switch(order){
             case 0:
                 break;
         }
     }
 
-    public void Day19(int order)
-    {
-        switch (order)
-        {
+    public void Day19(int order){
+        switch(order){
             case 9:
-                StartCoroutine(Flickering());
+                StartCoroutine(Flickering());           
                 break;
             case 29:
                 CsvLoad.endScript = true;
@@ -892,19 +832,15 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    public void Day20(int order)
-    {
-        switch (order)
-        {
+    public void Day20(int order){
+        switch(order){
             case 0:
                 break;
         }
     }
 
-    IEnumerator Flickering()
-    {
-        for (int i = 0; i < 3; i++)
-        {
+    IEnumerator Flickering(){
+        for(int i =0; i<3; i++){
             BlackOut.SetActive(true);
             yield return new WaitForSeconds(0.1f);
             BlackOut.SetActive(false);
@@ -913,10 +849,9 @@ public class DialogueEvent : MonoBehaviour
     }
     IEnumerator MiddayEvent(int day) //조건에 따라 대사 출력 여부 결정
     {
-        if (day == 3 || day == 4 || day == 5 || day == -1 || day == 13 || day == 19) //정오에 대사 출력하는 경우
+        if (day == 3 || day == 4 || day == 5 || day == -1 || day == 13 || day==19) //정오에 대사 출력하는 경우
         {
-            if (day != -1)
-            {
+            if(day != -1){
                 CsvLoad.endScript = true;
                 CsvLoad.getCustomerOrder = true;
                 //CsvLoad.startCustomerOrder();
@@ -925,19 +860,15 @@ public class DialogueEvent : MonoBehaviour
             {
                 yield return null;
             }
-            CsvLoad.PauseCustomerOrder();
+            CsvLoad.PauseCustomerOrder(); 
 
         }
-        else if (day == 2)
-        {   //2일차 하루 끝에 대사 출력
+        else if(day == 2){   //2일차 하루 끝에 대사 출력
             CsvLoad.endScript = true;
         }
-        else if (day == 15 || day == 18)
-        { //반란군 루트가 아닐 경우 관련 대사 스킵
-            if (!Ending_Rebel)
-            {
-                switch (day)
-                {
+        else if(day == 15 || day == 18){ //반란군 루트가 아닐 경우 관련 대사 스킵
+            if(!Ending_Rebel){
+                switch(day){
                     case 15:
                         CsvLoad.currentOrder += 11;
                         break;
@@ -953,11 +884,9 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    IEnumerator CountCustomer()
-    { //손님 3명 이후 특수 대사 출력
+    IEnumerator CountCustomer(){ //손님 3명 이후 특수 대사 출력
         int n = CsvCustomer.numberOfCustomer;
-        while (CsvCustomer.numberOfCustomer - n < 3 || CsvCustomer.currentorder != 1)
-        { //손님 3명 이후 나머지 대사 출력
+        while(CsvCustomer.numberOfCustomer - n < 3 || CsvCustomer.currentorder != 1){ //손님 3명 이후 나머지 대사 출력
             yield return null;
         }
 
@@ -965,22 +894,18 @@ public class DialogueEvent : MonoBehaviour
     }
 
 
-    IEnumerator Special(int day, int order)
-    { //특수 등장인물 음료 제조 시 대화창 끄기 & 드래그로 음료 주기
-        if (DragDrink.SpecialCustomer)
-        {
+    IEnumerator Special(int day, int order){ //특수 등장인물 음료 제조 시 대화창 끄기 & 드래그로 음료 주기
+        if(DragDrink.SpecialCustomer){
             yield return null;
         }
 
         DialogueBox.SetActive(false);
-        while (recipe.menu == 0 || !DragDrink.SpecialCustomer)
-        {
+        while(recipe.menu == 0 || !DragDrink.SpecialCustomer){
             yield return null;
         }
-
+        
         DialogueBox.SetActive(true);
-        switch (day)
-        {
+        switch(day){ 
             case 1:
                 Day1(order);
                 break;
@@ -999,7 +924,7 @@ public class DialogueEvent : MonoBehaviour
             case 17:
                 Day17(order);
                 break;
-            default:
+            default:   
                 break;
         }
     }
@@ -1011,19 +936,17 @@ public class DialogueEvent : MonoBehaviour
         //     RebelObject = 2;
         //     Day9(3);
         // }
-        if (gameTime.day == 14)
-        { //탈출엔딩: 탈출한다
+        if(gameTime.day == 14){ //탈출엔딩: 탈출한다
             //if(money >= 100만원)
             Ending_Escape = true;
             Day14(14);
         }
-        else if (gameTime.day == 17)
-        { //18일차 이벤트: 감시자에게 토큰 넘겨줌
+        else if(gameTime.day == 17){ //18일차 이벤트: 감시자에게 토큰 넘겨줌
             Rebel_17 = true;
             scriptByCondition++;
             Day17_RebelEvent(8);
         }
-
+        
 
     }
     public void ButtonNotGive()
@@ -1033,13 +956,11 @@ public class DialogueEvent : MonoBehaviour
         //     RebelObject = 3;
         //     Day9(3);
         // }
-        if (gameTime.day == 14)
-        { //탈출엔딩: 탈출하지 않는다
+        if(gameTime.day == 14){ //탈출엔딩: 탈출하지 않는다
             Ending_Escape = false;
             Day14(14);
         }
-        else if (gameTime.day == 17)
-        { //18일차 이벤트: 감시자에게 토큰 넘겨주지 않음
+        else if(gameTime.day == 17){ //18일차 이벤트: 감시자에게 토큰 넘겨주지 않음
             Rebel_17 = false;
             scriptByCondition++;
             Day17_RebelEvent(8);

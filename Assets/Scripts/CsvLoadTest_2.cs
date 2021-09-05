@@ -50,6 +50,8 @@ public class CsvLoadTest_2 : MonoBehaviour
     {
         Customer = GameObject.Find("CsvCustomer");
         gameTime = GameObject.Find("TimeManager").GetComponent<GameTime>();
+        CustomerSprites = GameObject.Find("Customer");
+        CustomerSprites.SetActive(false);
         saveLoadUI = GameObject.FindObjectOfType(typeof(InGameSaveLoadUI)) as InGameSaveLoadUI;
         Customertextbox.SetActive(false);
 
@@ -77,12 +79,12 @@ public class CsvLoadTest_2 : MonoBehaviour
                 // Customer.SetActive(true);
                 // Customertextbox.SetActive(true);
                 // Customer.GetComponent<CsvLoadCustomer>().isActive = true;
-                if (Customertextbox.activeSelf == false)
+                if (CustomerSprites.activeSelf == false)
                 {
                     StartCustomerOrder();
                 }
-
-                if (gameTime.hour >= closeTime)
+                
+                if (gameTime.hour >= closeTime && Customer.GetComponent<CsvLoadCustomer>().currentorder == 0)
                 {
                     PauseCustomerOrder();
                 }
@@ -102,13 +104,17 @@ public class CsvLoadTest_2 : MonoBehaviour
 
     public void StartCustomerOrder()
     {
+        CustomerSprites.SetActive(true);
         Customertext.SetActive(true);
         Customer.SetActive(true);
         Customer.GetComponent<CsvLoadCustomer>().isActive = true;
+        Customer.GetComponent<CsvLoadCustomer>().currentorder = 0;
+        Customer.GetComponent<CsvLoadCustomer>().Customer();
         Customertextbox.SetActive(true);
     }
     public void PauseCustomerOrder()
     {
+        CustomerSprites.SetActive(false);
         Customertext.SetActive(false);
         Customer.SetActive(false);
         Customer.GetComponent<CsvLoadCustomer>().isActive = false;
