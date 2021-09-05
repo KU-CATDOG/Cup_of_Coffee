@@ -98,15 +98,16 @@ public class CsvLoadCustomer : MonoBehaviour
         {
             Customertext.text = text[currentorder];
             Debug.Log(currentorder);
-            
-            if(currentorder >= 2){
+
+            if (currentorder >= 2)
+            {
                 TextImg.SetActive(false);
             }
             if (currentorder < 3) // 자꾸 배열 크기 오류 나서 이렇게 설정
             {
                 currentorder++;
-                
-                
+
+
             }
             if (currentorder == 1)
             {

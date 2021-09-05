@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BackgroundColor : MonoBehaviour
 {
-   
+
     public int a = 0;
     public Color c;
     private Image img;
@@ -30,16 +30,16 @@ public class BackgroundColor : MonoBehaviour
         tokenCol[6] = token.tired;
         tokenCol[7] = token.fear;
 
-       
-        for(int i=0; i<8; i++) //제일 많은 토큰을 선정
+
+        for (int i = 0; i < 8; i++) //제일 많은 토큰을 선정
         {
-            if(tokenCol[a] <= tokenCol[i])
+            if (tokenCol[a] <= tokenCol[i])
             {
                 a = i;
             }
         }
 
-        if(tokenCol[0]+ tokenCol[1]+ tokenCol[2]+ tokenCol[3]+ tokenCol[4]+ tokenCol[5]+ tokenCol[6]+ tokenCol[7] > 0) //시작하자마자 색깔이 바뀌는걸 방지
+        if (tokenCol[0] + tokenCol[1] + tokenCol[2] + tokenCol[3] + tokenCol[4] + tokenCol[5] + tokenCol[6] + tokenCol[7] > 0) //시작하자마자 색깔이 바뀌는걸 방지
         {
             if (a == 0)
             {
