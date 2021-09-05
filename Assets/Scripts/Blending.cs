@@ -30,14 +30,14 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     }
     public void OnBeginDrag(PointerEventData eventData) //드래그 시작할 때
     {
-
+        initpos = spoon.transform.position;
     }
 
     public void OnDrag(PointerEventData eventData) //드래그 중일 때
     {
         rt.anchoredPosition += new Vector2(eventData.delta.x / 10, 0);
 
-        
+
         if (rt.anchoredPosition.x < -8)
         {
             Spoonmove1 = true;
@@ -56,6 +56,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                 Recipe.GetComponent<Recipe>().Add_mix();
                 Debug.Log("다 섞었음");
                 blendtoken = 0;
+                spoon.transform.position = initpos;
                 blend.SetActive(false);
                 spoon.SetActive(false);
                 blendFront.SetActive(false);
@@ -72,14 +73,7 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     public void OnEndDrag(PointerEventData eventData) //드래그 끝날 때
     {
 
-        if (rt.anchoredPosition.x < -10)
-        {
-            rt.anchoredPosition.Set(-10, rt.anchoredPosition.y);
-        }
-        if (rt.anchoredPosition.x > 10)
-        {
-            rt.anchoredPosition.Set(10, rt.anchoredPosition.y);
-        }
+
 
     }
 
@@ -93,10 +87,6 @@ public class Blending : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-    
+
 }
 
